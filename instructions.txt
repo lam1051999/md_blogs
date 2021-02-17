@@ -1,11 +1,10 @@
 git worktree add /tmp/book gh-pages
-git worktree list
 mdbook build
 rm -rf /tmp/book/*
 cp -rp book/* /tmp/book/
 pushd /tmp/book
 git add .
-git commit -m "new blog deploy"
+git commit -m "finish about_me.md"
 git push origin gh-pages
 popd
 git worktree remove /tmp/book
