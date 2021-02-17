@@ -1,7 +1,7 @@
 # About Me
 
 <div style="text-align:center;">
-<img src="/src/images/me.JPG" width="500" />
+<img src="./images/me.JPG" width="500" />
 </div>
 
 Hello! I'm **Tran The Lam**. I'm 21 years old boy with many passions and goals. <br/>
