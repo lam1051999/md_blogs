@@ -1,0 +1,13 @@
+git worktree add /tmp/book gh-pages
+git worktree list
+mdbook build
+rm -rf /tmp/book/*
+cp -rp book/* /tmp/book/
+pushd /tmp/book
+git add .
+git commit -m "new blog deploy"
+git push origin gh-pages
+popd
+git worktree remove /tmp/book
+git status
+git worktree list
