@@ -1,0 +1,21 @@
+[book]
+authors = ["lam1051999"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Tran Lam - ML/DL/AI"
+
+[output.html]
+additional-css = ["theme/css/additional.css",]
+additional-js = []
+default-theme = "dark"
+no-section-label = true
+site-url = "/"
+cname = ""
+
+[output.html.print]
+enable = false
+
+[output.html.fold]
+enable = true
+level = 0
