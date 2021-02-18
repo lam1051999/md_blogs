@@ -160,4 +160,3 @@ Output
 ```
 
 ### 4. Tài liệu tham khảo
-https://www.geeksforgeeks.org/find-a-peak-in-a-given-array/
