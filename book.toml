@@ -12,6 +12,7 @@ default-theme = "dark"
 no-section-label = true
 site-url = "/"
 cname = ""
+mathjax-support = true
 
 [output.html.print]
 enable = false

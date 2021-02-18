@@ -1,4 +1,4 @@
 # Summary
 
 - [About Me](./about_me.md)
-- [Thuật toán Linear Regression](./blogs/linear_regression.md)
+- [Thuật toán tìm đỉnh Peak Finding](./blogs/peak_finding.md)
