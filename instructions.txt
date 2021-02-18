@@ -4,8 +4,10 @@ rm -rf /tmp/book/*
 cp -rp book/* /tmp/book/
 pushd /tmp/book
 git add .
-git commit -m "finish about_me.md"
+git commit -m "finish peak_finding.md"
+
 git push origin gh-pages
+
 popd
 git worktree remove /tmp/book
 git status
