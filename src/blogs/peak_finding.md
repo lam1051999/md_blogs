@@ -35,7 +35,7 @@ Giả sử ta có một mảng 1 chiều gồm **\\(n\\)** phần tử, tìm m�
 #### 2.1. Cách 1: Duyệt tuyến tính (linear traversing)
 **Ý tưởng:** Duyệt qua từng phần tử của mảng và kiểm tra xem phần tử đang xét có thỏa mãn tính chất là một peak hay không.
 
-**Phân tích thuật toán:** Mỗi phần tử đang được duyệt sẽ có các câu lệnh điều kiện để kiểm tra xem phần tử đó có là peak, các câu lệnh điều kiện này tốn constant time \\(\Theta(1)\\). Trong trường hợp xấu nhất, ta sẽ phải duyệt hết tất cả **\\(n\\)** phần từ của mảng mới tìm được peak. Do vậy, worst case của thuật toán sẽ có độ phức tạp là \\(\Theta(n)\\).
+**Phân tích thuật toán:** Mỗi phần tử đang được duyệt sẽ có các câu lệnh điều kiện để kiểm tra xem phần tử đó có là peak, các câu lệnh điều kiện này tốn constant time \\(\Theta(1)\\). Trong trường hợp xấu nhất, ta sẽ phải duyệt hết tất cả **\\(n\\)** phần từ của mảng mới tìm được peak. Do vậy, worst case của thuật toán sẽ có time complexity là \\(\Theta(n)\\).
 
 #### 2.2. Cách 2: Duyệt nhị phân (binary search)
 **Ý tưởng:** Trong cách này, ta sẽ luôn nhìn vào vị trí ở giữa của mảng được duyệt và quyết định xem ta sẽ duyệt nửa nào tiếp theo của mảng đó để tìm ra peak.
@@ -51,7 +51,7 @@ Giả sử ta có một mảng 1 chiều gồm **\\(n\\)** phần tử, tìm m�
 <img style="width: 70%;" src="../images/peak_finding_1Dexp.PNG" />
 </div>
 
-Mũi tên đỏ trỏ tới vị trí đang xét. Giả sử ta đang đứng trên một vị trí ở dãy núi, để ta có thể trèo lên đỉnh, ta sẽ luôn ngó sáng bên mà ta thấy vị trí của nó cao hơn vị trí ta đang đứng, và đó cũng là thuật toán giải quyết cho bài toán này.
+Mũi tên đỏ trỏ tới vị trí đang xét. Giả sử ta đang đứng trên một vị trí ở dãy núi, để ta có thể trèo lên đỉnh, ta sẽ luôn ngó sang bên mà ta thấy vị trí của nó cao hơn vị trí ta đang đứng, và đó cũng là thuật toán giải quyết cho bài toán này.
 
 **Phân tích thuật toán:** Sử dụng chia để trị (divide and conquer), ta có biểu thức sau
 <div style="text-align: center;">
@@ -60,7 +60,7 @@ Mũi tên đỏ trỏ tới vị trí đang xét. Giả sử ta đang đứng tr
 
 </div>
 
-Độ phức tạp cho các câu điều kiện so sánh \\(\Theta(1)\\), base case ở đây là \\(T(1) = \Theta(1)\\).
+Time complexity cho các câu điều kiện so sánh \\(\Theta(1)\\), base case ở đây là \\(T(1) = \Theta(1)\\).
 Từ đó, \\(T(n) = \Theta(1) + \Theta(1) +...+ \Theta(1) = \Theta(log{_2}{n})\\).
 
 **Code Python**
@@ -101,7 +101,7 @@ Một phần tử được coi là một peak khi và chỉ khi nó lớn hơn h
 #### 3.1. Duyệt trực tiếp
 **Ý tưởng:** Duyệt qua từng phần tử của mảng và kiểm tra xem phần tử đang xét có thỏa mãn tính chất là một peak hay không.
 
-**Phân tích thuật toán:** worst case của thuật toán sẽ có độ phức tạp là \\(\Theta(m \times n)\\).
+**Phân tích thuật toán:** worst case của thuật toán sẽ có time complexity là \\(\Theta(m \times n)\\).
 
 #### 3.2. Thuật toán Greedy Ascent
 **Ý tưởng:** Chúng ta bắt đầu tại một điểm ngẫu nhiên. Với điểm đang xét, chúng ta so sánh nó với 4 điểm liền kề theo các chiều dọc và ngang, nếu có giá trị nào lớn hơn điểm đang xét, ta sẽ xét điểm tiếp theo là điểm đó.
