@@ -34,7 +34,9 @@ Trở lại thôi. Những blogs đầu tiên này mình sẽ chỉ viết về 
 
 ### 1. Tại sao chúng ta cần những thuật toán sắp xếp?
 **Thứ nhất**, đơn giản là chỉ để qua các kì thi ở trường đại học, học mấy môn Ngôn ngữ lập trình, Cấu trúc dữ liệu và giải thuật,... đi thi dễ bị hỏi mấy cái sắp xếp này lắm luôn.
-**Thứ hai**, khâu sắp xếp phần tử thường là khâu trung gian, tiền xử lý dữ liệu trong các bài toán, hệ thống xử lý,... để thực hiện các công việc lớn hơn sau nó. Vì lượng dữ liệu trong các hệ thống thực tế luôn rất lớn, nên ta cần các thuật toán sắp xếp hiệu quả để tốn chi phí nhất (thời gian và bộ nhớ).
+
+**Thứ hai**, khâu sắp xếp phần tử thường là khâu trung gian, tiền xử lý dữ liệu trong các bài toán, hệ thống xử lý,... để thực hiện các công việc lớn hơn sau nó. Vì lượng dữ liệu trong các hệ thống thực tế luôn rất lớn, nên ta cần các thuật toán sắp xếp hiệu quả để đỡ tốn chi phí nhất (thời gian và bộ nhớ).
+
 **Các ví dụ đơn giản về áp dụng thuật toán sắp xếp**
 * Sắp xếp danh sách khách hàng theo tên trong tệp tin quản lý.
 * Tìm phần tử trung vị trong \\(\Theta(1)\\), hay là tìm kiếm 1 phần tử nào đó với \\(\Theta(logn)\\) nếu như có một mảng đã được sắp xếp.
