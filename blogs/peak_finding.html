@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Thuật toán tìm đỉnh Peak Finding - Tran Lam - ML/DL/AI</title>
+        <title>Thuật toán tìm đỉnh Peak Finding - TrL</title>
         
         
 
@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item expanded "><a href="../blogs/peak_finding.html" class="active">Thuật toán tìm đỉnh Peak Finding</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item expanded "><a href="../blogs/peak_finding.html" class="active">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -129,7 +129,7 @@
                         
                     </div>
 
-                    <h1 class="menu-title">Tran Lam - ML/DL/AI</h1>
+                    <h1 class="menu-title">TrL</h1>
 
                     <div class="right-buttons">
                         
@@ -172,6 +172,16 @@
 </div>
 <br/>
 <p>Hôm nay mình sẽ nói về môt thuật toán cực kì cơ bản mà mình và hầu như các bạn bắt đầu học về lập trình thuật toán đều đã làm. Đó chính là thuật toán tìm đỉnh Peak Finding.</p>
+<h3><a class="header" href="#các-đề-mục" id="các-đề-mục">Các đề mục</a></h3>
+<p><a href="#1-gi%E1%BB%9Bi-thi%E1%BB%87u-thu%E1%BA%ADt-to%C3%A1n">1. Giới thiệu thuật toán</a></p>
+<p><a href="#2-t%C3%ACm-peak-trong-m%E1%BA%A3ng-1-chi%E1%BB%81u">2. Tìm peak trong mảng 1 chiều</a></p>
+<p>     <a href="#21-c%C3%A1ch-1-duy%E1%BB%87t-tuy%E1%BA%BFn-t%C3%ADnh-linear-traversing">2.1. Cách 1: Duyệt tuyến tính (linear traversing)</a></p>
+<p>     <a href="#22-c%C3%A1ch-2-duy%E1%BB%87t-nh%E1%BB%8B-ph%C3%A2n-binary-search">2.2. Cách 2: Duyệt nhị phân (binary search)</a></p>
+<p><a href="#3-t%C3%ACm-peak-trong-m%E1%BA%A3ng-2-chi%E1%BB%81u">3. Tìm peak trong mảng 2 chiều</a></p>
+<p>     <a href="#31-duy%E1%BB%87t-tr%E1%BB%B1c-ti%E1%BA%BFp">3.1. Duyệt trực tiếp</a></p>
+<p>     <a href="#32-thu%E1%BA%ADt-to%C3%A1n-greedy-ascent">3.2. Thuật toán Greedy Ascent</a></p>
+<p>     <a href="#33-thu%E1%BA%ADt-to%C3%A1n-jamming-binary-search">3.3. Thuật toán Jamming Binary Search</a></p>
+<p><a href="#4-t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o">4. Tài liệu tham khảo</a></p>
 <h3><a class="header" href="#1-giới-thiệu-thuật-toán" id="1-giới-thiệu-thuật-toán">1. Giới thiệu thuật toán</a></h3>
 <p>Trong một mảng, một số được gọi là một &quot;peak&quot; khi và chỉ khi các phần tử liền kề nó nhỏ hơn hoặc bằng phần tử được xét. Tưởng tượng rằng có một dãy núi như sau</p>
 <div style="text-align:center;">
@@ -192,7 +202,7 @@ Các mũi tên đỏ ở trên trỏ đến các đỉnh (peak) của một dãy
 <p>Giả sử ta có một mảng 1 chiều gồm <strong>\(n\)</strong> phần tử, tìm một peak của mảng đó.</p>
 <h4><a class="header" href="#21-cách-1-duyệt-tuyến-tính-linear-traversing" id="21-cách-1-duyệt-tuyến-tính-linear-traversing">2.1. Cách 1: Duyệt tuyến tính (linear traversing)</a></h4>
 <p><strong>Ý tưởng:</strong> Duyệt qua từng phần tử của mảng và kiểm tra xem phần tử đang xét có thỏa mãn tính chất là một peak hay không.</p>
-<p><strong>Phân tích thuật toán:</strong> Mỗi phần tử đang được duyệt sẽ có các câu lệnh điều kiện để kiểm tra xem phần tử đó có là peak, các câu lệnh điều kiện này tốn constant time \(\Theta(1)\). Trong trường hợp xấu nhất, ta sẽ phải duyệt hết tất cả <strong>\(n\)</strong> phần từ của mảng mới tìm được peak. Do vậy, worst case của thuật toán sẽ có độ phức tạp là \(\Theta(n)\).</p>
+<p><strong>Phân tích thuật toán:</strong> Mỗi phần tử đang được duyệt sẽ có các câu lệnh điều kiện để kiểm tra xem phần tử đó có là peak, các câu lệnh điều kiện này tốn constant time \(\Theta(1)\). Trong trường hợp xấu nhất, ta sẽ phải duyệt hết tất cả <strong>\(n\)</strong> phần từ của mảng mới tìm được peak. Do vậy, worst case của thuật toán sẽ có time complexity là \(\Theta(n)\).</p>
 <h4><a class="header" href="#22-cách-2-duyệt-nhị-phân-binary-search" id="22-cách-2-duyệt-nhị-phân-binary-search">2.2. Cách 2: Duyệt nhị phân (binary search)</a></h4>
 <p><strong>Ý tưởng:</strong> Trong cách này, ta sẽ luôn nhìn vào vị trí ở giữa của mảng được duyệt và quyết định xem ta sẽ duyệt nửa nào tiếp theo của mảng đó để tìm ra peak.</p>
 <p><strong>Thuật toán:</strong> </p>
@@ -206,12 +216,12 @@ Các mũi tên đỏ ở trên trỏ đến các đỉnh (peak) của một dãy
 <div style="text-align:center;">
 <img style="width: 70%;" src="../images/peak_finding_1Dexp.PNG" />
 </div>
-<p>Mũi tên đỏ trỏ tới vị trí đang xét. Giả sử ta đang đứng trên một vị trí ở dãy núi, để ta có thể trèo lên đỉnh, ta sẽ luôn ngó sáng bên mà ta thấy vị trí của nó cao hơn vị trí ta đang đứng, và đó cũng là thuật toán giải quyết cho bài toán này.</p>
+<p>Mũi tên đỏ trỏ tới vị trí đang xét. Giả sử ta đang đứng trên một vị trí ở dãy núi, để ta có thể trèo lên đỉnh, ta sẽ luôn ngó sang bên mà ta thấy vị trí của nó cao hơn vị trí ta đang đứng, và đó cũng là thuật toán giải quyết cho bài toán này.</p>
 <p><strong>Phân tích thuật toán:</strong> Sử dụng chia để trị (divide and conquer), ta có biểu thức sau</p>
 <div style="text-align: center;">
 <p>\(T(n) = T(\frac{n}{2}) + \Theta(1)\)</p>
 </div>
-<p>Độ phức tạp cho các câu điều kiện so sánh \(\Theta(1)\), base case ở đây là \(T(1) = \Theta(1)\).
+<p>Time complexity cho các câu điều kiện so sánh \(\Theta(1)\), base case ở đây là \(T(1) = \Theta(1)\).
 Từ đó, \(T(n) = \Theta(1) + \Theta(1) +...+ \Theta(1) = \Theta(log{_2}{n})\).</p>
 <p><strong>Code Python</strong></p>
 <pre><code class="language-python">import math
@@ -245,7 +255,7 @@ print(peak_finding(ini_arr))
 <p>Một phần tử được coi là một peak khi và chỉ khi nó lớn hơn hoặc bằng tất cả các phần tử liền kề theo chiều dọc và ngang.</p>
 <h4><a class="header" href="#31-duyệt-trực-tiếp" id="31-duyệt-trực-tiếp">3.1. Duyệt trực tiếp</a></h4>
 <p><strong>Ý tưởng:</strong> Duyệt qua từng phần tử của mảng và kiểm tra xem phần tử đang xét có thỏa mãn tính chất là một peak hay không.</p>
-<p><strong>Phân tích thuật toán:</strong> worst case của thuật toán sẽ có độ phức tạp là \(\Theta(m \times n)\).</p>
+<p><strong>Phân tích thuật toán:</strong> worst case của thuật toán sẽ có time complexity là \(\Theta(m \times n)\).</p>
 <h4><a class="header" href="#32-thuật-toán-greedy-ascent" id="32-thuật-toán-greedy-ascent">3.2. Thuật toán Greedy Ascent</a></h4>
 <p><strong>Ý tưởng:</strong> Chúng ta bắt đầu tại một điểm ngẫu nhiên. Với điểm đang xét, chúng ta so sánh nó với 4 điểm liền kề theo các chiều dọc và ngang, nếu có giá trị nào lớn hơn điểm đang xét, ta sẽ xét điểm tiếp theo là điểm đó.</p>
 <p><strong>Phân tích thuật toán:</strong> Thoạt nghĩ qua thì ta thấy thuật toán có vẻ sẽ hiệu quả hơn, nhưng worst case của nó vẫn là \(\Theta(m \times n)\) khi mà ta phải duyệt phần lớn các phần tử.</p>
@@ -306,6 +316,10 @@ print(peak_finding_2d(ini_matrix))
                         
 
                         
+                            <a rel="next" href="../blogs/sorting_algorithms.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -319,6 +333,10 @@ print(peak_finding_2d(ini_matrix))
                     </a>
                 
 
+                
+                    <a rel="next" href="../blogs/sorting_algorithms.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 

@@ -1,0 +1,691 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Các thuật toán sắp xếp cơ bản - TrL</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../theme/css/additional.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item expanded "><a href="../blogs/sorting_algorithms.html" class="active">Các thuật toán sắp xếp cơ bản</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">TrL</h1>
+
+                    <div class="right-buttons">
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#các-thuật-toán-sắp-xếp-cơ-bản" id="các-thuật-toán-sắp-xếp-cơ-bản">Các thuật toán sắp xếp cơ bản</a></h1>
+<head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<div style="display: flex; align-items: center;">
+<img style="width: 50px; border-radius: 50%; border: 1px solid #b71c1c" src="../images/me.JPG" />
+<span style="margin-left: 15px; color: #b71c1c;font-family: 'Cinzel', serif;">Tran Lam</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;">Feb 20,2021</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;" >25 min read</span>
+</div>
+<br/>
+<p>Trở lại thôi. Những blogs đầu tiên này mình sẽ chỉ viết về những thuật toán cơ bản nhất khi mới chập chững vào học lập trình thôi. Thứ nhất, để mình học lại các thứ cơ bản (vì mình cực kì hay quên). Thứ hai, để các bạn mới học lập trình có thể tham khảo ha. Bài viết này sẽ nói về các thuật toán sắp xếp cơ bản mình được học ở trường lớp, và cũng tự học nữa.</p>
+<h3><a class="header" href="#các-đề-mục" id="các-đề-mục">Các đề mục</a></h3>
+<p><a href="#1-t%E1%BA%A1i-sao-ch%C3%BAng-ta-c%E1%BA%A7n-nh%E1%BB%AFng-thu%E1%BA%ADt-to%C3%A1n-s%E1%BA%AFp-x%E1%BA%BFp">1. Tại sao chúng ta cần những thuật toán sắp xếp?</a></p>
+<p><a href="#2-s%E1%BA%AFp-x%E1%BA%BFp-n%E1%BB%95i-b%E1%BB%8Dt-bubble-sort">2. Sắp xếp nổi bọt (bubble sort)</a></p>
+<p><a href="#3-s%E1%BA%AFp-x%E1%BA%BFp-ch%C3%A8n-insertion-sort">3. Sắp xếp chèn (insertion sort)</a></p>
+<p><a href="#4-s%E1%BA%AFp-x%E1%BA%BFp-l%E1%BB%B1a-ch%E1%BB%8Dn-selection-sort">4. Sắp xếp lựa chọn (selection sort)</a></p>
+<p><a href="#5-s%E1%BA%AFp-x%E1%BA%BFp-tr%E1%BB%99n-merge-sort">5. Sắp xếp trộn (merge sort)</a></p>
+<p><a href="#6-s%E1%BA%AFp-x%E1%BA%BFp-vun-%C4%91%E1%BB%91ng-heap-sort">6. Sắp xếp vun đống (heap sort)</a></p>
+<p><a href="#7-s%E1%BA%AFp-x%E1%BA%BFp-nhanh-quick-sort">7. Sắp xếp nhanh (quick sort)</a></p>
+<p><a href="#8-s%E1%BA%AFp-x%E1%BA%BFp-%C4%91%E1%BA%BFm-counting-sort">8. Sắp xếp đếm (counting sort)</a></p>
+<p><a href="#9-t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o">9. Tài liệu tham khảo</a></p>
+<h3><a class="header" href="#1-tại-sao-chúng-ta-cần-những-thuật-toán-sắp-xếp" id="1-tại-sao-chúng-ta-cần-những-thuật-toán-sắp-xếp">1. Tại sao chúng ta cần những thuật toán sắp xếp?</a></h3>
+<p><strong>Thứ nhất</strong>, đơn giản là chỉ để qua các kì thi ở trường đại học, học mấy môn Ngôn ngữ lập trình, Cấu trúc dữ liệu và giải thuật,... đi thi dễ bị hỏi mấy cái sắp xếp này lắm luôn.
+<strong>Thứ hai</strong>, khâu sắp xếp phần tử thường là khâu trung gian, tiền xử lý dữ liệu trong các bài toán, hệ thống xử lý,... để thực hiện các công việc lớn hơn sau nó. Vì lượng dữ liệu trong các hệ thống thực tế luôn rất lớn, nên ta cần các thuật toán sắp xếp hiệu quả để tốn chi phí nhất (thời gian và bộ nhớ).
+<strong>Các ví dụ đơn giản về áp dụng thuật toán sắp xếp</strong></p>
+<ul>
+<li>Sắp xếp danh sách khách hàng theo tên trong tệp tin quản lý.</li>
+<li>Tìm phần tử trung vị trong \(\Theta(1)\), hay là tìm kiếm 1 phần tử nào đó với \(\Theta(logn)\) nếu như có một mảng đã được sắp xếp.</li>
+<li>Database sử dụng các thuật toán merge sort để sắp xếp các tập dữ liệu khi chúng quá lớn để load cả cục vào bộ nhớ.</li>
+<li>Tìm kiếm file, nén dữ liệu, tìm đường đi.</li>
+<li>Các trình thiết kế đồ họa cũng sử dụng thuật toán để sắp xếp các tầng (layers) để render thế nào cho hiệu quả.</li>
+<li>Ăn xong cỗ, mẹ bạn bắt bạn rửa bát. Bạn vật lộn với chục chồng bát trong 1 tiếng lận và giờ bạn không muốn mất thêm bất cứ thời gian nào cho đống bát kia nữa. Hóa ra, công việc còn lại là sắp xếp đồng bát vào trạn sao cho ngăn nắp, đẹp và hơn hết là nhanh chóng để bạn còn đi nghịch điện thoại. Theo bản năng của tất cả người châu Á trí thông minh trung bình đổ lên, bạn đã sắp xếp chúng rất nhanh và chồng nhỏ đến chồng to rất bắt mắt, sau đó, bạn nhận ra là mình đã vô tình áp dụng Counting Sort vào việc này.</li>
+</ul>
+<p><strong>Các phép toán cơ bản sử dụng trung gian</strong></p>
+<ul>
+<li>Phép toán so sánh 2 phần tử \((a, b)\), trả về \(True\) nếu \((a &gt; b)\), trả về \(False\) nếu ngược lại.</li>
+<li>Phép toán đổi chỗ 2 phần tử \((a, b)\), trong Python sẽ được thực hiện như sau</li>
+</ul>
+<pre><code class="language-python">a, b = b, a
+</code></pre>
+<p>Trong quá trình phân tích các thuật toán, ta giả sử rằng các phép toán trên chỉ tốn constant time \(\Theta(1)\).</p>
+<h3><a class="header" href="#2-sắp-xếp-nổi-bọt-bubble-sort" id="2-sắp-xếp-nổi-bọt-bubble-sort">2. Sắp xếp nổi bọt (bubble sort)</a></h3>
+<p>Sắp xếp nổi bọt là loại sắp xếp đơn giản và kém hiệu quả, thường được dạy trong hầu hêt tất cả các course về thuật toán bởi nó khá trực quan. Sắp xếp nổi bọt so sánh từng cặp số trong một mảng và hoán đổi vị trí cho nhau nếu chúng không theo thứ tự. Những phần tử lớn nhất sẽ được đẩy xuống cuối mảng, trong khi những phần tử nhỏ sẽ dần dần &quot;nổi lên&quot; đầu mảng.</p>
+<p><strong>Thuật toán:</strong></p>
+<ul>
+<li>So sánh \(arr[0]\) với \(arr[1]\), nếu \(arr[0] &gt; arr[1]\), hoán đổi vị trí của chúng. Tiếp tục làm như vậy cho với (\(arr[1], arr[2]\)), (\(arr[2], arr[3]\)),...</li>
+<li>Thực hiện bước \(n\) lần.
+Để trực quan hơn, mình đem ra hình ảnh mô tả sau</li>
+</ul>
+<div style="text-align:center;">
+<img style="width: 80%;" src="../images/sorting_algorithms_bubble.GIF" />
+</div>
+<p><strong>Phân tích thuật toán:</strong></p>
+<ul>
+<li><strong>Best case:</strong> xảy ra khi ta áp dụng thuật toán trên mảng đã được sắp xếp. Khi đó, sẽ không có bước swap nào trong lần duyệt đầu tiên, chỉ có các bước so sánh, từ đó thì thuật toán sẽ kết thúc luôn sau lần duyệt này.
+Vì thế, time complexity sẽ là \(\Theta(n)\).
+Vì lý do này, bubble sort cũng được dùng để kiểm tra xem một mảng đã được sắp xếp hay chưa.</li>
+<li><strong>Worst case:</strong> xảy ra khi mảng bị sắp xếp theo chiều ngược lại, do đó, có \(n-1\) phép so sánh và hoán đổi sẽ được thực hiện trong lần duyệt đầu tiên, \(n-2\) phép so sánh và hoán đổi sẽ được thực hiện trong lần duyệt tiếp theo,...
+Vì thế, tổng số phép so sánh và hoán đổi sẽ là \(Sum = (n-1) + (n-2) +...+ 2 + 1 = \frac{n \times (n-1)}{2}\). Do đó, time complexity sẽ là \(\Theta(n^2)\).</li>
+<li><strong>Space complexity:</strong> \(\Theta(1)\).</li>
+</ul>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">ini_arr = [1, 5, 2, 45, 2, 32, 12, 55, 26, 77, 8]
+
+def bubble_sort(arr):
+    for i in range(len(arr)):
+        swapped = False
+        for j in range(len(arr) - i - 1):
+            if arr[j] &gt; arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = True
+        if not swapped:
+            return
+
+bubble_sort(ini_arr)
+print(ini_arr)
+</code></pre>
+<p>Output</p>
+<pre><code class="language-python">[1, 2, 2, 5, 8, 12, 26, 32, 45, 55, 77]
+</code></pre>
+<h3><a class="header" href="#3-sắp-xếp-chèn-insertion-sort" id="3-sắp-xếp-chèn-insertion-sort">3. Sắp xếp chèn (insertion sort)</a></h3>
+<p>Tưởng tượng bạn chơi tiến lên miền Nam, khi mới được phát xong bộ bài trong tay, bạn có nhiều cách sắp xếp tùy theo cá tính của bạn. Với mình, mình thường sắp xếp theo thứ tự quân bài từ bé đến lớn. Những lúc muốn sắp 1 lá bài mới vào bộ quân bài trên tay đã theo thứ tự, mình thực hiện chèn lá bài vào vị trí thích hợp, và đó cũng là ý tưởng của insertion sort.</p>
+<p><strong>Thuật toán:</strong>
+Với \(i = 1, 2,..., n - 1\), ta sẽ chèn \(arr[i]\) vào trong mảng đã sắp xếp \(arr[0:i-1]\) bằng việc thực hiện dịch lần lượt các phần tử lớn hơn \(arr[i]\) của mảng \(arr[0:i-1]\) lên và đặt \(arr[i]\) vào đúng vị trí thích hợp.
+Để trực quan hơn, mình đem ra hình ảnh mô tả sau</p>
+<div style="text-align:center;">
+<img style="width: 80%;" src="../images/sorting_algorithms_insertion.GIF" />
+</div>
+<p><strong>Phân tích thuật toán:</strong></p>
+<ul>
+<li><strong>Best case:</strong> xảy ra khi ta áp dụng thuật toán với mảng đã được sắp xếp. Khi đó, ta chỉ cần duyệt qua 1 lượt mảng, chỉ so sánh và không cần thực hiện một bước hoán đổi nào cả.
+Vì thế, time complexity sẽ là \(\Theta(n)\).</li>
+<li><strong>Worst case:</strong> xảy ra khi mảng bị sắp xếp theo chiều ngược lại, sẽ có 1 phép so sánh và gán trong lần duyệt đầu tiên, 2 phép so sánh và gán trong lần dịch thứ hai,...
+Vì thế, tổng số phép so sánh và gán sẽ là \(Sum = 1 + 2 +...+ (n-1) = \frac{n \times (n-1)}{2}\). Do đó, time complexity sẽ là \(\Theta(n^2)\).</li>
+<li><strong>Space complexity:</strong> \(\Theta(1)\).</li>
+</ul>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">ini_arr = [1, 5, 2, 45, 2, 32, 12, 55, 26, 77, 8]
+
+def insertion_sort(arr):
+    for key in range(1, len(arr)):
+        value = arr[key]
+        j = key - 1
+        while j &gt;= 0 and value &lt; arr[j]:
+            arr[j+1] = arr[j]
+            j -= 1
+        if key != j+1:
+            arr[j+1] = value
+
+insertion_sort(ini_arr)
+print(ini_arr)
+</code></pre>
+<p>Output</p>
+<pre><code class="language-python">[1, 2, 2, 5, 8, 12, 26, 32, 45, 55, 77]
+</code></pre>
+<h3><a class="header" href="#4-sắp-xếp-lựa-chọn-selection-sort" id="4-sắp-xếp-lựa-chọn-selection-sort">4. Sắp xếp lựa chọn (selection sort)</a></h3>
+<p>Ý tưởng là ta sẽ <strong>giả định</strong> chia mảng của ta ra làm 2 phần: mảng con được sắp xếp \(arr{_1}\) và mảng con chưa được sắp xếp \(arr{_2}\). Lúc này, \(arr = (arr{_1})(arr{_2})\).
+Ta sẽ lần lượt tìm phần tử nhỏ nhất của \(arr{_2}\), tách ra và đẩy phần tử đó sang \(arr{_1}\). Mình nói <strong>giả định</strong> ở đây là sao, là chúng ta không thực sự tạo ra 2 mảng con mới, mà các hoạt động đều được thực hiện trên mảng gốc.</p>
+<p><strong>Thuật toán:</strong></p>
+<ul>
+<li>Tìm phần tử nhỏ nhất của \(arr{_2}\).</li>
+<li>Hoán đổi vị trí của phần tử nhỏ nhất ấy với phần tử đầu tiên của \(arr{_2}\). Lúc này, ta xem như \(arr{_2}\) đã không còn phần tử nhỏ nhất đó, và giờ phần từ nhỏ nhất đó đã ghép vào \(arr{_1}\).</li>
+</ul>
+<p>Mình có hình ảnh để thuật toán thêm trực quan hơn</p>
+<div style="text-align:center;">
+<img style="width: 80%;" src="../images/sorting_algorithms_selection.PNG" />
+</div>
+<p><strong>Phân tích thuật toán:</strong></p>
+<ul>
+<li><strong>Best case:</strong> xảy ra khi áp dụng thuật toán trên mảng đã sắp xếp, ta chỉ phải so sánh chứ không cần thực hiện hoán đổi vị trí.
+Vì thế, time complexity sẽ là \(\Theta(n)\).</li>
+<li><strong>Worst case:</strong> xảy ra khi mảng trên được sắp xếp theo chiều ngược lại, mỗi lần duyệt ta phải tìm phần tử nhỏ nhất của mảng con \(arr{_2}\).
+Vì thế, tổng số phép duyệt để tìm các phần tử nhỏ nhất sẽ là \(Sum = (n-1) + (n-2) +...+ 1 = \frac{n \times (n-1)}{2}\). Do đó, time complexity sẽ là \(\Theta(n^2)\).</li>
+<li><strong>Space complexity:</strong> \(\Theta(1)\).</li>
+</ul>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">ini_arr = [1, 5, 2, 45, 2, 32, 12, 55, 26, 77, 8]
+
+def selection_sort(arr):
+    for i in range(len(arr) - 1):
+        min_index = i
+        for j in range(i+1, len(arr)):
+            if arr[j] &lt; arr[min_index]:
+                min_index = j
+        if i != min_index:
+            arr[min_index], arr[i] = arr[i], arr[min_index]
+
+selection_sort(ini_arr)
+print(ini_arr)
+</code></pre>
+<p>Output</p>
+<pre><code class="language-python">[1, 2, 2, 5, 8, 12, 26, 32, 45, 55, 77]
+</code></pre>
+<h3><a class="header" href="#5-sắp-xếp-trộn-merge-sort" id="5-sắp-xếp-trộn-merge-sort">5. Sắp xếp trộn (merge sort)</a></h3>
+<p>Sắp xếp trộn là một trong những thuật toán hiệu quả nhất. Thuật toán hoạt động dựa trên nguyên tắc chia và trị, lần lượt tách các mảng ra 2 mảng con cho đến khi các mảng con chỉ còn 1 phần tử. Sau đó, thuật toán &quot;trộn&quot; các mảng con đó thành mảng được sắp xếp hoàn chỉnh.</p>
+<p><strong>Thuật toán:</strong></p>
+<ul>
+<li>Lần lượt chia mảng gốc thành 2 mảng con, 2 mảng con thành 4 mảng con nữa,... đến khi ta được \(n\) mảng con, mỗi mảng con chứa 1 phần tử.</li>
+</ul>
+<div style="text-align:center;">
+<img style="width: 80%;" src="../images/sorting_algorithms_merge_1.PNG" />
+</div>
+<ul>
+<li>Trộn các mảng con để tạo ra mảng lớn hơn được sắp xếp theo thứ tự cho đến khi ta nhận được 1 mảng duy nhất. Đó chính là mảng đã được sắp xếp từ mảng gốc.</li>
+</ul>
+<div style="text-align:center;">
+<img style="width: 80%;" src="../images/sorting_algorithms_merge_2.PNG" />
+</div>
+<p>Tổng kết lại thuật toán trong 1 hình ảnh</p>
+<div style="text-align:center;">
+<img style="width: 80%;" src="../images/sorting_algorithms_merge.PNG" />
+</div>
+<p><strong>Phân tích thuật toán:</strong></p>
+<ul>
+<li><strong>Tách mảng:</strong> thuật toán sẽ tính toán điểm giữa của mảng bằng việc lấy chiều dài mảng rồi chia 2, do đó, tốn constant time \(\Theta(1)\) để chia mảng ra làm 2 mảng con.</li>
+<li><strong>Sắp xếp mảng con:</strong> giả sử sắp xếp mảng tốn \(T(n)\) time. Như vậy để sắp xếp 2 mảng con, ta tốn \(2T(\frac{n}{2})\) time.</li>
+<li><strong>Trộn 2 mảng con:</strong> sử dụng thuật toán &quot;2 ngón tay&quot;, mỗi ngón trỏ tới vị trí đầu của mỗi mảng con. Chúng ta lần lượt so sánh 2 số tại 2 vị trí mà 2 ngón tay trỏ đến và chọn số bé hơn để đẩy vào mảng kết quả. Cứ phần tử ở mảng con nào được đẩy vào, ta đưa ngón tay trỏ tới phần tử tiếp theo của mảng đó. Việc này khiến ta phải duyệt qua \(2 \times \frac{n}{2} = n\) phần tử, do đó, ta tốn \(\Theta(n)\).
+Như vậy, ta có biểu thức sau</li>
+</ul>
+<div style="text-align: center;">
+<p>\(T(n) = \Theta(1) + 2T(\frac{n}{2}) + \Theta(n)\)</p>
+</div>
+<p>Với base case ở đây là \(T(1) = \Theta(1)\).</p>
+<div style="text-align:center;">
+<img style="width: 80%;" src="../images/sorting_algorithms_merge_3.PNG" />
+</div>
+<p>Với mỗi mức thuật toán thực hiện \(\Theta(n)\) công việc, có \(1+logn\) mức. Do đó, \(T(n) = \Theta(n + nlogn) = \Theta(nlogn)\). Thuật toán sẽ có time complexity là \(\Theta(nlogn)\).</p>
+<ul>
+<li><strong>Space complexity:</strong> Vì trong bước &quot;trộn&quot;, ta phải tự tạo ra 2 mảng con, mỗi mảng con có số phần tử là \(\frac{n}{2}\), do vậy, không gian bộ nhớ phụ trợ sẽ là \(\Theta(n)\).</li>
+</ul>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">import math
+ini_arr = [1, 5, 2, 45, 2, 32, 12, 55, 26, 77, 8]
+
+def merge(arr, l, m, r):
+    n1 = m - l + 1
+    n2 = r - m
+    L = []
+    R = []
+    for i in range(n1):
+        L.append(arr[l+i])
+    for j in range(n2):
+        R.append(arr[m+j+1])
+    i = 0
+    j = 0
+    k = l
+    while i &lt; n1 and j &lt; n2:
+        if L[i] &lt;= R[j]:
+            arr[k] = L[i]
+            i += 1
+        else:
+            arr[k] = R[j]
+            j += 1
+        k += 1
+    while i &lt; n1:
+        arr[k] = L[i]
+        i += 1
+        k += 1
+    while j &lt; n2:
+        arr[k] = R[j]
+        j += 1
+        k += 1
+
+def merge_sort(arr, l, r):
+    if l &lt; r:
+        m = math.floor(l + (r-l)/2)
+        merge_sort(arr, l, m)
+        merge_sort(arr, m+1, r)
+        merge(arr, l, m, r)
+
+merge_sort(ini_arr, 0 ,len(ini_arr) - 1)
+print(ini_arr)
+</code></pre>
+<p>Output</p>
+<pre><code class="language-python">[1, 2, 2, 5, 8, 12, 26, 32, 45, 55, 77]
+</code></pre>
+<h3><a class="header" href="#6-sắp-xếp-vun-đống-heap-sort" id="6-sắp-xếp-vun-đống-heap-sort">6. Sắp xếp vun đống (heap sort)</a></h3>
+<p>Sắp xếp vun đống lấy dựa trên cấu trúc dữ liệu binary heap.</p>
+<p><strong>Cấu trúc dữ liệu binary heap:</strong>
+Một mảng dữ liệu có thể được biểu diễn dưới dạng cây nhị phân như sau</p>
+<div style="text-align:center;">
+<img style="width: 80%;" src="../images/sorting_algorithms_heap.PNG" />
+</div>
+<p>Với mỗi node bất kỳ với chỉ số tương ứng là \(i\) trong cây nhị phân ở trên</p>
+<ul>
+<li>Node cha của \(i\) sẽ có chỉ số \(parent(i)\) là \(\Bigl\lfloor\dfrac{i}{2}\Bigr\rfloor\qquad\).</li>
+<li>Node con trái sẽ có chỉ số \(leftchild(i)\) là \(2i\).</li>
+<li>Node con phải sẽ có chỉ số \(rightchild(i)\) là \(2i + 1\).</li>
+</ul>
+<p>Có 2 kiểu của cấu trúc dữ liệu này đó là: max-heap và min-heap.</p>
+<ul>
+<li>Trong max-heap, ta luôn có \(A[parent(i)] \ge A[i]\). Do vậy, phần tử lớn nhất nằm ở root, còn phần tử nhỏ nhất nằm ở leaf.</li>
+<li>Trong min-heap, ta luôn có \(A[parent(i)] \le A[i]\). Do vậy, phần tử nhỏ nhất nằm ở root, còn phần tử lớn nhất nằm ở leaf.</li>
+</ul>
+<p>Từ đó, thuật toán sắp xếp này áp dụng max-heap hoặc min-heap (trong bài này mình sẽ dùng max-heap) để tạo ra mảng sắp xếp theo thứ tự.</p>
+<p><strong>Tạo max-heap:</strong> gọi là <strong>max_heapify</strong>
+Mình sẽ đưa ra ví dụ đơn giản với mảng 3 phần tử để thêm trực quan, còn với mảng n phần tử sẽ cần làm theo một cách tổng quát hơn</p>
+<div style="text-align:center;">
+<img style="width: 80%;" src="../images/sorting_algorithms_heap_2.PNG" />
+</div>
+<p>Code python cho <strong>max_heapify</strong> tại một node có chỉ số \(i = index\), \(length\) là chiều dài của mảng, thêm vào để làm điều kiện ràng buộc cho chỉ số các node con. Thuật toán ở dưới nói rằng, nếu node ở chỉ số \(i = index\) chưa đúng với quy luật max-heap, ta sẽ <strong>max_heapify</strong> lại cây với root là node đó, đồng thời <strong>max_heapify</strong> lại các cây với root là các node con trái và phải của node đó.</p>
+<pre><code class="language-python">def max_heapify(arr, length, index):
+    l = (index + 1) * 2 - 1
+    r = (index + 1) * 2
+    largest = index
+    if l &lt; length and arr[index] &lt; arr[l]:
+        largest = l
+    if r &lt; length and arr[largest] &lt; arr[r]:
+        largest = r
+    if largest != index:
+        arr[index], arr[largest] = arr[largest], arr[index]
+        max_heapify(arr, length, largest)
+</code></pre>
+<p><strong>max_heapify</strong> này sẽ tốn \(\Theta(logn)\) với mỗi node được xét. Bởi vì mỗi lần, node đó sẽ cần phải đi xuống 1 cấp trên cây để xét, thuật toán sẽ chọn đúng nhánh để đi xuống và nó sẽ không backtrack lại lên trên. Do vậy, đường đi dài nhất thuật toán này có thể phải duyệt là từ root đến 1 leaf, là chiều cao của cây. Chiều cao của cây nhị phân có \(n\) node là \(\Theta(logn)\).</p>
+<p><strong>Thuật toán:</strong></p>
+<ul>
+<li>Ta biểu diễn mảng và sắp xếp các phần tử để có một cây max-heap. Do đó, root của cây này (khi này sẽ tương ứng với phần tử có chỉ số là \(i = 0\) trong mảng, với \(i = 0, 1,..., n-1\)) sẽ là phần tử lớn nhất.</li>
+<li>Ta hoán đổi vị trí của root \(arr[0]\) với phần tử cuối cùng của mảng \(arr[n-1]\). Lúc này, phần tử lớn nhất của mảng đã nằm ở vị trí cuối cùng.</li>
+<li>Làm lại bước 1 và 2 với phần mảng còn lại \(arr[0:n-2]\),...</li>
+</ul>
+<p><strong>Phân tích thuật toán:</strong>
+Xây dựng một cây max-heap từ mảng chưa sắp xếp cần \(\Theta(n)\) lời gọi hàm <strong>max_heapify</strong>, mỗi lời gọi <strong>max_heapify</strong> tốn \(\Theta(logn)\) time. Như vậy, toàn bộ thuật toán có time complexity là \(\Theta(nlogn)\).
+Tuy vậy, thuật toán heap sort có ưu điểm hơn so với merge sort đó là nó chỉ sử dụng \(\Theta(1)\) bộ nhớ tạm thời, trong khi merge sort là \(\Theta(n)\). Nếu yếu tố bộ nhớ cũng quan trọng trong hệ thống của bạn (giả dụ các hệ thống bộ nhớ nhỏ như hệ thống nhúng,...), bạn hãy cân nhắc dùng heap sort hơn là merge sort. </p>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">import math
+ini_arr = [1, 5, 2, 45, 2, 32, 12, 55, 26, 77, 8]
+
+def max_heapify(arr, length, index):
+    l = (index + 1) * 2 - 1
+    r = (index + 1) * 2
+    largest = index
+    if l &lt; length and arr[index] &lt; arr[l]:
+        largest = l
+    if r &lt; length and arr[largest] &lt; arr[r]:
+        largest = r
+    if largest != index:
+        arr[index], arr[largest] = arr[largest], arr[index]
+        max_heapify(arr, length, largest)
+
+def heap_sort(arr):
+    length = len(arr)
+    last = math.floor(length / 2)
+    # Tại đây, chỉ duyệt từ phần tử n/2 đổ về, vì phần tử từ n/2 + 1,..., n đều là leaves. Các leaves đã được thỏa mãn tính chất max-heap
+    for i in range(last - 1, -1, -1):
+        max_heapify(arr, length, i)
+    for i in range(length - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]
+        max_heapify(arr, i, 0)
+
+heap_sort(ini_arr)
+print(ini_arr)
+</code></pre>
+<p>Output</p>
+<pre><code class="language-python">[1, 2, 2, 5, 8, 12, 26, 32, 45, 55, 77]
+</code></pre>
+<h3><a class="header" href="#7-sắp-xếp-nhanh-quick-sort" id="7-sắp-xếp-nhanh-quick-sort">7. Sắp xếp nhanh (quick sort)</a></h3>
+<p>Thuật toán sắp xếp nhanh được phát triển bởi một nhà khoa học máy tính người Anh Tony Hoare vào năm 1959, sử dụng nguyên lý chia và trị để sắp xếp 1 mảng.</p>
+<p><strong>Thuật toán:</strong></p>
+<ul>
+<li><strong>Chia mảng:</strong> 
+<ul>
+<li>Chọn một phần tử bất kỳ (gọi là pivot), \(A[m]\).
+Nếu ta chọn được 1 pivot tốt thì thuật toán của ta sẽ chạy rất nhanh. Tuy nhiên, sẽ rất khó để biết được phần tử nào được coi là 1 pivot tốt. Có một vài cách chọn pivot phổ biến sau:
+<ul>
+<li>Chọn pivot ngẫu nhiên.</li>
+<li>Chọn phần tử trái nhất hoặc phải nhất.</li>
+<li>Lấy 3 phần tử: đầu tiên, ở giữa, cuối cùng của mảng và chọn ra phần tử trung vị từ chúng.</li>
+</ul>
+</li>
+<li>Chia mảng của ta ra làm 2 phần con: \(A[l:m-1]\) gồm các phần tử nhỏ hơn \(A[m]\), và \(A[m+1:r]\) chứa các phần tử lớn hơn \(A[m]\).
+Hình ảnh dưới đây thể hiện trực quan hơn cách chia mảng, với pivot luôn lấy là phần tử cuối cùng</li>
+</ul>
+</li>
+</ul>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/sorting_algorithms_quick_2.PNG" />
+</div>
+<ul>
+<li><strong>Trị:</strong> sắp xếp một cách đệ quy 2 phần con trên bằng quick sort.</li>
+<li><strong>Kết hợp:</strong> không cần kết hợp các phần con được chia vì kết quả cuối cùng đã cho mảng sắp xếp theo thứ tự.</li>
+<li><strong>Thuật toán đệ quy hoàn chỉnh:</strong>
+<ul>
+<li>Chọn một pivot. Chia mảng ra làm 2 phần dựa trên pivot.</li>
+<li>Áp dụng quick sort trên phần nửa nhỏ hơn pivot.</li>
+<li>Áp dụng quick sort trên phần nửa lớn hơn pivot.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Phân tích thuật toán:</strong></p>
+<div style="text-align: center;">
+<p>\(T(n) = T(k) + T(n-k-1) + \Theta(n)\)</p>
+</div>
+<p>Với \(k\) là số phần tử nhỏ hơn pivot. Time complexity cho quá trình <strong>partition</strong> là \(\Theta(n)\).</p>
+<ul>
+<li><strong>Best case:</strong> xảy ra khi thuật toán chia nửa <strong>partition</strong> luôn chia được mảng của ta thành đúng 2 phần bằng hoặc gần bằng nhau.</li>
+</ul>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/sorting_algorithms_quick.PNG" />
+</div>
+<p>Như vậy, ở best case, time complexity sẽ là \(\Theta(nlogn)\).</p>
+<ul>
+<li><strong>Worst case:</strong> xảy ra khi <strong>partition</strong> luôn chọn phải số lớn nhất hoặc số nhỏ nhất làm pivot. Nếu như ta chọn pivot theo chiến thuật &quot;luôn chọn phần tử cuối của mảng&quot;, worst case sẽ xảy ra khi mà mảng đã được sắp xếp theo thứ tự giảm dần. Lúc này</li>
+</ul>
+<div style="text-align: center;">
+<p>\(T(n) = T(0) + T(n-1) + \Theta(n) = T(n-1) + \Theta(n)\)</p>
+</div>
+<p>Với base case là \(\Theta(1)\) thì worst case, time complexity sẽ là \(T(n) = \Theta(1) + \Theta(n) + \Theta(n) +...+ \Theta(n) = \Theta(n^2)\)</p>
+<p>Mặc dù worst case của quick sort chậm hơn nhiều so với các thuật toán sắp xếp khác, nhưng trong thực tế, vòng lặp trong <strong>partition</strong> có thể được triển khai một cách hiệu quả trên hầu như tất cả cấu trúc dữ liệu, bởi nó chứa khá ít các &quot;constant factors&quot; (các phép toán yêu cầu constant time \(\Theta(1)\)) hơn các thuật toán khác, và nếu 2 thuật toán nào có cùng time complexity là \(\Theta(nlogn)\), thuật toán nào có ít &quot;constant factors&quot; hơn thì chạy nhanh hơn. Hơn nữa, worst case của quick sort sẽ hiếm khi xảy ra. Tuy vậy, với lượng dữ liệu rất lớn và được lưu trữ ở bộ nhớ ngoài, merge sort sẽ được ưu ái hơn quick sort.</p>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">ini_arr = [1, 5, 2, 45, 2, 32, 12, 55, 26, 77, 8]
+
+def partition(arr, l, r):
+    pointer = l - 1
+    pivot = arr[r]
+    for j in range(l, r):
+        if arr[j] &lt; pivot:
+            pointer += 1
+            arr[pointer], arr[j] = arr[j], arr[pointer]
+    arr[pointer+1], arr[r] = arr[r], arr[pointer+1]
+    return pointer + 1
+
+def quick_sort(arr, l, r):
+    if l &lt; r:
+        pivot_index = partition(arr, l, r)
+        quick_sort(arr, l, pivot_index - 1)
+        quick_sort(arr, pivot_index+1, r)
+
+quick_sort(ini_arr, 0, len(ini_arr) - 1)
+print(ini_arr)
+</code></pre>
+<p>Output</p>
+<pre><code class="language-python">[1, 2, 2, 5, 8, 12, 26, 32, 45, 55, 77]
+</code></pre>
+<h3><a class="header" href="#8-sắp-xếp-đếm-counting-sort" id="8-sắp-xếp-đếm-counting-sort">8. Sắp xếp đếm (counting sort)</a></h3>
+<p>Một thuật toán khá thú vị mà mình học được, thậm chí nó chạy ở linear time, đó là counting sort. Thuật toán này hầu như chỉ được áp dụng với số nguyên, rất khó hoặc không thể áp dụng được với số thực.</p>
+<p><strong>Thuật toán:</strong></p>
+<ul>
+<li>Giả sử các phần tử của mảng gốc \(A[0, 1, 2,..., n-1]\) chứa các phần tử có giá trị trong khoảng \([0, k]\). Counting sort tạo ra một mảng tạm thời nữa để đếm là mảng \(B[0, 1, 2,..., k-1]\) gồm \(k\) phần tử. Phần tử thứ \(i\) của \(B\) sẽ chứa số phần tử \(A[j]\) thỏa mãn \(A[j] = i \) với \(j = 0, 1, 2,..., n-1\).</li>
+<li>Từ mảng \(B\) có được, ta làm phẳng thì sẽ được mảng \(C[0, 1, 2,..., n-1]\) chứa các phần tử sắp xếp theo thứ tự.
+Để trực quan hơn, mình có ví dụ sau</li>
+</ul>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/sorting_algorithms_counting.PNG" />
+</div>
+<p>Đối với trường hợp mảng \(A\) chứa các phần tử âm, ta thực hiện tìm phần tử nhỏ nhất của \(A\) và lưu trữ số phần tử đó của \(A\) tại chỉ số \(0\) của \(B\) (vì không thể tồn tại chỉ số âm trong mảng).</p>
+<p><strong>Phân tích thuật toán:</strong></p>
+<ul>
+<li>Tạo ra mảng \(B\) rỗng tốn \(\Theta(k)\) time.</li>
+<li>Tính các phần tử của mảng \(B\) dựa vào mảng \(A\) tốn \(\Theta(n)\) time.</li>
+<li>Làm phẳng \(B\) để lấy \(C\) tốn \(\Theta(n)\) time.</li>
+</ul>
+<p>Tổng time complexity sẽ là \(\Theta(n+k)\).
+Phần phân tích này sẽ được viết rõ trong comment của code.</p>
+<ul>
+<li><strong>Space complexity:</strong> \(\Theta(n+k)\)</li>
+</ul>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">ini_arr = [-10, -5, -20, -10, -1, -5, 5, 2, 45, 2, 32, 12, 55, 26, 77, 8]
+
+def counting_sort(A):
+    min_ele = int(min(A))
+    max_ele = int(max(A))
+    range_ele = max_ele - min_ele + 1
+    B = []
+    # Bước này tốn O(k) time
+    for i in range(range_ele):
+        B.append(0)
+    ###############################
+
+    # Bước này tốn O(n) time
+    for i in range(len(A)):
+        B[A[i] - min_ele] += 1
+    ###############################
+
+    C = []
+    # Ta có sum(B)= n = len(A) và append() tốn constant time O(1). Như vậy bước này tốn O(n)
+    for i in range(range_ele):
+        for j in range(B[i]):
+            C.append(i + min_ele)
+    ###############################
+
+    # ----&gt; Tổng sẽ tốn O(n+k)
+    return C
+
+print(counting_sort(ini_arr))
+</code></pre>
+<p>Output</p>
+<pre><code class="language-python">[-20, -10, -10, -5, -5, -1, 2, 2, 5, 8, 12, 26, 32, 45, 55, 77]
+</code></pre>
+<p><strong>Nhận xét counting sort:</strong> </p>
+<ul>
+<li>Như ta đã thấy ở trên, counting sort có time complexity và space complexity là \(\Theta(n+k)\), do đó, counting sort sẽ rất hiệu quả khi mà khoảng của dữ liệu đầu vào nhỏ, không quá lớn hơn nhiều so với \(n\) (hay \(k\) khá nhỏ).
+Ví dụ, nếu \(k\) lớn, khoảng \(k = \Theta(n^2)\), thì time complexity và space complexity sẽ là \(\Theta(n^2)\) rất tệ.</li>
+<li>Counting sort cũng có thể phù hợp với các bài toán mà các phần tử của mảng là một cấu trúc dữ liệu khác, nhưng cấu trúc dữ liệu đó phải có một \(key\) là số nguyên để đại diện cho từng object trong cấu trúc dữ liệu đó.</li>
+<li>Counting sort còn là chương trình con cho thuật toán mạnh mẽ hơn là Radix sort, thuật toán sắp xếp chạy ở linear time với giá trị \(k\) lớn hơn trong counting sort, là \(k = n^{\Theta(1)}\) (lũy thừa hằng của \(n\)). </li>
+<li>Như đã nói ở phần giới thiệu, việc bạn sắp bát theo thứ tự từ nhỏ đến lớn, tích lũy số bát theo từng kích thước thành các khối một. Đó chính là sử dụng counting sort. Như ví dụ dưới đây, các số bằng nhau được kết khối theo màu.</li>
+</ul>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/sorting_algorithms_counting_2.PNG" />
+</div>
+<br/>
+<br/>
+<br/>
+<h3><a class="header" href="#9-tài-liệu-tham-khảo" id="9-tài-liệu-tham-khảo">9. Tài liệu tham khảo</a></h3>
+<p><a href="https://www.interviewbit.com/tutorial/sorting-algorithms/#sorting-algorithms">https://www.interviewbit.com/tutorial/sorting-algorithms/#sorting-algorithms</a></p>
+<p><a href="https://brilliant.org/wiki/sorting-algorithms/">https://brilliant.org/wiki/sorting-algorithms/</a></p>
+<p><a href="https://www.geeksforgeeks.org/quick-sort/">https://www.geeksforgeeks.org/quick-sort/</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../blogs/peak_finding.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../blogs/peak_finding.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
