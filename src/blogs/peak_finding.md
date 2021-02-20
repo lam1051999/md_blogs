@@ -11,6 +11,26 @@
 <br/>
 
 Hôm nay mình sẽ nói về môt thuật toán cực kì cơ bản mà mình và hầu như các bạn bắt đầu học về lập trình thuật toán đều đã làm. Đó chính là thuật toán tìm đỉnh Peak Finding.
+
+### Các đề mục
+[1. Giới thiệu thuật toán](#1-giới-thiệu-thuật-toán)
+
+[2. Tìm peak trong mảng 1 chiều](#2-tìm-peak-trong-mảng-1-chiều)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1. Cách 1: Duyệt tuyến tính (linear traversing)](#21-cách-1-duyệt-tuyến-tính-linear-traversing)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.2. Cách 2: Duyệt nhị phân (binary search)](#22-cách-2-duyệt-nhị-phân-binary-search)
+
+[3. Tìm peak trong mảng 2 chiều](#3-tìm-peak-trong-mảng-2-chiều)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.1. Duyệt trực tiếp](#31-duyệt-trực-tiếp)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.2. Thuật toán Greedy Ascent](#32-thuật-toán-greedy-ascent)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.3. Thuật toán Jamming Binary Search](#33-thuật-toán-jamming-binary-search)
+
+[4. Tài liệu tham khảo](#4-tài-liệu-tham-khảo)
+
 ### 1. Giới thiệu thuật toán
 Trong một mảng, một số được gọi là một "peak" khi và chỉ khi các phần tử liền kề nó nhỏ hơn hoặc bằng phần tử được xét. Tưởng tượng rằng có một dãy núi như sau
 <div style="text-align:center;">

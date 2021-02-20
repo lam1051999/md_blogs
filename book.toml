@@ -3,7 +3,7 @@ authors = ["lam1051999"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Tran Lam - ML/DL/AI"
+title = "TrL"
 
 [output.html]
 additional-css = ["theme/css/additional.css",]
