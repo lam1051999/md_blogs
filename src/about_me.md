@@ -39,7 +39,7 @@
 
 Hello! I'm **Tran The Lam**. I'm 21 years old boy with many passions and goals. <br/>
 I'm studying Talented Program of Electronics and Telecommunication at Ha Noi University of Science and Technology. <br/>
-This blog exists for shared purposes only. The contents mainly focus on **Algorithms** and **Computer Vision**.
+This blog exists for sharing purposes only. The contents mainly focus on **Algorithms** and **Computer Vision**.
 
 <br/>
 <div style="text-align:center;">
