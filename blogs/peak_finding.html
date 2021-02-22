@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item expanded "><a href="../blogs/peak_finding.html" class="active">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item expanded "><a href="../blogs/peak_finding.html" class="active">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li><li class="chapter-item "><a href="../blogs/binarysearch_tree.html">Tìm kiếm cây nhị phân</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -185,12 +185,12 @@
 <h3><a class="header" href="#1-giới-thiệu-thuật-toán" id="1-giới-thiệu-thuật-toán">1. Giới thiệu thuật toán</a></h3>
 <p>Trong một mảng, một số được gọi là một &quot;peak&quot; khi và chỉ khi các phần tử liền kề nó nhỏ hơn hoặc bằng phần tử được xét. Tưởng tượng rằng có một dãy núi như sau</p>
 <div style="text-align:center;">
-<img style="width: 70%;" src="../images/peak_finding_peaks.PNG" />
+<img style="width: 70%;" src="../images/peak_finding/peaks.PNG" />
 </div>
 Các mũi tên đỏ ở trên trỏ đến các đỉnh (peak) của một dãy núi, vì các điểm đó cao hơn các điểm lân cận xung quanh nó (các điểm ở sườn núi).
 <p>Để trực quan hơn trong lập trình, ta lấy ví dụ với mảng sau:</p>
 <div style="text-align:center;">
-<img style="width: 70%;" src="../images/peak_finding_1Darr.PNG" />
+<img style="width: 70%;" src="../images/peak_finding/1Darr.PNG" />
 </div>
 <p>Xét mảng các kí hiệu như trên, phần tử ở vị trí thứ 3 được gọi là một peak khi và chỉ khi <strong>\(c \ge b\)</strong> và <strong>\(c \ge d\)</strong>. Phần tử thứ 9 được gọi là một peak khi và chỉ khi <strong>\(i \ge h\)</strong>.</p>
 <p>Chú ý rằng: </p>
@@ -214,7 +214,7 @@ Các mũi tên đỏ ở trên trỏ đến các đỉnh (peak) của một dãy
 </ul>
 <p>Để giải thích cho điều này, mình có một hình vẽ để cho trực quan hơn</p>
 <div style="text-align:center;">
-<img style="width: 70%;" src="../images/peak_finding_1Dexp.PNG" />
+<img style="width: 70%;" src="../images/peak_finding/1Dexp.PNG" />
 </div>
 <p>Mũi tên đỏ trỏ tới vị trí đang xét. Giả sử ta đang đứng trên một vị trí ở dãy núi, để ta có thể trèo lên đỉnh, ta sẽ luôn ngó sang bên mà ta thấy vị trí của nó cao hơn vị trí ta đang đứng, và đó cũng là thuật toán giải quyết cho bài toán này.</p>
 <p><strong>Phân tích thuật toán:</strong> Sử dụng chia để trị (divide and conquer), ta có biểu thức sau</p>
@@ -250,7 +250,7 @@ print(peak_finding(ini_arr))
 <h3><a class="header" href="#3-tìm-peak-trong-mảng-2-chiều" id="3-tìm-peak-trong-mảng-2-chiều">3. Tìm peak trong mảng 2 chiều</a></h3>
 <p>Ta hình dung mảng 2 chiều <strong>\(m \times n\)</strong> được biểu diễn dưới dạng ma trận m hàng và n cột</p>
 <div style="text-align:center;">
-<img style="width: 70%;" src="../images/peak_finding_2Dmat.PNG">
+<img style="width: 70%;" src="../images/peak_finding/2Dmat.PNG">
 </div>
 <p>Một phần tử được coi là một peak khi và chỉ khi nó lớn hơn hoặc bằng tất cả các phần tử liền kề theo chiều dọc và ngang.</p>
 <h4><a class="header" href="#31-duyệt-trực-tiếp" id="31-duyệt-trực-tiếp">3.1. Duyệt trực tiếp</a></h4>

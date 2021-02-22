@@ -1,0 +1,468 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Tìm kiếm cây nhị phân - TrL</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../theme/css/additional.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li><li class="chapter-item expanded "><a href="../blogs/binarysearch_tree.html" class="active">Tìm kiếm cây nhị phân</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">TrL</h1>
+
+                    <div class="right-buttons">
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#cây-tìm-kiếm-nhị-phân" id="cây-tìm-kiếm-nhị-phân">Cây tìm kiếm nhị phân</a></h1>
+<head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<div style="display: flex; align-items: center;">
+<img style="width: 50px; border-radius: 50%; border: 1px solid #b71c1c" src="../images/me.JPG" />
+<span style="margin-left: 15px; color: #b71c1c;font-family: 'Cinzel', serif;">Tran Lam</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;">Feb 22,2021</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;" >19 min read</span>
+</div>
+<br/>
+<p>Trong quá trình học lập trình, bạn sẽ bắt gặp rất nhiều loại cấu trúc dữ liệu như: mảng, danh sách liên kết, từ điển (dictionary),... Mỗi loại cấu trúc dữ liệu có ưu điểm và nhược điểm riêng. Hôm nay, mình sẽ nói về loại cấu trúc dữ liệu khá thú vị là cây tìm kiếm nhị phân, một cấu trúc dữ liệu rất thuận lợi cho bài toán tìm kiếm.</p>
+<h3><a class="header" href="#các-đề-mục" id="các-đề-mục">Các đề mục</a></h3>
+<p><a href="#1-%C4%90%E1%BA%B7t-v%E1%BA%A5n-%C4%91%E1%BB%81">1. Đặt vấn đề</a></p>
+<p>     <a href="#11-m%E1%BA%A3ngdanh-s%C3%A1ch-li%C3%AAn-k%E1%BA%BFt-ch%C6%B0a-s%E1%BA%AFp-x%E1%BA%BFp">1.1. Mảng/danh sách liên kết chưa sắp xếp</a></p>
+<p>     <a href="#12-m%E1%BA%A3ng-%C4%91%C3%A3-s%E1%BA%AFp-x%E1%BA%BFp">1.2. Mảng đã sắp xếp</a></p>
+<p>     <a href="#13-danh-s%C3%A1ch-li%C3%AAn-k%E1%BA%BFt-%C4%91%C6%B0%E1%BB%A3c-s%E1%BA%AFp-x%E1%BA%BFp">1.3. Danh sách liên kết được sắp xếp</a></p>
+<p>     <a href="#14-c%C3%A2y-heap">1.4. Cây heap</a></p>
+<p><a href="#2-c%C3%A2y-t%C3%ACm-ki%E1%BA%BFm-nh%E1%BB%8B-ph%C3%A2n">2. Cây tìm kiếm nhị phân</a></p>
+<p><a href="#3-c%C3%A1c-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-v%E1%BB%9Bi-c%C3%A2y-t%C3%ACm-ki%E1%BA%BFm-nh%E1%BB%8B-ph%C3%A2n">3. Các hoạt động với cây tìm kiếm nhị phân</a></p>
+<p>     <a href="#31-search---t%C3%ACm-ki%E1%BA%BFm-m%E1%BB%99t-gi%C3%A1-tr%E1%BB%8B-trong-c%C3%A2y">3.1. Search - Tìm kiếm một giá trị trong cây</a></p>
+<p>     <a href="32-insert---ch%C3%A8n-m%E1%BB%99t-node-v%C3%A0o-c%C3%A2y">3.2. Insert - Chèn một node vào cây</a></p>
+<p>     <a href="#33-delete---x%C3%B3a-m%E1%BB%99t-node-tr%C3%AAn-c%C3%A2y">3.3. Delete - Xóa một node trên cây</a></p>
+<p>     <a href="#34-traversal---duy%E1%BB%87t-c%C3%A2y-theo-th%E1%BB%A9-t%E1%BB%B1">3.4. Traversal - Duyệt cây theo thứ tự</a></p>
+<p>          <a href="#341-duy%E1%BB%87t-pre-order">3.4.1. Duyệt pre-order</a></p>
+<p>          <a href="#342-duy%E1%BB%87t-in-order">3.4.2. Duyệt in-order</a></p>
+<p>          <a href="#343-duy%E1%BB%87t-post-order">3.4.3. Duyệt post-order</a></p>
+<p><a href="#4-t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o">4. Tài liệu tham khảo</a></p>
+<h3><a class="header" href="#1-Đặt-vấn-đề" id="1-Đặt-vấn-đề">1. Đặt vấn đề</a></h3>
+<p>Những bài toán thực tế mà chúng ta hay các doanh nghiệp giải quyết thường được phân ra các vấn đề nhỏ và áp dụng các thuật toán, cũng như cấu trúc dữ liệu phù hợp để đưa ra được cách làm, sao cho hiệu quả và đỡ tốn chi phí nhất. Vấn đề sau, mình xin lấy ví dụ tham khảo từ khóa học 6.006 của MIT, các bạn có thể truy cập <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-5-binary-search-trees-bst-sort/">tại đây</a>.</p>
+<p>Giả sử hãng hàng không nọ có chương trình quản lý cho đường bay. Mỗi chuyến bay khi đến sân thì phải yêu cầu một lịch hạ cánh vào một thời điểm nhất định. Để không xảy ra xung đột nào, các thời điểm hạ cánh phải cách nhau ít nhất (k) phút ((1)). Danh sách thời điểm hạ cánh là (R) gồm (n) phần tử. Làm sao thêm một thời điểm hạ cánh (t) để thỏa mãn ràng buộc ((1)) ở trên.
+Mình có hình ảnh cho bài toán thêm trực quan</p>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/binarysearch_tree/example.PNG" />
+</div>
+<p>Với số phần tử là (n), ta mong muốn thực hiện phép tìm vị trí thích hợp và chèn thời điểm bay mới trong thời gian hiệu quả, như (O(logn)).
+Và sau đây sẽ là các mục đánh giá bài toán với một số cấu trúc dữ liệu cụ thể.</p>
+<h4><a class="header" href="#11-mảngdanh-sách-liên-kết-chưa-sắp-xếp" id="11-mảngdanh-sách-liên-kết-chưa-sắp-xếp">1.1. Mảng/danh sách liên kết chưa sắp xếp</a></h4>
+<p>Quy trình chèn phần tử vào mảng chưa sắp xếp, mà không quan tâm đến điều kiện ràng buộc ((1)), sẽ tốn (O(1)).
+Quy trình chèn phần tử vào mảng chưa sắp xếp, mà quan tâm đến điều kiện ràng buộc ((1)), sẽ tốn (O(n)).</p>
+<p>Time complexity: (O(n)).</p>
+<h4><a class="header" href="#12-mảng-đã-sắp-xếp" id="12-mảng-đã-sắp-xếp">1.2. Mảng đã sắp xếp</a></h4>
+<ul>
+<li>Tìm vị trí phù hợp tốn (O(logn)) (sử dụng tìm kiếm nhị phân, nhìn vào phần tử trung vị và quyết định đi sang trái hay phải).</li>
+<li>So sánh với phần tử ở 2 bên của vị trí tốn (O(1)).</li>
+<li>Chèn phần tử vào vị trí thích hợp đó tốn (O(n)) (khi mà bạn có thể sẽ phải dịch phần lớn các phần tử lên 1 vị trí với trường hợp chèn phần tử vào đầu mảng).</li>
+</ul>
+<p>Time complexity: (O(n)).</p>
+<h4><a class="header" href="#13-danh-sách-liên-kết-được-sắp-xếp" id="13-danh-sách-liên-kết-được-sắp-xếp">1.3. Danh sách liên kết được sắp xếp</a></h4>
+<p>Việc chèn phần tử vào 1 linked list sẽ mất (O(1)). Nhưng việc tìm vị trí được chèn sẽ mất (O(n)) khi mà ta phải duyệt lần lượt từ head xuống vị trí đó.</p>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/binarysearch_tree/linked_list.PNG" />
+</div>
+<h4><a class="header" href="#14-cây-heap" id="14-cây-heap">1.4. Cây heap</a></h4>
+<p>Với việc chèn vào cây min-heap hoặc max-heap</p>
+<ul>
+<li>Việc tìm vị trí chèn sẽ mất (O(n)) khi mà ta có thể phải duyệt tất cả phần tử.</li>
+<li>Việc chèn vào cây min/max heap là không ổn định, vì có thể sau khi chèn vào vị trí nào đó, ta phá vỡ tính chất của cây min/max heap và phải chạy <strong>min/max-heapify</strong> (ở bài viết <a href="https://lam1051999.github.io/md_blogs/blogs/sorting_algorithms.html">các thuật toán sắp xếp cơ bản</a>, mình cũng đã nói về <strong>max-heapify</strong>) để lấy lại được thuộc tính phù hợp. Việc chạy lại <strong>min/max-heapify</strong> sẽ không thể đảm bảo được điều kiện ràng buộc ((1)).</li>
+</ul>
+<p><em>Chúng ta cần một cấu trúc dữ liệu tốt hơn để có thể thực hiện tìm vị trí thích hợp và chèn trong (O(logn)).</em></p>
+<h3><a class="header" href="#2-cây-tìm-kiếm-nhị-phân" id="2-cây-tìm-kiếm-nhị-phân">2. Cây tìm kiếm nhị phân</a></h3>
+<p>Cây tìm kiếm nhị phân là cấu trúc dữ liệu thỏa mãn</p>
+<ul>
+<li>Mỗi node chỉ có tối đa 2 node con.</li>
+<li>Giá trị node con trái nhỏ hơn node cha.</li>
+<li>Giá trị node con phải lớn hơn node cha.</li>
+<li>Cây con trái và cây con phải cũng là một cây tìm kiếm nhị phân.</li>
+</ul>
+<p>Mỗi node của cây gồm</p>
+<ul>
+<li>Giá trị của node.</li>
+<li>Con trỏ trỏ tới node con trái.</li>
+<li>Con trỏ trỏ tới node con phải. </li>
+</ul>
+<pre><code class="language-python">class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+</code></pre>
+<p>Các loại cây nhị phân:</p>
+<ul>
+<li><strong>Full binary tree:</strong> mỗi node của cây có 0 hoặc 2 node con.</li>
+<li><strong>Complete binary tree:</strong> các tầng đều chứa đầy node ngoại trừ tầng cuối, và các node tầng cuối phải được điền đầy từ trái sang phải.</li>
+<li><strong>Degenerate binary tree:</strong> cây mà tất cả các node cha đều chỉ có 1 node con.</li>
+<li><strong>Perfect binary tree:</strong> internal node nào cũng có 2 node con và các leaf ở cũng một mức.</li>
+<li><strong>Balanced binary tree:</strong> chiều cao của cây con trái và cây con phải chênh lệch nhau nhiều nhất là 1.</li>
+</ul>
+<p>Dưới đây là hình ảnh minh họa</p>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/binarysearch_tree/types.PNG" />
+</div>
+<h3><a class="header" href="#3-các-hoạt-động-với-cây-tìm-kiếm-nhị-phân" id="3-các-hoạt-động-với-cây-tìm-kiếm-nhị-phân">3. Các hoạt động với cây tìm kiếm nhị phân</a></h3>
+<p>Xét cây có (n) node, chiều cao là (h).</p>
+<h4><a class="header" href="#31-search---tìm-kiếm-một-giá-trị-trong-cây" id="31-search---tìm-kiếm-một-giá-trị-trong-cây">3.1. Search - Tìm kiếm một giá trị trong cây</a></h4>
+<p>Tìm kiếm một khóa trên cây, ta thực hiện bằng phương pháp đệ quy. Bắt đầu từ gốc, ta so sánh giá trị của node gốc với khóa. Nếu giá trị node gốc nhỏ hơn khóa, ta phải tìm nó trên cây con trái, nếu giá trị node gốc lớn hơn khóa, ta tìm khóa đó trên cây con phải. Ta thực hiện điều này với tất cả node ta đi tới. Nếu giá trị node bằng khóa, ta trả về node đó. Nếu giá trị node là rỗng, ta kết luận không tìm thấy khóa trên cây.</p>
+<div style="text-align:center;">
+<img style="width: 70%;" src="../images/binarysearch_tree/search.JPG" />
+</div>
+<p>Ví dụ tìm khóa (40). Ta so sánh (40 &lt; 50), đi xuống cây con trái để xét. Ta so sánh (40 &gt; 30), đi xuống cây con phải để xét. Cuối cùng, ta tìm được node có giá trị là 40.</p>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">def search(root, key):
+    if root is None:
+        print(&quot;Cannot find the key &quot; + key +  &quot; in bst&quot;)
+        return None
+    # tiếp tục duyệt
+    if root.val &lt; key:
+        return search(root.right, key)
+    elif root.val &gt; key:
+        return search(root.left, key)
+    else:
+        return root
+</code></pre>
+<p><strong>Phân tích thuật toán</strong>: tìm kiếm khóa trong cây tốn (O(h)).</p>
+<ul>
+<li><strong>Average case:</strong> chiều cao cây (h = \Theta(logn)), nên time complexity sẽ là (O(logn)).</li>
+<li><strong>Worst case:</strong> khi cây là một degenerate binary tree, chiều cao cây (h = n) nên time complexity là (O(n)).</li>
+</ul>
+<h4><a class="header" href="#32-insert---chèn-một-node-vào-cây" id="32-insert---chèn-một-node-vào-cây">3.2. Insert - Chèn một node vào cây</a></h4>
+<p>Quá trình chèn một node có giá trị nhất định cây diễn ra cũng có quy trình đi khá giống với search. Ta duyệt như vậy cho đến khi gặp node rỗng thì ta chèn node cần chèn vào vị trí đó. Trong quá trình duyệt, ta tìm thấy node nào đó có giá trị bằng khóa, ta trả về node đó.</p>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/binarysearch_tree/insert.PNG" />
+</div>
+<p>Ví dụ chèn khóa (4). So sánh (4 &lt; 6), thực hiện đi xuống cây con trái, so sánh (4 &gt; 3), thực hiện đi xuống cây con phải. Thấy vị trí cây con phải rỗng, ta chèn node khóa (4) tại vị trí đó.</p>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">def insert(root, key):
+    # đã tới leaf
+    if root is None:
+        return Node(key)
+    # tiếp tục duyệt. Nếu bất ngờ gặp node có giá trị bằng khóa, trả về node đó. 
+    else:
+        if root.val == key:
+            return root
+        elif root.val &lt; key:
+            root.right = insert(root.right, key)
+        else:
+            root.left = insert(root.left, key)
+            
+    return root
+</code></pre>
+<h4><a class="header" href="#33-delete---xóa-một-node-trên-cây" id="33-delete---xóa-một-node-trên-cây">3.3. Delete - Xóa một node trên cây</a></h4>
+<p>Quá trình xóa một node trên cây tìm kiếm nhị phân xảy ra trong 3 trường hợp</p>
+<ul>
+<li>Node cần xóa không có node con. </li>
+<li>Node cần xóa có 1 node con.</li>
+<li>Node cần xóa có cả 2 node con.</li>
+</ul>
+<p><strong>Trường hợp 1:</strong> Node cần xóa không có node con</p>
+<div style="text-align:center;">
+<img style="width: 70%;" src="../images/binarysearch_tree/delete.JPG" />
+</div>
+<p>Ví dụ với việc xóa node có khóa (40) ở cây trên, ta chỉ việc giải phóng nó khỏi cây.</p>
+<p><strong>Trường hợp 2:</strong> Node cần xóa có 1 node con</p>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/binarysearch_tree/delete_2.JPG" />
+</div>
+<p>Ví dụ với việc xóa node có khóa (90) ở cây trên, ta chỉ cần thay thế node đó với node con duy nhất của nó.</p>
+<p><strong>Trường hợp 3:</strong> Node cần xóa có 2 node con, ta thay thế nó bằng node có khóa lớn nhất ở cây con trái của nó (node cực phải của cây con trái), hoặc node có khóa nhỏ nhất ở cây con phải của nó (node cực trái của cây con phải).</p>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/binarysearch_tree/delete_3.JPG" />
+</div>
+<p>Ví dụ với việc xóa node có khóa (30) ở cây trên, ta tìm node có khóa nhỏ nhất ở cây con phải của nó, là (35), và thay thế node có khóa (35) vào vị trí node có khóa (30). Sau đó, ta nhận ra rằng, node có khóa (35) ở vị trí cũ là node có 1 node con. Nên ta cũng áp dụng quy trình xóa node như <strong>Trường hợp 2</strong> cho vị trí đó.</p>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python"># tìm node trái nhất tại cây con phải
+def find_min(root):
+    current = root
+    # đi đến node trái nhất của cây con phải
+    while current.left is not None:
+        current = current.left
+    return current
+
+def delete(root, key):
+    if root is None:
+        return root
+    # tiếp tục duyệt cho đến khi tìm thấy node có giá trị là khóa
+    if root.val &lt; key:
+        root.right = delete(root.right, key)
+    elif root.val &gt; key:
+        root.left = delete(root.left, key)
+    else:
+        # trường hợp 1
+        if root.left is None and root.right is None:
+            root = None
+            return root
+        # trường hợp 2
+        elif root.left is None:
+            root.val = root.right.val
+            root.right = None
+            return root
+        elif root.right is None:
+            root.val = root.left.val
+            root.left = None
+            return root
+        # trường hợp 3
+        else:
+            temp = find_min(root.right)
+            root.val = temp.val
+            root.right = delete(root.right, temp.val)
+            return root
+
+    return root
+</code></pre>
+<h4><a class="header" href="#34-traversal---duyệt-cây-theo-thứ-tự" id="34-traversal---duyệt-cây-theo-thứ-tự">3.4. Traversal - Duyệt cây theo thứ tự</a></h4>
+<p>Việc duyệt và in ra các giá trị của các node trong cây có 3 cách duyệt: pre-order, in-order, post-order</p>
+<p>Xét cây sau ((2))</p>
+<div style="text-align:center;">
+<img style="width: 70%;" src="../images/binarysearch_tree/order.PNG" />
+</div>
+<h5><a class="header" href="#341-duyệt-pre-order" id="341-duyệt-pre-order">3.4.1. Duyệt pre-order</a></h5>
+<p>Ta duyệt node cha trước, đến node con trái và sau đó đến node con phải.</p>
+<p>Ví dụ với cây ((2)), duyệt pre-order, kết quả là (6, 3, 1, 10, 9, 12).</p>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">def preorder(root):
+    if root:
+        print(root.val)
+        preorder(root.left)
+        preorder(root.right)
+</code></pre>
+<h5><a class="header" href="#342-duyệt-in-order" id="342-duyệt-in-order">3.4.2. Duyệt in-order</a></h5>
+<p>Ta duyệt node con trái trước, đến node cha và sau đó đến node con phải.</p>
+<p>Ví dụ với cây ((2)), duyệt pre-order, kết quả là (1, 3, 6, 9, 10, 12).</p>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.val)
+        inorder(root.right)
+</code></pre>
+<h5><a class="header" href="#343-duyệt-post-order" id="343-duyệt-post-order">3.4.3. Duyệt post-order</a></h5>
+<p>Ta duyệt node con trái trước, đến node con phải và sau đó đến node cha.</p>
+<p>Ví dụ với cây ((2)), duyệt pre-order, kết quả là (1, 3, 9, 12, 10, 6).</p>
+<p><strong>Code Python</strong></p>
+<pre><code class="language-python">def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.val)
+</code></pre>
+<br/>
+<br/>
+<br/>
+<h3><a class="header" href="#4-tài-liệu-tham-khảo" id="4-tài-liệu-tham-khảo">4. Tài liệu tham khảo</a></h3>
+<p><a href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/">https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/</a></p>
+<p><a href="https://vi.wikipedia.org/wiki/C%C3%A2y_t%C3%ACm_ki%E1%BA%BFm_nh%E1%BB%8B_ph%C3%A2n">https://vi.wikipedia.org/wiki/C%C3%A2y_t%C3%ACm_ki%E1%BA%BFm_nh%E1%BB%8B_ph%C3%A2n</a></p>
+<p><a href="https://codelearn.io/sharing/5-phut-thong-thao-binary-search-tree">https://codelearn.io/sharing/5-phut-thong-thao-binary-search-tree</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../blogs/sorting_algorithms.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../blogs/sorting_algorithms.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

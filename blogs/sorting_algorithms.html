@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item expanded "><a href="../blogs/sorting_algorithms.html" class="active">Các thuật toán sắp xếp cơ bản</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item expanded "><a href="../blogs/sorting_algorithms.html" class="active">Các thuật toán sắp xếp cơ bản</a></li><li class="chapter-item "><a href="../blogs/binarysearch_tree.html">Tìm kiếm cây nhị phân</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -211,7 +211,7 @@
 Để trực quan hơn, mình đem ra hình ảnh mô tả sau</li>
 </ul>
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_bubble.GIF" />
+<img style="width: 80%;" src="../images/sorting_algorithms/bubble.GIF" />
 </div>
 <p><strong>Phân tích thuật toán:</strong></p>
 <ul>
@@ -247,7 +247,7 @@ print(ini_arr)
 Với \(i = 1, 2,..., n - 1\), ta sẽ chèn \(arr[i]\) vào trong mảng đã sắp xếp \(arr[0:i-1]\) bằng việc thực hiện dịch lần lượt các phần tử lớn hơn \(arr[i]\) của mảng \(arr[0:i-1]\) lên và đặt \(arr[i]\) vào đúng vị trí thích hợp.
 Để trực quan hơn, mình đem ra hình ảnh mô tả sau</p>
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_insertion.GIF" />
+<img style="width: 80%;" src="../images/sorting_algorithms/insertion.GIF" />
 </div>
 <p><strong>Phân tích thuật toán:</strong></p>
 <ul>
@@ -286,7 +286,7 @@ Ta sẽ lần lượt tìm phần tử nhỏ nhất của \(arr{_2}\), tách ra 
 </ul>
 <p>Mình có hình ảnh để thuật toán thêm trực quan hơn</p>
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_selection.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/selection.PNG" />
 </div>
 <p><strong>Phân tích thuật toán:</strong></p>
 <ul>
@@ -321,17 +321,17 @@ print(ini_arr)
 <li>Lần lượt chia mảng gốc thành 2 mảng con, 2 mảng con thành 4 mảng con nữa,... đến khi ta được \(n\) mảng con, mỗi mảng con chứa 1 phần tử.</li>
 </ul>
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_merge_1.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/merge_1.PNG" />
 </div>
 <ul>
 <li>Trộn các mảng con để tạo ra mảng lớn hơn được sắp xếp theo thứ tự cho đến khi ta nhận được 1 mảng duy nhất. Đó chính là mảng đã được sắp xếp từ mảng gốc.</li>
 </ul>
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_merge_2.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/merge_2.PNG" />
 </div>
 <p>Tổng kết lại thuật toán trong 1 hình ảnh</p>
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_merge.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/merge.PNG" />
 </div>
 <p><strong>Phân tích thuật toán:</strong></p>
 <ul>
@@ -345,7 +345,7 @@ Như vậy, ta có biểu thức sau</li>
 </div>
 <p>Với base case ở đây là \(T(1) = \Theta(1)\).</p>
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_merge_3.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/merge_3.PNG" />
 </div>
 <p>Với mỗi mức thuật toán thực hiện \(\Theta(n)\) công việc, có \(1+logn\) mức. Do đó, \(T(n) = \Theta(n + nlogn) = \Theta(nlogn)\). Thuật toán sẽ có time complexity là \(\Theta(nlogn)\).</p>
 <ul>
@@ -402,7 +402,7 @@ print(ini_arr)
 <p><strong>Cấu trúc dữ liệu binary heap:</strong>
 Một mảng dữ liệu có thể được biểu diễn dưới dạng cây nhị phân như sau</p>
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_heap.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/heap.PNG" />
 </div>
 <p>Với mỗi node bất kỳ với chỉ số tương ứng là \(i\) trong cây nhị phân ở trên</p>
 <ul>
@@ -419,7 +419,7 @@ Một mảng dữ liệu có thể được biểu diễn dưới dạng cây nh
 <p><strong>Tạo max-heap:</strong> gọi là <strong>max_heapify</strong>
 Mình sẽ đưa ra ví dụ đơn giản với mảng 3 phần tử để thêm trực quan, còn với mảng n phần tử sẽ cần làm theo một cách tổng quát hơn</p>
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_heap_2.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/heap_2.PNG" />
 </div>
 <p>Code python cho <strong>max_heapify</strong> tại một node có chỉ số \(i = index\), \(length\) là chiều dài của mảng, thêm vào để làm điều kiện ràng buộc cho chỉ số các node con. Thuật toán ở dưới nói rằng, nếu node ở chỉ số \(i = index\) chưa đúng với quy luật max-heap, ta sẽ <strong>max_heapify</strong> lại cây với root là node đó, đồng thời <strong>max_heapify</strong> lại các cây với root là các node con trái và phải của node đó.</p>
 <pre><code class="language-python">def max_heapify(arr, length, index):
@@ -496,7 +496,7 @@ Hình ảnh dưới đây thể hiện trực quan hơn cách chia mảng, với
 </li>
 </ul>
 <div style="text-align:center;">
-<img style="width: 100%;" src="../images/sorting_algorithms_quick_2.PNG" />
+<img style="width: 100%;" src="../images/sorting_algorithms/quick_2.PNG" />
 </div>
 <ul>
 <li><strong>Trị:</strong> sắp xếp một cách đệ quy 2 phần con trên bằng quick sort.</li>
@@ -518,7 +518,7 @@ Hình ảnh dưới đây thể hiện trực quan hơn cách chia mảng, với
 <li><strong>Best case:</strong> xảy ra khi thuật toán chia nửa <strong>partition</strong> luôn chia được mảng của ta thành đúng 2 phần bằng hoặc gần bằng nhau.</li>
 </ul>
 <div style="text-align:center;">
-<img style="width: 100%;" src="../images/sorting_algorithms_quick.PNG" />
+<img style="width: 100%;" src="../images/sorting_algorithms/quick.PNG" />
 </div>
 <p>Như vậy, ở best case, time complexity sẽ là \(\Theta(nlogn)\).</p>
 <ul>
@@ -563,7 +563,7 @@ print(ini_arr)
 Để trực quan hơn, mình có ví dụ sau</li>
 </ul>
 <div style="text-align:center;">
-<img style="width: 100%;" src="../images/sorting_algorithms_counting.PNG" />
+<img style="width: 100%;" src="../images/sorting_algorithms/counting.PNG" />
 </div>
 <p>Đối với trường hợp mảng \(A\) chứa các phần tử âm, ta thực hiện tìm phần tử nhỏ nhất của \(A\) và lưu trữ số phần tử đó của \(A\) tại chỉ số \(0\) của \(B\) (vì không thể tồn tại chỉ số âm trong mảng).</p>
 <p><strong>Phân tích thuật toán:</strong></p>
@@ -619,7 +619,7 @@ Ví dụ, nếu \(k\) lớn, khoảng \(k = \Theta(n^2)\), thì time complexity 
 <li>Như đã nói ở phần giới thiệu, việc bạn sắp bát theo thứ tự từ nhỏ đến lớn, tích lũy số bát theo từng kích thước thành các khối một. Đó chính là sử dụng counting sort. Như ví dụ dưới đây, các số bằng nhau được kết khối theo màu.</li>
 </ul>
 <div style="text-align:center;">
-<img style="width: 100%;" src="../images/sorting_algorithms_counting_2.PNG" />
+<img style="width: 100%;" src="../images/sorting_algorithms/counting_2.PNG" />
 </div>
 <br/>
 <br/>
@@ -640,6 +640,10 @@ Ví dụ, nếu \(k\) lớn, khoảng \(k = \Theta(n^2)\), thì time complexity 
                         
 
                         
+                            <a rel="next" href="../blogs/binarysearch_tree.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -653,6 +657,10 @@ Ví dụ, nếu \(k\) lớn, khoảng \(k = \Theta(n^2)\), thì time complexity 
                     </a>
                 
 
+                
+                    <a rel="next" href="../blogs/binarysearch_tree.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 
