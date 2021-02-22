@@ -62,7 +62,7 @@ Sắp xếp nổi bọt là loại sắp xếp đơn giản và kém hiệu qu�
 Để trực quan hơn, mình đem ra hình ảnh mô tả sau
 
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_bubble.GIF" />
+<img style="width: 80%;" src="../images/sorting_algorithms/bubble.GIF" />
 </div>
 
 **Phân tích thuật toán:**
@@ -103,7 +103,7 @@ Với \\(i = 1, 2,..., n - 1\\), ta sẽ chèn \\(arr[i]\\) vào trong mảng đ
 Để trực quan hơn, mình đem ra hình ảnh mô tả sau
 
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_insertion.GIF" />
+<img style="width: 80%;" src="../images/sorting_algorithms/insertion.GIF" />
 </div>
 
 **Phân tích thuật toán:**
@@ -146,7 +146,7 @@ Ta sẽ lần lượt tìm phần tử nhỏ nhất của \\(arr{_2}\\), tách r
 Mình có hình ảnh để thuật toán thêm trực quan hơn
 
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_selection.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/selection.PNG" />
 </div>
 
 **Phân tích thuật toán:**
@@ -184,19 +184,19 @@ Sắp xếp trộn là một trong những thuật toán hiệu quả nhất. Th
 * Lần lượt chia mảng gốc thành 2 mảng con, 2 mảng con thành 4 mảng con nữa,... đến khi ta được \\(n\\) mảng con, mỗi mảng con chứa 1 phần tử.
 
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_merge_1.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/merge_1.PNG" />
 </div>
 
 * Trộn các mảng con để tạo ra mảng lớn hơn được sắp xếp theo thứ tự cho đến khi ta nhận được 1 mảng duy nhất. Đó chính là mảng đã được sắp xếp từ mảng gốc.
 
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_merge_2.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/merge_2.PNG" />
 </div>
 
 Tổng kết lại thuật toán trong 1 hình ảnh
 
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_merge.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/merge.PNG" />
 </div>
 
 **Phân tích thuật toán:**
@@ -213,7 +213,7 @@ Như vậy, ta có biểu thức sau
 Với base case ở đây là \\(T(1) = \Theta(1)\\).
 
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_merge_3.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/merge_3.PNG" />
 </div>
 
 Với mỗi mức thuật toán thực hiện \\(\Theta(n)\\) công việc, có \\(1+logn\\) mức. Do đó, \\(T(n) = \Theta(n + nlogn) = \Theta(nlogn)\\). Thuật toán sẽ có time complexity là \\(\Theta(nlogn)\\).
@@ -275,7 +275,7 @@ Sắp xếp vun đống lấy dựa trên cấu trúc dữ liệu binary heap.
 Một mảng dữ liệu có thể được biểu diễn dưới dạng cây nhị phân như sau
 
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_heap.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/heap.PNG" />
 </div>
 
 Với mỗi node bất kỳ với chỉ số tương ứng là \\(i\\) trong cây nhị phân ở trên
@@ -293,7 +293,7 @@ Từ đó, thuật toán sắp xếp này áp dụng max-heap hoặc min-heap (t
 Mình sẽ đưa ra ví dụ đơn giản với mảng 3 phần tử để thêm trực quan, còn với mảng n phần tử sẽ cần làm theo một cách tổng quát hơn
 
 <div style="text-align:center;">
-<img style="width: 80%;" src="../images/sorting_algorithms_heap_2.PNG" />
+<img style="width: 80%;" src="../images/sorting_algorithms/heap_2.PNG" />
 </div>
 
 Code python cho **max_heapify** tại một node có chỉ số \\(i = index\\), \\(length\\) là chiều dài của mảng, thêm vào để làm điều kiện ràng buộc cho chỉ số các node con. Thuật toán ở dưới nói rằng, nếu node ở chỉ số \\(i = index\\) chưa đúng với quy luật max-heap, ta sẽ **max_heapify** lại cây với root là node đó, đồng thời **max_heapify** lại các cây với root là các node con trái và phải của node đó.
@@ -370,7 +370,7 @@ Thuật toán sắp xếp nhanh được phát triển bởi một nhà khoa h�
     Hình ảnh dưới đây thể hiện trực quan hơn cách chia mảng, với pivot luôn lấy là phần tử cuối cùng
 
 <div style="text-align:center;">
-<img style="width: 100%;" src="../images/sorting_algorithms_quick_2.PNG" />
+<img style="width: 100%;" src="../images/sorting_algorithms/quick_2.PNG" />
 </div>
 
 * **Trị:** sắp xếp một cách đệ quy 2 phần con trên bằng quick sort.
@@ -392,7 +392,7 @@ Với \\(k\\) là số phần tử nhỏ hơn pivot. Time complexity cho quá tr
 * **Best case:** xảy ra khi thuật toán chia nửa **partition** luôn chia được mảng của ta thành đúng 2 phần bằng hoặc gần bằng nhau.
 
 <div style="text-align:center;">
-<img style="width: 100%;" src="../images/sorting_algorithms_quick.PNG" />
+<img style="width: 100%;" src="../images/sorting_algorithms/quick.PNG" />
 </div>
 
 Như vậy, ở best case, time complexity sẽ là \\(\Theta(nlogn)\\).
@@ -444,7 +444,7 @@ Một thuật toán khá thú vị mà mình học được, thậm chí nó ch�
 Để trực quan hơn, mình có ví dụ sau
 
 <div style="text-align:center;">
-<img style="width: 100%;" src="../images/sorting_algorithms_counting.PNG" />
+<img style="width: 100%;" src="../images/sorting_algorithms/counting.PNG" />
 </div>
 
 Đối với trường hợp mảng \\(A\\) chứa các phần tử âm, ta thực hiện tìm phần tử nhỏ nhất của \\(A\\) và lưu trữ số phần tử đó của \\(A\\) tại chỉ số \\(0\\) của \\(B\\) (vì không thể tồn tại chỉ số âm trong mảng).
@@ -502,7 +502,7 @@ Ví dụ, nếu \\(k\\) lớn, khoảng \\(k = \Theta(n^2)\\), thì time complex
 * Như đã nói ở phần giới thiệu, việc bạn sắp bát theo thứ tự từ nhỏ đến lớn, tích lũy số bát theo từng kích thước thành các khối một. Đó chính là sử dụng counting sort. Như ví dụ dưới đây, các số bằng nhau được kết khối theo màu.
 
 <div style="text-align:center;">
-<img style="width: 100%;" src="../images/sorting_algorithms_counting_2.PNG" />
+<img style="width: 100%;" src="../images/sorting_algorithms/counting_2.PNG" />
 </div>
 
 <br/>

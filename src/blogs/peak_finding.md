@@ -34,13 +34,13 @@ Hôm nay mình sẽ nói về môt thuật toán cực kì cơ bản mà mình v
 ### 1. Giới thiệu thuật toán
 Trong một mảng, một số được gọi là một "peak" khi và chỉ khi các phần tử liền kề nó nhỏ hơn hoặc bằng phần tử được xét. Tưởng tượng rằng có một dãy núi như sau
 <div style="text-align:center;">
-<img style="width: 70%;" src="../images/peak_finding_peaks.PNG" />
+<img style="width: 70%;" src="../images/peak_finding/peaks.PNG" />
 </div>
 Các mũi tên đỏ ở trên trỏ đến các đỉnh (peak) của một dãy núi, vì các điểm đó cao hơn các điểm lân cận xung quanh nó (các điểm ở sườn núi).
 
 Để trực quan hơn trong lập trình, ta lấy ví dụ với mảng sau:
 <div style="text-align:center;">
-<img style="width: 70%;" src="../images/peak_finding_1Darr.PNG" />
+<img style="width: 70%;" src="../images/peak_finding/1Darr.PNG" />
 </div>
 
 Xét mảng các kí hiệu như trên, phần tử ở vị trí thứ 3 được gọi là một peak khi và chỉ khi **\\(c \ge b\\)** và **\\(c \ge d\\)**. Phần tử thứ 9 được gọi là một peak khi và chỉ khi **\\(i \ge h\\)**.
@@ -68,7 +68,7 @@ Giả sử ta có một mảng 1 chiều gồm **\\(n\\)** phần tử, tìm m�
 
 Để giải thích cho điều này, mình có một hình vẽ để cho trực quan hơn
 <div style="text-align:center;">
-<img style="width: 70%;" src="../images/peak_finding_1Dexp.PNG" />
+<img style="width: 70%;" src="../images/peak_finding/1Dexp.PNG" />
 </div>
 
 Mũi tên đỏ trỏ tới vị trí đang xét. Giả sử ta đang đứng trên một vị trí ở dãy núi, để ta có thể trèo lên đỉnh, ta sẽ luôn ngó sang bên mà ta thấy vị trí của nó cao hơn vị trí ta đang đứng, và đó cũng là thuật toán giải quyết cho bài toán này.
@@ -113,7 +113,7 @@ Output
 ### 3. Tìm peak trong mảng 2 chiều
 Ta hình dung mảng 2 chiều **\\(m \times n\\)** được biểu diễn dưới dạng ma trận m hàng và n cột
 <div style="text-align:center;">
-<img style="width: 70%;" src="../images/peak_finding_2Dmat.PNG">
+<img style="width: 70%;" src="../images/peak_finding/2Dmat.PNG">
 </div>
 
 Một phần tử được coi là một peak khi và chỉ khi nó lớn hơn hoặc bằng tất cả các phần tử liền kề theo chiều dọc và ngang.
