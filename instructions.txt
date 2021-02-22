@@ -4,7 +4,7 @@ rm -rf /tmp/book/*
 cp -rp book/* /tmp/book/
 pushd /tmp/book
 git add .
-git commit -m "finish sorting_algorithms.md"
+git commit -m "finish binarysearch_tree.md"
 
 git push origin gh-pages
 
