@@ -6,7 +6,7 @@
 </head>
 <div style="display: flex; align-items: center;">
 <img style="width: 50px; border-radius: 50%; border: 1px solid #b71c1c" src="../images/me.JPG" />
-<span style="margin-left: 15px; color: #b71c1c;font-family: 'Cinzel', serif;">Tran Lam</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;">Feb 22,2021</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;" >9 min read</span>
+<span style="margin-left: 15px; color: #b71c1c;font-family: 'Cinzel', serif;">Tran Lam</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;">Feb 24,2021</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;" >9 min read</span>
 </div>
 <br/>
 
