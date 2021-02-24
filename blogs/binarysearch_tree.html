@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li><li class="chapter-item expanded "><a href="../blogs/binarysearch_tree.html" class="active">Cây tìm kiếm nhị phân</a></li></ol>
+                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li><li class="chapter-item expanded "><a href="../blogs/binarysearch_tree.html" class="active">Cây tìm kiếm nhị phân</a></li><li class="chapter-item "><a href="../blogs/avl.html">Cây AVL, thuật toán sắp xếp AVL</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -187,7 +187,8 @@
 <p>          <a href="#341-duy%E1%BB%87t-pre-order">3.4.1. Duyệt pre-order</a></p>
 <p>          <a href="#342-duy%E1%BB%87t-in-order">3.4.2. Duyệt in-order</a></p>
 <p>          <a href="#343-duy%E1%BB%87t-post-order">3.4.3. Duyệt post-order</a></p>
-<p><a href="#4-t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o">4. Tài liệu tham khảo</a></p>
+<p><a href="#4-m%E1%BB%9F-r%E1%BB%99ng">4. Mở rộng</a></p>
+<p><a href="#5-t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o">5. Tài liệu tham khảo</a></p>
 <h3><a class="header" href="#1-Đặt-vấn-đề" id="1-Đặt-vấn-đề">1. Đặt vấn đề</a></h3>
 <p>Những bài toán thực tế mà chúng ta hay các doanh nghiệp giải quyết thường được phân ra các vấn đề nhỏ và áp dụng các thuật toán, cũng như cấu trúc dữ liệu phù hợp để đưa ra được cách làm, sao cho hiệu quả và đỡ tốn chi phí nhất. Vấn đề sau, mình xin lấy ví dụ tham khảo từ khóa học 6.006 của MIT, các bạn có thể truy cập <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-5-binary-search-trees-bst-sort/">tại đây</a>.</p>
 <p>Giả sử hãng hàng không nọ có chương trình quản lý cho đường bay. Mỗi chuyến bay khi đến sân thì phải yêu cầu một lịch hạ cánh vào một thời điểm nhất định. Để không xảy ra xung đột nào, các thời điểm hạ cánh phải cách nhau ít nhất \(k\) phút \((1)\). Danh sách thời điểm hạ cánh là \(R\) gồm \(n\) phần tử. Làm sao thêm một thời điểm hạ cánh \(t\) để thỏa mãn ràng buộc \((1)\) ở trên.
@@ -418,10 +419,12 @@ def delete(root, key):
 </code></pre>
 <p><strong>Phân tích thuật toán</strong>:
 Ta duyệt hết các node trên cây nên time complexity là \(O(n)\).</p>
+<h3><a class="header" href="#4-mở-rộng" id="4-mở-rộng">4. Mở rộng</a></h3>
+<p>Cây tìm kiếm nhị phân là cấu trúc thú vị và hiệu quả. Bạn đọc có thể tìm thấy visualization cho các hoạt động của cây tìm kiếm nhị phân để trực quan hơn <a href="https://www.cs.usfca.edu/%7Egalles/visualization/BST.html">tại đây</a></p>
 <br/>
 <br/>
 <br/>
-<h3><a class="header" href="#4-tài-liệu-tham-khảo" id="4-tài-liệu-tham-khảo">4. Tài liệu tham khảo</a></h3>
+<h3><a class="header" href="#5-tài-liệu-tham-khảo" id="5-tài-liệu-tham-khảo">5. Tài liệu tham khảo</a></h3>
 <p><a href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/">https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/</a></p>
 <p><a href="https://vi.wikipedia.org/wiki/C%C3%A2y_t%C3%ACm_ki%E1%BA%BFm_nh%E1%BB%8B_ph%C3%A2n">https://vi.wikipedia.org/wiki/C%C3%A2y_t%C3%ACm_ki%E1%BA%BFm_nh%E1%BB%8B_ph%C3%A2n</a></p>
 <p><a href="https://codelearn.io/sharing/5-phut-thong-thao-binary-search-tree">https://codelearn.io/sharing/5-phut-thong-thao-binary-search-tree</a></p>
@@ -437,6 +440,10 @@ Ta duyệt hết các node trên cây nên time complexity là \(O(n)\).</p>
                         
 
                         
+                            <a rel="next" href="../blogs/avl.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -450,6 +457,10 @@ Ta duyệt hết các node trên cây nên time complexity là \(O(n)\).</p>
                     </a>
                 
 
+                
+                    <a rel="next" href="../blogs/avl.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 

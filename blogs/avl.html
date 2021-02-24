@@ -1,0 +1,499 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Cây AVL, thuật toán sắp xếp AVL - TrL</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../theme/css/additional.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../about_me.html">About Me</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li><li class="chapter-item "><a href="../blogs/binarysearch_tree.html">Cây tìm kiếm nhị phân</a></li><li class="chapter-item expanded "><a href="../blogs/avl.html" class="active">Cây AVL, thuật toán sắp xếp AVL</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">TrL</h1>
+
+                    <div class="right-buttons">
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#cây-avl-thuật-toán-sắp-xếp-avl" id="cây-avl-thuật-toán-sắp-xếp-avl">Cây AVL, thuật toán sắp xếp AVL</a></h1>
+<head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<div style="display: flex; align-items: center;">
+<img style="width: 50px; border-radius: 50%; border: 1px solid #b71c1c" src="../images/me.JPG" />
+<span style="margin-left: 15px; color: #b71c1c;font-family: 'Cinzel', serif;">Tran Lam</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;">Feb 22,2021</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;" >9 min read</span>
+</div>
+<br/>
+<p>Ở bài viết trước, mình đã nói về cây tìm kiếm nhị phân, nếu bạn đọc chưa xem qua, có thể tìm thấy <a href="https://lam1051999.github.io/md_blogs/blogs/binarysearch_tree.html">tại đây</a>. Với sự hiệu quả trong các hoạt động tìm kiếm, chèn, xóa,... cây tìm kiếm nhị phân có thể thực hiện được trong logrithmic time (\(\Theta(logn)\)) ở average case. Bài viết này, mình sẽ nói về cây AVL, là 1 loại của cây tìm kiếm nhị phân, đảm bảo rằng trong tất cả các case, time complexity của các hoạt động trên đều là \(\Theta(logn)\). </p>
+<h3><a class="header" href="#các-đề-mục" id="các-đề-mục">Các đề mục</a></h3>
+<p><a href="#1-c%C3%A2y-avl">1. Cây AVL</a></p>
+<p><a href="#2-%C4%90%C3%A1nh-gi%C3%A1-chi%E1%BB%81u-cao-c%E1%BB%A7a-c%C3%A2y">2. Đánh giá chiều cao của cây</a></p>
+<p>     <a href="#21-c%C3%A1ch-1">2.1. Cách 1</a></p>
+<p>     <a href="#22-c%C3%A1ch-2">2.2. Cách 2</a></p>
+<p><a href="#3-c%C3%A1c-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-tr%C3%AAn-c%C3%A2y-avl">3. Các hoạt động trên cây AVL</a></p>
+<p>     <a href="#31-ch%C3%A8n-node-insert-x%C3%B3a-node-delete-t%C3%ACm-node-search">3.1. Chèn node (insert), xóa node (delete), tìm node (search)</a></p>
+<p>     <a href="#32-c%C3%A1c-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-c%C3%A2n-b%E1%BA%B1ng-c%C3%A2y">3.2. Các hoạt động cân bằng cây</a></p>
+<p>          <a href="#321-balance-factor">3.2.1. Balance factor</a></p>
+<p>          <a href="#322-c%C3%A1c-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-c%C3%A2n-b%E1%BA%B1ng-c%C3%A2y">3.2.2. Các hoạt động cân bằng cây</a></p>
+<p>     <a href="#33-c%C3%A2n-b%E1%BA%B1ng-c%C3%A2y-trong-tr%C6%B0%E1%BB%9Dng-h%E1%BB%A3p-c%E1%BB%A5-th%E1%BB%83">3.3. Cân bằng cây trong trường hợp cụ thể</a></p>
+<p>          <a href="#331-tr%C6%B0%E1%BB%9Dng-h%E1%BB%A3p-c%C3%A2y-con-tr%C3%A1i-c%C3%B3-tr%E1%BB%8Dng-v%E1%BB%81-b%C3%AAn-tr%C3%A1i-left-left-case">3.3.1. Trường hợp cây con trái có trọng về bên trái (left left case)</a></p>
+<p>          <a href="#332-tr%C6%B0%E1%BB%9Dng-h%E1%BB%A3p-c%C3%A2y-con-tr%C3%A1i-c%C3%B3-tr%E1%BB%8Dng-v%E1%BB%81-b%C3%AAn-ph%E1%BA%A3i-left-right-case">3.3.2. Trường hợp cây con trái có trọng về bên phải (left right case)</a></p>
+<p>          <a href="#333-tr%C6%B0%E1%BB%9Dng-h%E1%BB%A3p-c%C3%A2y-con-ph%E1%BA%A3i-c%C3%B3-tr%E1%BB%8Dng-v%E1%BB%81-b%C3%AAn-ph%E1%BA%A3i-right-right-case">3.3.3. Trường hợp cây con phải có trọng về bên phải (right right case)</a></p>
+<p>          <a href="#334-tr%C6%B0%E1%BB%9Dng-h%E1%BB%A3p-c%C3%A2y-con-ph%E1%BA%A3i-c%C3%B3-tr%E1%BB%8Dng-v%E1%BB%81-b%C3%AAn-tr%C3%A1i-right-left-case">3.3.4. Trường hợp cây con phải có trọng về bên trái (right left case)</a></p>
+<p><a href="#4-code-python-cho-c%C3%A1c-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-tr%C3%AAn-c%C3%A2y-avl">4. Code python cho các hoạt động trên cây AVL</a></p>
+<p><a href="#5-thu%E1%BA%ADt-to%C3%A1n-s%E1%BA%AFp-x%E1%BA%BFp-avl">5. Thuật toán sắp xếp AVL</a></p>
+<p><a href="#6-m%E1%BB%9F-r%E1%BB%99ng">6. Mở rộng</a></p>
+<p><a href="#7-t%C3%A0i-li%E1%BB%87u-tham-kh%E1%BA%A3o">7. Tài liệu tham khảo</a></p>
+<h3><a class="header" href="#1-cây-avl" id="1-cây-avl">1. Cây AVL</a></h3>
+<p>Cây AVL là một cây tìm kiếm nhị phân cân bằng, trong đó chiều cao của cây con trái và cây con phải hơn kém nhau nhiều nhất 1 \((1)\). Trong qua trình thực hiện các hoạt động trên cây khiến cây không cân bằng, ta cần thực hiện cân bằng lại cây để đảm bảo tính chất \((1)\).</p>
+<div style="text-align:center;">
+<img style="width: 70%;" src="../images/avl/intuition.PNG" />
+</div>
+<h3><a class="header" href="#2-Đánh-giá-chiều-cao-của-cây" id="2-Đánh-giá-chiều-cao-của-cây">2. Đánh giá chiều cao của cây</a></h3>
+<p>Chiều cao của cây</p>
+<div style="text-align:center;">
+<p>\(h\) = max{ chiều cao cây con trái, chiều cao cây con phải } + 1.</p>
+</div>
+<p>Chiều cao của các node được đánh số như hình ở bên trên.</p>
+<p>Với tính chất \((1)\), worst case của cây AVL xảy ra khi cây con phải có chiều cao lớn hơn cây con trái 1 đơn vị cho tất cả các node (hoặc ngược lại).</p>
+<p>Gọi \(N{_h}\) là số node nhỏ nhất trong cây có chiều cao là \(h\).</p>
+<div style="text-align:center;">
+<img style="width: 70%;" src="../images/avl/height.PNG" />
+</div>
+<p>Với đồ hình như trên, ta có</p>
+<div style="text-align:center;">
+<p>\(N{_ {O(1)}} = O(1)\) và \(N{_ h} = 1 + N{_ {h-1}} + N{_{h-2}}\)</p>
+</div>
+<h4><a class="header" href="#21-cách-1" id="21-cách-1">2.1. Cách 1</a></h4>
+<p>Biểu thức trên khiến ta liên tưởng đến dãy fibonacci, ta có \(N{_h} &gt; F{_h}\) với \(F{_h}\) là số fibonacci thứ \(h\). Ta có \(F{_h} = \frac{\gamma^h}{\sqrt{5}}\), với \(\gamma = 1.61803398875...\), (golden ratio).</p>
+<p>Với \(N{_h} = n\) (số node trong cây).</p>
+<div style="text-align:center;">
+<p>\( n &gt; \frac{\gamma^h}{\sqrt{5}} =&gt; h &lt; log{_\gamma}n =&gt; h &lt; 1.440log{_2}n \).</p>
+</div>
+<h4><a class="header" href="#22-cách-2" id="22-cách-2">2.2. Cách 2</a></h4>
+<div style="text-align:center;">
+<p>\(=&gt; N{_ h} = 1 + N{_ {h-1}} + N{_{h-2}}\)</p>
+<p>\(=&gt; N{_ h} &gt; 1 + 2N{_{h-2}}\)</p>
+<p>\(=&gt; N{_ h} &gt; 2N{_{h-2}}\)</p>
+<p>\(=&gt; h &lt; 2log{_2}n\)</p>
+</div>
+<p>Do vậy, \(h = O(logn)\).</p>
+<h3><a class="header" href="#3-các-hoạt-động-trên-cây-avl" id="3-các-hoạt-động-trên-cây-avl">3. Các hoạt động trên cây AVL</a></h3>
+<h4><a class="header" href="#31-chèn-node-insert-xóa-node-delete-tìm-node-search" id="31-chèn-node-insert-xóa-node-delete-tìm-node-search">3.1. Chèn node (insert), xóa node (delete), tìm node (search)</a></h4>
+<p>Các hoạt động kể trên trong cây AVL cũng giống như trong cây tìm kiếm nhị phân, với \(h = O(logn)\). Điểm khác biệt trong chèn và xóa node là sau khi thực hiện các hoạt động đó, ta cần làm thêm một bước cân bằng cây để đảm bảo tính chất \((1)\).</p>
+<h4><a class="header" href="#32-các-hoạt-động-cân-bằng-cây" id="32-các-hoạt-động-cân-bằng-cây">3.2. Các hoạt động cân bằng cây</a></h4>
+<p>Ví dụ sau đây sẽ thể hiện sự cần thiết trong việc cân bằng lại cây</p>
+<p>Giả sử ta có cây sau</p>
+<div style="text-align:center;">
+<img style="width: 50%;" src="../images/avl/insert.JPG" />
+</div>
+<p>Ta muốn chèn 23 vào cây, thực hiện chèn như trong cây tìm kiếm nhị phân. Sau khi chèn, ta thấy tính chất \((1)\) bị vi phạm. Ta cần cân bằng lại cây để có được</p>
+<div style="text-align:center;">
+<img style="width: 50%;" src="../images/avl/insert_2.JPG" />
+</div>
+<h5><a class="header" href="#321-balance-factor" id="321-balance-factor">3.2.1. Balance factor</a></h5>
+<p>Trong cây nhị phân, balance factor được định nghĩa như sau</p>
+<div style="text-align:center;">
+<p>\(BF(x)\) = chiều cao cây con trái của \(x\) \(-\) chiều cao cây con phải của \(x\).</p>
+</div>
+<p>Như vậy, trong cây AVL, ta có \(BF(x) \in \{-1, 0, 1\} \).</p>
+<h5><a class="header" href="#322-các-hoạt-động-cân-bằng-cây" id="322-các-hoạt-động-cân-bằng-cây">3.2.2. Các hoạt động cân bằng cây</a></h5>
+<p>Khi BF của một node nào đó có giá trị không nằm trong tập giá trị trên, khi đó ta cần thực hiện cần bằng lại cây.
+Ta có 2 loại hoạt động cân bằng cơ bản của cây AVL: <strong>right rotation</strong> và <strong>left rotation</strong></p>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/avl/rotation.PNG" />
+</div>
+<h4><a class="header" href="#33-cân-bằng-cây-trong-trường-hợp-cụ-thể" id="33-cân-bằng-cây-trong-trường-hợp-cụ-thể">3.3. Cân bằng cây trong trường hợp cụ thể</a></h4>
+<h5><a class="header" href="#331-trường-hợp-cây-con-trái-có-trọng-về-bên-trái-left-left-case" id="331-trường-hợp-cây-con-trái-có-trọng-về-bên-trái-left-left-case">3.3.1. Trường hợp cây con trái có trọng về bên trái (left left case)</a></h5>
+<p>Trường hợp này xảy ra khi một node có BF = 2 và cây con trái của nó có BF = 1. Khi đó, ta chỉ cần 1 lần <strong>right rotation</strong> tại vị trí node cần xét thì cây cân bằng.</p>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/avl/left_left.PNG" />
+</div>
+<h5><a class="header" href="#332-trường-hợp-cây-con-trái-có-trọng-về-bên-phải-left-right-case" id="332-trường-hợp-cây-con-trái-có-trọng-về-bên-phải-left-right-case">3.3.2. Trường hợp cây con trái có trọng về bên phải (left right case)</a></h5>
+<p>Trường hợp này xảy ra khi một node có BF = 2 và cây con trái của nó có BF = -1. Khi đó, ta cần làm lần lượt 2 bước sau</p>
+<ul>
+<li><strong>Left rotation</strong> cây con trái.</li>
+<li><strong>Right rotation</strong> node cần xét.</li>
+</ul>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/avl/left_right.PNG" />
+</div>
+<h5><a class="header" href="#333-trường-hợp-cây-con-phải-có-trọng-về-bên-phải-right-right-case" id="333-trường-hợp-cây-con-phải-có-trọng-về-bên-phải-right-right-case">3.3.3. Trường hợp cây con phải có trọng về bên phải (right right case)</a></h5>
+<p>Trường hợp này xảy ra khi một node có BF = -2 và cây con phải của nó có BF = -1. Khi đó, ta chỉ cần 1 lần <strong>left rotation</strong> tại vị trí node cần xét thì cây cân bằng.</p>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/avl/right_right.PNG" />
+</div>
+<h5><a class="header" href="#334-trường-hợp-cây-con-phải-có-trọng-về-bên-trái-right-left-case" id="334-trường-hợp-cây-con-phải-có-trọng-về-bên-trái-right-left-case">3.3.4. Trường hợp cây con phải có trọng về bên trái (right left case)</a></h5>
+<p>Trường hợp này xảy ra khi một node có BF = -2 và cây con trái của nó có BF = 1. Khi đó, ta cần làm lần lượt 2 bước sau</p>
+<ul>
+<li><strong>Right rotation</strong> cây con phải.</li>
+<li><strong>Left rotation</strong> node cần xét.</li>
+</ul>
+<div style="text-align:center;">
+<img style="width: 100%;" src="../images/avl/right_left.PNG" />
+</div>
+<h3><a class="header" href="#4-code-python-cho-các-hoạt-động-trên-cây-avl" id="4-code-python-cho-các-hoạt-động-trên-cây-avl">4. Code python cho các hoạt động trên cây AVL</a></h3>
+<pre><code class="language-python"># ---------------------------METHOD TO HELP BALANCE THE TREE---------------------------
+#      y                               x
+#     / \     Right Rotation          /  \
+#    x   T3   - - - - - - - &gt;        T1   y
+#   / \       &lt; - - - - - - -            / \
+#  T1  T2     Left Rotation            T2  T3
+
+# ---------------------------BALANCE THE TREE IN PARTICULAR CASES---------------------------
+# -----Left Left Case
+#          z                                      y
+#         / \                                   /   \
+#        y   T4      Right Rotate (z)          x      z
+#       / \          - - - - - - - - -&gt;      /  \    /  \
+#      x   T3                               T1  T2  T3  T4
+#     / \
+#   T1   T2
+# -----Left Right Case
+#      z                               z                           x
+#     / \                            /   \                        /  \
+#    y   T4  Left Rotate (y)        x    T4  Right Rotate(z)    y      z
+#   / \      - - - - - - - - -&gt;    /  \      - - - - - - - -&gt;  / \    / \
+# T1   x                          y    T3                    T1  T2 T3  T4
+#     / \                        / \
+#   T2   T3                    T1   T2
+# -----Right Right Case
+#   z                                y
+#  /  \                            /   \
+# T1   y     Left Rotate(z)       z      x
+#     /  \   - - - - - - - -&gt;    / \    / \
+#    T2   x                     T1  T2 T3  T4
+#        / \
+#      T3  T4
+# -----Right Left Case
+#    z                            z                            x
+#   / \                          / \                          /  \
+# T1   y   Right Rotate (y)    T1   x      Left Rotate(z)   z      y
+#     / \  - - - - - - - - -&gt;     /  \   - - - - - - - -&gt;  / \    / \
+#    x   T4                      T2   y                  T1  T2  T3  T4
+#   / \                              /  \
+# T2   T3                           T3   T4
+
+class AVLNode:
+    def __init__(self, val):
+        self.left = None
+        self.right = None
+        self.val = val
+        self.height = 1
+
+
+class AVLTree:
+    def insert(self, root, key):
+        # perform bst
+        if not root:
+            return AVLNode(key)
+        if root.val &lt; key:
+            root.right = self.insert(root.right, key)
+        if root.val &gt; key:
+            root.left = self.insert(root.left, key)
+        # update the height of the ancestor node
+        root.height = 1 + max(self.get_height(root.left),
+                              self.get_height(root.right))
+
+        # get balance factor
+        balance = self.get_balance(root)
+
+        # perform balance
+        # left left
+        if balance &gt; 1 and key &lt; root.left.val:
+            return self.right_rotate(root)
+        # right right
+        if balance &lt; -1 and key &gt; root.right.val:
+            return self.left_rotate(root)
+        # left right
+        if balance &gt; 1 and key &gt; root.left.val:
+            root.left = self.left_rotate(root.left)
+            return self.right_rotate(root)
+        # right left
+        if balance &lt; -1 and key &lt; root.left.val:
+            root.right = self.right_rotate(root.right)
+            return self.left_rotate(root)
+
+        return root
+
+    def left_rotate(self, x):
+        y = x.right
+        T2 = y.left
+
+        y.left = x
+        x.right = T2
+
+        x.height = 1 + max(self.get_height(x.left), self.get_height(x.right))
+        y.height = 1 + max(self.get_height(y.left), self.get_height(y.right))
+
+        return y
+
+    def right_rotate(self, y):
+        x = y.left
+        T2 = x.right
+
+        x.right = y
+        y.left = T2
+
+        x.height = 1 + max(self.get_height(x.left), self.get_height(x.right))
+        y.height = 1 + max(self.get_height(y.left), self.get_height(y.right))
+
+        return x
+
+    def get_height(self, root):
+        if not root:
+            return 0
+
+        return root.height
+
+    def get_balance(self, root):
+        if not root:
+            return 0
+
+        return self.get_height(root.left) - self.get_height(root.right)
+
+    def inorder(self, root):
+        if root is not None:
+            self.inorder(root.left)
+            print(root.val)
+            self.inorder(root.right)
+
+
+avl_tree = AVLTree()
+root = None
+
+root = avl_tree.insert(root, 20)
+root = avl_tree.insert(root, 10)
+root = avl_tree.insert(root, 30)
+root = avl_tree.insert(root, 40)
+root = avl_tree.insert(root, 50)
+root = avl_tree.insert(root, 5)
+root = avl_tree.insert(root, 15)
+root = avl_tree.insert(root, 25)
+root = avl_tree.insert(root, 55)
+
+avl_tree.inorder(root)
+</code></pre>
+<h3><a class="header" href="#5-thuật-toán-sắp-xếp-avl" id="5-thuật-toán-sắp-xếp-avl">5. Thuật toán sắp xếp AVL</a></h3>
+<p>Cho một mảng gồm \(n\) phần tử, thuật toán sắp xếp AVL được thực hiện qua các bước sau</p>
+<ul>
+<li>Thực hiện chèn lần lượt \(n\) phần tử vào cây AVL. Mỗi phần tử được chèn tốn \(O(logn)\) time (như trong cây tìm kiếm nhị phân). Ta cần chèn \(n\) phần tử, nên time complexity của quá trình là \(O(nlogn)\).</li>
+<li>Ta thực hiện duyệt inorder traversal (như trong cây tìm kiếm nhị phân). Việc này khiến ta phải duyệt qua tất cả phần tử, nên time complexity của quá trình là \(O(n)\).</li>
+</ul>
+<p>Do vậy, time complexity tổng là \(O(n + nlogn) = O(nlogn)\). Tuy nhiên, vì phần cộng thêm \(O(n)\) kia khiến thuật toán sắp xếp cây AVL này không hiệu quả và kém thực tế bằng các thuật toán sắp xếp bài trước mình đã liệt kê, bạn đọc có thể truy cập <a href="https://lam1051999.github.io/md_blogs/blogs/sorting_algorithms.html">tại đây</a>.</p>
+<h3><a class="header" href="#6-mở-rộng" id="6-mở-rộng">6. Mở rộng</a></h3>
+<p>Bạn đọc có thể tìm thấy visualization cho các hoạt động của cây AVL để trực quan hơn <a href="https://www.cs.usfca.edu/%7Egalles/visualization/AVLtree.html">tại đây</a></p>
+<br/>
+<br/>
+<br/>
+<h3><a class="header" href="#7-tài-liệu-tham-khảo" id="7-tài-liệu-tham-khảo">7. Tài liệu tham khảo</a></h3>
+<p><a href="https://en.wikipedia.org/wiki/AVL_tree">https://en.wikipedia.org/wiki/AVL_tree</a></p>
+<p><a href="https://www.guru99.com/avl-tree.html">https://www.guru99.com/avl-tree.html</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../blogs/binarysearch_tree.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../blogs/binarysearch_tree.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
