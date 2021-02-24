@@ -41,7 +41,9 @@ Trong quá trình học lập trình, bạn sẽ bắt gặp rất nhiều loạ
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.4.3. Duyệt post-order](#343-duyệt-post-order)
 
-[4. Tài liệu tham khảo](#4-tài-liệu-tham-khảo)
+[4. Mở rộng](#4-mở-rộng)
+
+[5. Tài liệu tham khảo](#5-tài-liệu-tham-khảo)
 
 
 
@@ -322,11 +324,14 @@ def postorder(root):
 **Phân tích thuật toán**:
 Ta duyệt hết các node trên cây nên time complexity là \\(O(n)\\).
 
+### 4. Mở rộng
+Cây tìm kiếm nhị phân là cấu trúc thú vị và hiệu quả. Bạn đọc có thể tìm thấy visualization cho các hoạt động của cây tìm kiếm nhị phân để trực quan hơn [tại đây](https://www.cs.usfca.edu/~galles/visualization/BST.html)
+
 <br/>
 <br/>
 <br/>
 
-### 4. Tài liệu tham khảo
+### 5. Tài liệu tham khảo
 
 [https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/)
 

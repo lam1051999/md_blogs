@@ -29,7 +29,9 @@ Trở lại thôi. Những blogs đầu tiên này mình sẽ chỉ viết về 
 
 [8. Sắp xếp đếm (counting sort)](#8-sắp-xếp-đếm-counting-sort)
 
-[9. Tài liệu tham khảo](#9-tài-liệu-tham-khảo)
+[9. Mở rộng](#9-mở-rộng)
+
+[10. Tài liệu tham khảo](#10-tài-liệu-tham-khảo)
 
 
 ### 1. Tại sao chúng ta cần những thuật toán sắp xếp?
@@ -505,11 +507,14 @@ Ví dụ, nếu \\(k\\) lớn, khoảng \\(k = \Theta(n^2)\\), thì time complex
 <img style="width: 100%;" src="../images/sorting_algorithms/counting_2.PNG" />
 </div>
 
+### 9. Mở rộng
+Các thuật toán sắp xếp khá thú vị. Một trong những điều khiến con người ta thoải mái nhất là nhìn thấy phòng ngủ của mình được sắp xếp ngăn nắp và sạch đẹp, điều đó cũng tương tự khi ta nhìn vào các thứ được sắp xếp khác. Trang web về animation của các thuật toán sắp xếp cho bạn cảm giác thỏa mãn và thư giãn có thể được tìm thấy [tại đây](https://www.toptal.com/developers/sorting-algorithms).
+
 <br/>
 <br/>
 <br/>
 
-### 9. Tài liệu tham khảo
+### 10. Tài liệu tham khảo
 [https://www.interviewbit.com/tutorial/sorting-algorithms/#sorting-algorithms](https://www.interviewbit.com/tutorial/sorting-algorithms/#sorting-algorithms)
 
 [https://brilliant.org/wiki/sorting-algorithms/](https://brilliant.org/wiki/sorting-algorithms/)
