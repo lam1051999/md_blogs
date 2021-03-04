@@ -4,7 +4,7 @@ rm -rf /tmp/book/*
 cp -rp book/* /tmp/book/
 pushd /tmp/book
 git add .
-git commit -m "finish avl.md"
+git commit -m "fix binarysearch_tree.md"
 
 git push origin gh-pages
 

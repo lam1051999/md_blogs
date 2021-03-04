@@ -29,7 +29,7 @@ Trong quá trình học lập trình, bạn sẽ bắt gặp rất nhiều loạ
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.1. Search - Tìm kiếm một giá trị trong cây](#31-search---tìm-kiếm-một-giá-trị-trong-cây)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.2. Insert - Chèn một node vào cây](32-insert---chèn-một-node-vào-cây)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.2. Insert - Chèn một node vào cây](#32-insert---chèn-một-node-vào-cây)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.3. Delete - Xóa một node trên cây](#33-delete---xóa-một-node-trên-cây)
 
