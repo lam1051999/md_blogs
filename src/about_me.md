@@ -37,13 +37,13 @@
 </style>
 </head>
 
-Hello! I'm **Tran The Lam**. I'm 21 years old boy with many passions and goals. <br/>
+Hello! I'm **Tran The Lam**. I'm 22 years young boy with many passions and goals. <br/>
 I'm studying Talented Program of Electronics and Telecommunication at Ha Noi University of Science and Technology. <br/>
-This blog exists for sharing purposes only. The contents mainly focus on **Algorithms** and **Computer Vision**.
+The contents of this blog mainly focus on **Algorithms**, **Mathematics** and **Data Engineering**.
 
 <br/>
 <div style="text-align:center;">
 <a href="https://www.facebook.com/lam.tt173223/" target="_blank" class="fa fa1 fa-facebook"></a>
 <a href="https://twitter.com/TrnLm29507341" target="_blank" class="fa fa1 fa-twitter"></a>
-<a href="https://www.linkedin.com/in/tr%E1%BA%A7n-l%C3%A2m-21b57b1a2/" target="_blank" class="fa fa1 fa-linkedin"></a>
+<a href="https://www.linkedin.com/in/lam-tt173223/" target="_blank" class="fa fa1 fa-linkedin"></a>
 </div>
