@@ -30,8 +30,8 @@
   background: #007bb5;
   color: white !important;
 }
-.fa-file-pdf-o{
-  background: #00B14F;
+.fa-github{
+  background: #24292E;
   color: white !important;
 }
 </style>
@@ -46,4 +46,5 @@ The contents of this blog mainly focus on **Algorithms**, **Mathematics** and **
 <a href="https://www.facebook.com/lam.tt173223/" target="_blank" class="fa fa1 fa-facebook"></a>
 <a href="https://twitter.com/TrnLm29507341" target="_blank" class="fa fa1 fa-twitter"></a>
 <a href="https://www.linkedin.com/in/lam-tt173223/" target="_blank" class="fa fa1 fa-linkedin"></a>
+<a href="https://github.com/lam1051999/" target="_blank" class="fa fa1 fa-github"></a>
 </div>
