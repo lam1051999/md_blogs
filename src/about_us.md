@@ -54,7 +54,7 @@
     <!-- Contributor 1 -->
     <div clas="contributor-container">
         <div class="contributor-description">
-            <img src="../images/us/tranlam.JPG" style="width:30%;float:left;margin-right:1em;margin-bottom:1em;" />
+            <img src="./images/us/tranlam.JPG" style="width:30%;float:left;margin-right:1em;margin-bottom:1em;" />
             <div class="description">
                 <p>Hello! I'm <strong>Tran The Lam</strong>. I'm 22 years young boy with many passions and
                     goals.</p>
@@ -80,7 +80,7 @@
     <!-- Contributor 2 -->
     <div clas="contributor-container">
         <div class="contributor-description">
-            <img src="../images/us/fake_user.PNG" style="width:30%;float:left;margin-right:1em;margin-bottom:1em;" />
+            <img src="./images/us/fake_user.PNG" style="width:30%;float:left;margin-right:1em;margin-bottom:1em;" />
             <div class="description">
                 <p>Hello! I'm <strong>Fake User</strong>. I'm 25 years young boy with many passions and
                     goals.</p>
