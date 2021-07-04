@@ -49,14 +49,9 @@
         }
     </style>
 </head>
-<!-- 
-<p>
-    The contents of this blog mainly focus on <strong>Algorithms</strong>, <strong>Mathematics</strong> and <strong>Data
-        Engineering.
-    </strong>
-</p> -->
 <p class="contributor-text">Contributors</p>
 <div class="container">
+    <!-- Contributor 1 -->
     <div clas="contributor-container">
         <div class="contributor-description">
             <img src="./images/us/tranlam.JPG" style="width:30%;float:left;margin-right:1em;margin-bottom:1em;" />
@@ -82,6 +77,7 @@
                 class="fa fa-file-text other" aria-hidden="true"></a>
         </div>
     </div>
+    <!-- Contributor 2 -->
     <div clas="contributor-container">
         <div class="contributor-description">
             <img src="./images/us/fake_user.PNG" style="width:30%;float:left;margin-right:1em;margin-bottom:1em;" />
