@@ -4,7 +4,7 @@ rm -rf /tmp/book/*
 cp -rp book/* /tmp/book/
 pushd /tmp/book
 git add .
-git commit -m "fix about_me.md"
+git commit -m "add CV link about_me.md"
 
 git push origin gh-pages
 

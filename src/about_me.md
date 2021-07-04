@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-.fa1 {
+.fa1, .other {
   padding: 0.8em;
   font-size: 1.8em;
   width: 1.5em;
@@ -34,6 +34,10 @@
   background: #24292E;
   color: white !important;
 }
+.fa-file-text{
+  background: #DC3522;
+  color: white !important;
+}
 </style>
 </head>
 
@@ -47,4 +51,5 @@ The contents of this blog mainly focus on **Algorithms**, **Mathematics** and **
 <a href="https://twitter.com/TrnLm29507341" target="_blank" class="fa fa1 fa-twitter"></a>
 <a href="https://www.linkedin.com/in/lam-tt173223/" target="_blank" class="fa fa1 fa-linkedin"></a>
 <a href="https://github.com/lam1051999/" target="_blank" class="fa fa1 fa-github"></a>
+<a href="https://drive.google.com/file/d/1cVEae01TIPKICRrhlIxuGBoPnduCp0yt/view?usp=sharing" target="_blank" class="fa fa-file-text other" aria-hidden="true"></a>
 </div>
