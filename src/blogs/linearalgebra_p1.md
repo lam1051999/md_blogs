@@ -13,6 +13,59 @@
 Tiếp đây sẽ là loạt bài viết về đại số tuyến tính mình đã học lại khi đọc quyển **[Mathematics for Machine Learning](https://mml-book.github.io/book/mml-book.pdf)** trong thời gian học về Machine Learning và AI. Đây là phần thứ nhất trong loạt bài này.
 
 ### Các đề mục
+[1. Giải hệ phương trình tuyến tính](#1-giải-hệ-phương-trình-tuyến-tính)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1. Nghiệm chung và nghiệm riêng của phương trình](#11-nghiệm-chung-và-nghiệm-riêng-của-phương-trình)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2. Biến đổi ma trận](#12-biến-đổi-ma-trận)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2.1. Ví dụ](#121-ví-dụ)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2.2. Ma trận bậc thang](#122-ma-trận-bậc-thang)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2.3. Phép khử Gaussian](#123-phép-khử-gaussian)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3. The -1 trick](#13-the--1-trick)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.4. Một số thuật toán để giải hệ phương trình này](#14-một-số-thuật-toán-để-giải-hệ-phương-trình-này)
+
+[2. Không gian véc-tơ](#2-không-gian-véc-tơ)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1. Nhóm](#21-nhóm)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.2. Không gian véc-tơ](#22-không-gian-véc-tơ)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.3. Không gian véc-tơ con](#23-không-gian-véc-tơ-con)
+
+[3. Phụ thuộc tuyến tính](#3-phụ-thuộc-tuyến-tính)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.1. Linear combination](#31-linear-combination)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.2. Phụ thuộc tuyến tính](#32-phụ-thuộc-tuyến-tính)
+
+[4. Cơ sở và rank](#4-cơ-sở-và-rank)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4.1. Hệ sinh của một không gian véc-tơ](#41-hệ-sinh-của-một-không-gian-véc-tơ)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4.2. Cơ sở của một không gian véc-tơ](#42-cơ-sở-của-một-không-gian-véc-tơ)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4.3. Rank của một ma trận](#43-rank-của-một-ma-trận)
+
+[5. Ánh xạ tuyến tính](#5-Ánh-xạ-tuyến-tính)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5.1. Biểu diễn ánh xạ tuyến tính dưới dạng ma trận](#51-biểu-diễn-ánh-xạ-tuyến-tính-dưới-dạng-ma-trận)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5.2. Chuyển đổi cơ sở](#52-chuyển-đổi-cơ-sở)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5.3. Image và kernel](#53-image-và-kernel)
+
+[6. Không gian véc-tơ Affine](#6-không-gian-véc-tơ-affine)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[6.1. Không gian véc-tơ affine con](#61-không-gian-véc-tơ-affine-con)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[6.2. Ánh xạ Affine](#62-Ánh-xạ-affine)
+
+
 
 ### 1. Giải hệ phương trình tuyến tính
 Hệ phương trình tuyến tính là tập các phương trình tuyến tính với cùng những biến số, cấp 2 chúng ta đã giải chán chê phương trình này, thậm chí còn phải làm các hệ phương trình khó nhằn hơn chứa cả biến bậc 2, bậc 3,... Giờ đây, trở lại với đại số tuyến tính, ta có thể mô hình hệ phương trình tuyến tính bậc một với tích của ma trận và véc-tơ tương ứng.
