@@ -48,7 +48,7 @@ Trong quá trình học lập trình, bạn sẽ bắt gặp rất nhiều loạ
 
 
 ### 1. Đặt vấn đề
-Những bài toán thực tế mà chúng ta hay các doanh nghiệp giải quyết thường được phân ra các vấn đề nhỏ và áp dụng các thuật toán, cũng như cấu trúc dữ liệu phù hợp để đưa ra được cách làm, sao cho hiệu quả và đỡ tốn chi phí nhất. Vấn đề sau, mình xin lấy ví dụ tham khảo từ khóa học 6.006 của MIT, các bạn có thể truy cập [tại đây](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-5-binary-search-trees-bst-sort/).
+Những bài toán thực tế mà chúng ta hay các doanh nghiệp giải quyết thường được phân ra các vấn đề nhỏ và áp dụng các thuật toán, cũng như cấu trúc dữ liệu phù hợp để đưa ra được cách làm, sao cho hiệu quả và đỡ tốn chi phí nhất. Vấn đề sau, mình xin lấy ví dụ tham khảo từ khóa học 6.006 của MIT, các bạn có thể truy cập **[tại đây](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/lecture-5-binary-search-trees-bst-sort/)**.
 
 Giả sử hãng hàng không nọ có chương trình quản lý cho đường bay. Mỗi chuyến bay khi đến sân thì phải yêu cầu một lịch hạ cánh vào một thời điểm nhất định. Để không xảy ra xung đột nào, các thời điểm hạ cánh phải cách nhau ít nhất \\(k\\) phút \\((1)\\). Danh sách thời điểm hạ cánh là \\(R\\) gồm \\(n\\) phần tử. Làm sao thêm một thời điểm hạ cánh \\(t\\) để thỏa mãn ràng buộc \\((1)\\) ở trên.
 Mình có hình ảnh cho bài toán thêm trực quan
@@ -325,7 +325,7 @@ def postorder(root):
 Ta duyệt hết các node trên cây nên time complexity là \\(O(n)\\).
 
 ### 4. Mở rộng
-Cây tìm kiếm nhị phân là cấu trúc thú vị và hiệu quả. Bạn đọc có thể tìm thấy visualization cho các hoạt động của cây tìm kiếm nhị phân để trực quan hơn [tại đây](https://www.cs.usfca.edu/~galles/visualization/BST.html)
+Cây tìm kiếm nhị phân là cấu trúc thú vị và hiệu quả. Bạn đọc có thể tìm thấy visualization cho các hoạt động của cây tìm kiếm nhị phân để trực quan hơn **[tại đây](https://www.cs.usfca.edu/~galles/visualization/BST.html)**.
 
 <br/>
 <br/>

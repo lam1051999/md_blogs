@@ -281,10 +281,10 @@ Với phân phối chuẩn
 - \\(z = 2.576\\) ứng với mức tin cậy \\(99\\%\\).
 
 ### 7. Các phân phối xác suất
-Các phân phối xác suất các bạn có thể xem **[tại đây](https://phamdinhkhanh.github.io/deepai-book/ch_probability/appendix_probability.html#phan-phoi-xac-suat)**, một lần nữa cảm ơn anh Phạm Đình Khánh đã trình bày chi tiết về phần này.
+Các phân phối xác suất các bạn có thể xem **[tại đây](https://phamdinhkhanh.github.io/deepai-book/ch_probability/appendix_probability.html#phan-phoi-xac-suat)**.
 
 ### 8. Xác suất đồng thời, xác suất biên, xác suất có điều kiện và định lỹ Bayes
-Các bạn có thể tìm thấy thông tin mục này **[tại đây](https://phamdinhkhanh.github.io/deepai-book/ch_probability/appendix_probability.html#xac-suat-dong-thoi-join-distribution)**.
+Các bạn có thể tìm thấy thông tin mục này **[tại đây](https://phamdinhkhanh.github.io/deepai-book/ch_probability/appendix_probability.html#xac-suat-dong-thoi-join-distribution)**, một lần nữa cảm ơn anh Phạm Đình Khánh đã trình bày chi tiết về phần này.
 
 ### 9. Tài liệu tham khảo
 

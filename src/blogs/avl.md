@@ -10,7 +10,7 @@
 </div>
 <br/>
 
-Ở bài viết trước, mình đã nói về cây tìm kiếm nhị phân, nếu bạn đọc chưa xem qua, có thể tìm thấy [tại đây](https://lam1051999.github.io/md_blogs/blogs/binarysearch_tree.html). Với sự hiệu quả trong các hoạt động tìm kiếm, chèn, xóa,... cây tìm kiếm nhị phân có thể thực hiện được trong logrithmic time (\\(\Theta(logn)\\)) ở average case. Bài viết này, mình sẽ nói về cây AVL, là 1 loại của cây tìm kiếm nhị phân, đảm bảo rằng trong tất cả các case, time complexity của các hoạt động trên đều là \\(\Theta(logn)\\). 
+Ở bài viết trước, mình đã nói về cây tìm kiếm nhị phân, nếu bạn đọc chưa xem qua, có thể tìm thấy **[tại đây](https://lam1051999.github.io/md_blogs/blogs/binarysearch_tree.html)**. Với sự hiệu quả trong các hoạt động tìm kiếm, chèn, xóa,... cây tìm kiếm nhị phân có thể thực hiện được trong logrithmic time (\\(\Theta(logn)\\)) ở average case. Bài viết này, mình sẽ nói về cây AVL, là 1 loại của cây tìm kiếm nhị phân, đảm bảo rằng trong tất cả các case, time complexity của các hoạt động trên đều là \\(\Theta(logn)\\). 
 
 ### Các đề mục
 
@@ -336,10 +336,10 @@ Cho một mảng gồm \\(n\\) phần tử, thuật toán sắp xếp AVL đư�
 * Thực hiện chèn lần lượt \\(n\\) phần tử vào cây AVL. Mỗi phần tử được chèn tốn \\(O(logn)\\) time (như trong cây tìm kiếm nhị phân). Ta cần chèn \\(n\\) phần tử, nên time complexity của quá trình là \\(O(nlogn)\\).
 * Ta thực hiện duyệt inorder traversal (như trong cây tìm kiếm nhị phân). Việc này khiến ta phải duyệt qua tất cả phần tử, nên time complexity của quá trình là \\(O(n)\\).
 
-Do vậy, time complexity tổng là \\(O(n + nlogn) = O(nlogn)\\). Tuy nhiên, vì phần cộng thêm \\(O(n)\\) kia khiến thuật toán sắp xếp cây AVL này không hiệu quả và kém thực tế bằng các thuật toán sắp xếp bài trước mình đã liệt kê, bạn đọc có thể truy cập [tại đây](https://lam1051999.github.io/md_blogs/blogs/sorting_algorithms.html).
+Do vậy, time complexity tổng là \\(O(n + nlogn) = O(nlogn)\\). Tuy nhiên, vì phần cộng thêm \\(O(n)\\) kia khiến thuật toán sắp xếp cây AVL này không hiệu quả và kém thực tế bằng các thuật toán sắp xếp bài trước mình đã liệt kê, bạn đọc có thể truy cập **[tại đây](https://lam1051999.github.io/md_blogs/blogs/sorting_algorithms.html)**.
 
 ### 6. Mở rộng
-Bạn đọc có thể tìm thấy visualization cho các hoạt động của cây AVL để trực quan hơn [tại đây](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
+Bạn đọc có thể tìm thấy visualization cho các hoạt động của cây AVL để trực quan hơn **[tại đây](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)**.
 
 <br/>
 <br/>
