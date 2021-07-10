@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="../about_us.html">Về chúng tôi</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li><li class="chapter-item "><a href="../blogs/binarysearch_tree.html">Cây tìm kiếm nhị phân</a></li><li class="chapter-item "><a href="../blogs/avl.html">Cây AVL, thuật toán sắp xếp AVL</a></li><li class="chapter-item expanded "><a href="../blogs/probability.html" class="active">Xác suất thống kê cơ bản</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item "><a href="../about_us.html">Về chúng tôi</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li><li class="chapter-item "><a href="../blogs/binarysearch_tree.html">Cây tìm kiếm nhị phân</a></li><li class="chapter-item "><a href="../blogs/avl.html">Cây AVL, thuật toán sắp xếp AVL</a></li><li class="chapter-item expanded "><a href="../blogs/probability.html" class="active">Xác suất thống kê cơ bản</a></li><li class="chapter-item "><a href="../blogs/linearalgebra_p1.html">Đại số tuyến tính cơ bản - Phần 1</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -387,14 +387,14 @@ Ta nhận thấy rằng, giá trị mean chịu ảnh hưởng nặng bởi các
 <ul>
 <li>Khoảng tin cậy (confidence interval)</li>
 </ul>
-<p>Khi mình lấy mẫu từ một quần thể, các tham số của một quần thể có thể được đánh giá bằng mẫu đó. Thông thường, giá trị kỳ vọng của mẫu sẽ được ước lượng bằng giá trị kỳ vọng của quần thể, tuy nhiên, những lần lấy mẫu khác nhau thì có kỳ vọng khác nhau. Do vậy, ta đưa ra định nghĩa khoảng tin cậy dùng để biến cái tham số kỳ vọng được ước lượng trở thành một khoảng giá trị ước lượn, đảm bảo rằng kỳ vọng của quần thể sẽ nằm trong khoảng giá trị đó.</p>
-<p>\(k\%\) mức tin cậy sẽ đảm bảo phủ được tham số kỳ vọng cần ước lượng của quần thể với kác suất là \(k\%\).</p>
+<p>Khi mình lấy mẫu từ một quần thể, các tham số của một quần thể có thể được đánh giá bằng mẫu đó. Thông thường, giá trị kỳ vọng của mẫu sẽ được ước lượng bằng giá trị kỳ vọng của quần thể, tuy nhiên, những lần lấy mẫu khác nhau thì có kỳ vọng khác nhau. Do vậy, ta đưa ra định nghĩa khoảng tin cậy dùng để biến cái tham số kỳ vọng được ước lượng trở thành một khoảng giá trị ước lượng, đảm bảo rằng kỳ vọng của quần thể sẽ nằm trong khoảng giá trị đó.</p>
+<p>\(k\%\) mức tin cậy sẽ đảm bảo phủ được tham số kỳ vọng cần ước lượng của quần thể với xác suất là \(k\%\).</p>
 <p>Khoảng tin cậy càng nhỏ thì càng đảm bảo được độ chính xác của bộ ước lượng, để đạt được điều này, ta có thể giảm mức tin cậy hoặc tăng kích thước của mẫu lấy từ quần thể. Khoảng tin cậy được biểu diễn bởi \((lower bound, upper bound)\) với</p>
 <div style="text-align:center;">
 <p>\(lower bound = \bar{x} - z\frac{\sigma}{\sqrt{n}}\)</p>
 <p>\(upper bound = \bar{x} + z\frac{\sigma}{\sqrt{n}}\)</p>
 </div>
-<p>Với \(\bar{x}\) là giá trị kỳ vọng của mẫu được lấy, \(\sigma\) là giá trị độ lệch chuẩn giá định của quần thể. \(n\) là kích thước của mẫu và \(z\) là hệ số tin cậy.</p>
+<p>Với \(\bar{x}\) là giá trị kỳ vọng của mẫu được lấy, \(\sigma\) là giá trị độ lệch chuẩn giả định của quần thể. \(n\) là kích thước của mẫu và \(z\) là hệ số tin cậy.</p>
 <p>Với phân phối chuẩn</p>
 <ul>
 <li>\(z = 1.645\) ứng với mức tin cậy \(90\%\).</li>
@@ -416,6 +416,9 @@ Ta nhận thấy rằng, giá trị mean chịu ảnh hưởng nặng bởi các
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
+                                                    <a rel="next" href="../blogs/linearalgebra_p1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
                         <div style="clear: both"></div>
                     </nav>
@@ -427,6 +430,9 @@ Ta nhận thấy rằng, giá trị mean chịu ảnh hưởng nặng bởi các
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
+                                    <a rel="next" href="../blogs/linearalgebra_p1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                             </nav>
 
         </div>

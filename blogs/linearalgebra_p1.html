@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Đại số tuyến tính cơ bản - Phần 1 - TrL</title>
+                
+
+        <!-- Custom HTML head -->
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="../theme/css/additional.css">
+        
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../about_us.html">Về chúng tôi</a></li><li class="chapter-item "><a href="../blogs/peak_finding.html">Thuật toán tìm đỉnh Peak Finding</a></li><li class="chapter-item "><a href="../blogs/sorting_algorithms.html">Các thuật toán sắp xếp cơ bản</a></li><li class="chapter-item "><a href="../blogs/binarysearch_tree.html">Cây tìm kiếm nhị phân</a></li><li class="chapter-item "><a href="../blogs/avl.html">Cây AVL, thuật toán sắp xếp AVL</a></li><li class="chapter-item "><a href="../blogs/probability.html">Xác suất thống kê cơ bản</a></li><li class="chapter-item expanded "><a href="../blogs/linearalgebra_p1.html" class="active">Đại số tuyến tính cơ bản - Phần 1</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">TrL</h1>
+
+                    <div class="right-buttons">
+                                                                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="Đại-số-tuyến-tính-cơ-bản---phần-1"><a class="header" href="#Đại-số-tuyến-tính-cơ-bản---phần-1">Đại số tuyến tính cơ bản - Phần 1</a></h1>
+<head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<div style="display: flex; align-items: center;">
+<img style="width: 50px; border-radius: 50%; border: 1px solid #b71c1c" src="../images/us/tranlam.JPG" />
+<span style="margin-left: 15px; color: #b71c1c;font-family: 'Cinzel', serif;">Tran Lam</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;">Feb 20,2021</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;" >25 min read</span>
+</div>
+<br/>
+<p>Tiếp đây sẽ là loạt bài viết về đại số tuyến tính mình đã học lại khi đọc quyển <strong><a href="https://mml-book.github.io/book/mml-book.pdf">Mathematics for Machine Learning</a></strong> trong thời gian học về Machine Learning và AI. Đây là phần thứ nhất trong loạt bài này.</p>
+<h3 id="các-đề-mục"><a class="header" href="#các-đề-mục">Các đề mục</a></h3>
+<h3 id="1-giải-hệ-phương-trình-tuyến-tính"><a class="header" href="#1-giải-hệ-phương-trình-tuyến-tính">1. Giải hệ phương trình tuyến tính</a></h3>
+<p>Hệ phương trình tuyến tính là tập các phương trình tuyến tính với cùng những biến số, cấp 2 chúng ta đã giải chán chê phương trình này, thậm chí còn phải làm các hệ phương trình khó nhằn hơn chứa cả biến bậc 2, bậc 3,... Giờ đây, trở lại với đại số tuyến tính, ta có thể mô hình hệ phương trình tuyến tính bậc một với tích của ma trận và véc-tơ tương ứng.
+Ví dụ ta có một hệ phương trình đơn giản sau</p>
+<div style="text-align:center;">
+<p>\(
+\begin{cases} x_{1} \;\;\;\;\;\;\;\;\;\; + 8x_{3} - 4x_{4} = 42 \\ \;\;\;\;\;\;\;\;\;\; x_{2} + 2x_{3} + 12x_{4} = 8 \end{cases}<br />
+\) </p>
+</div>
+<p>Sẽ được viết dưới dạng tích ma trận và véc-tơ biến số như sau</p>
+<div style="text-align:center;">
+<p>\(
+\begin{bmatrix} 1 &amp; 0 &amp; 8 &amp; -4 \\ 0 &amp; 1 &amp; 2 &amp; 12 \end{bmatrix} * \begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \end{bmatrix} = \begin{bmatrix} 42 \\ 8 \end{bmatrix}
+\)</p>
+<p>\(
+\Leftrightarrow \begin{bmatrix} 1 \\ 0 \end{bmatrix} x_{1} + \begin{bmatrix} 0 \\ 1 \end{bmatrix} x_{2} + \begin{bmatrix} 8 \\ 2 \end{bmatrix} x_{3} + \begin{bmatrix} -4 \\ 12 \end{bmatrix} x_{4} = \begin{bmatrix} 42 \\ 8 \end{bmatrix} \;\;\;\;(1)
+\)</p>
+</div>
+<h4 id="11-nghiệm-chung-và-nghiệm-riêng-của-phương-trình"><a class="header" href="#11-nghiệm-chung-và-nghiệm-riêng-của-phương-trình">1.1. Nghiệm chung và nghiệm riêng của phương trình</a></h4>
+<p>Nhìn vào biểu thức bên trên \((1)\), ta có</p>
+<ul>
+<li>Một nghiệm riêng của hệ phương trình là \(\begin{bmatrix} 42 &amp; 8 &amp; 0 &amp; 0 \end{bmatrix}^T\).</li>
+<li>Để có thể thu được tất cả nghiệm thỏa mãn, ta cần phải đi giải phương trình \(\boldsymbol{Ax = 0}\) nữa. Ta tiến hành phân tích phương trình \((1)\) ra như sau</li>
+</ul>
+<div style="text-align:center;">
+<p>\(
+\begin{bmatrix} 1 \\ 0 \end{bmatrix} x_{1} + \begin{bmatrix} 0 \\ 1 \end{bmatrix} x_{2} + 8\begin{bmatrix} 1 \\ 0 \end{bmatrix} x_{3} + 2\begin{bmatrix} 0 \\ 1 \end{bmatrix} x_{3} + \begin{bmatrix} -4 \\ 12 \end{bmatrix} x_{4} = \boldsymbol{0} 
+\)</p>
+</div>
+<p>Nhìn vào phương trình trên, ta có được một nghiệm cho \(\boldsymbol{Ax = 0}\) là \(\lambda_{1}\begin{bmatrix} 8 &amp; 2 &amp; -1 &amp; 0 \end{bmatrix}^T\).
+Tương tự như trên, ta tìm thêm được một nghiệm cho \(\boldsymbol{Ax = 0}\) nữa là \(\lambda_{2}\begin{bmatrix} -4 &amp; 12 &amp; 0 &amp; -1 \end{bmatrix}^T\).
+Phương trình \(\boldsymbol{Ax = 0}\) chỉ có 2 nghiệm, tại sao lại như vậy thì bên dưới mình sẽ nói sau.
+Như vậy, hệ phương trình có nghiệm chung là </p>
+<div style="text-align:center;">
+<p>\(
+\{ x \in \Bbb R^4: x = \begin{bmatrix} 42 \\ 8 \\ 0 \\ 0 \end{bmatrix} + \lambda_{1}\begin{bmatrix} 8 \\ 2 \\ -1 \\ 0 \end{bmatrix} + \lambda_{2}\begin{bmatrix} -4 \\ 12 \\ 0 \\ -1 \end{bmatrix}, \lambda_{1}, \lambda_{2} \in \Bbb R \}
+\)</p>
+</div>
+<h4 id="12-biến-đổi-ma-trận"><a class="header" href="#12-biến-đổi-ma-trận">1.2. Biến đổi ma trận</a></h4>
+<h5 id="121-ví-dụ"><a class="header" href="#121-ví-dụ">1.2.1. Ví dụ</a></h5>
+<p>Mình sẽ đem một ví dụ cho phương pháp này</p>
+<div style="text-align:center;">
+<p>\(
+\begin{cases} 
+-2x_{1} + 4x_{2} - 2x_{3} - x_{4} + 4x_{5} = -3 \\
+4x_{1} - 8x_{2} + 3x_{3} - 3x_{4} + x_{5} = 2 \\
+x_{1} - 2x_{2} + x_{3} - x_{4} + x_{5} = 0 \\
+x_{1} - 2x_{2} \;\;\;\;\;\;\;\; - 3x_{4} + x_{5} = a \\
+\end{cases}<br />
+\) </p>
+</div>
+<p>Viết thành dạng</p>
+<div style="text-align:center;">
+<p>\(
+\left[
+\begin{matrix}
+-2 &amp; 4 &amp; -2 &amp; -1 &amp; 4 \\
+4 &amp; -8 &amp; 3 &amp; -3 &amp; 1 \\
+1 &amp; -2 &amp; 1 &amp; -1 &amp; 1 \\
+1 &amp; -2 &amp; 0 &amp; -3 &amp; 1 \\
+\end{matrix}
+\left|
+\begin{matrix}
+-3  \\
+2  \\
+0  \\
+a  \\
+\end{matrix}
+\right.
+\right]
+\)</p>
+<p>\(
+\rightsquigarrow ... \rightsquigarrow
+\left[
+\begin{matrix}
+1 &amp; -2 &amp; 1 &amp; -1 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; -1 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; -2 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\end{matrix}
+\left|
+\begin{matrix}
+0  \\
+-2  \\
+1  \\
+a+1  \\
+\end{matrix}
+\right.
+\right]
+\)</p>
+</div>
+<p>Do vậy, hệ phương trình được giải khi \(a = -1\).</p>
+<ul>
+<li>Nghiệm riêng của phương trình là \(\begin{bmatrix} 2 &amp; 0 &amp; -1 &amp; 1 &amp; 0 \end{bmatrix}^T\).</li>
+<li>Nghiệm của phương trình \(\boldsymbol{Ax = 0}\) là \(\lambda_{1}\begin{bmatrix} 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}^T\) và \(\lambda_{2}\begin{bmatrix} -2 &amp; 0 &amp; 1 &amp; -2 &amp; -1 \end{bmatrix}^T\).</li>
+</ul>
+<p>Như vậy, nghiệm chung của phương trình là </p>
+<div style="text-align:center;">
+<p>\(
+\{ x \in \Bbb R^5: x = \begin{bmatrix} 2 \\ 0 \\ -1 \\ 1 \\ 0 \end{bmatrix} + \lambda_{1}\begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} + \lambda_{2}\begin{bmatrix} -2 \\ 0 \\ 1 \\ -2 \\ -1 \end{bmatrix}, \lambda_{1}, \lambda_{2} \in \Bbb R \}
+\)</p>
+</div>
+<h5 id="122-ma-trận-bậc-thang"><a class="header" href="#122-ma-trận-bậc-thang">1.2.2. Ma trận bậc thang</a></h5>
+<p>Một ma trận ở dạng bậc thang nếu</p>
+<ul>
+<li>Những hàng chỉ chứa 0 sẽ ở đáy ma trận. Những hàng chứa ít nhất 1 số khác không sẽ nằm trên các hàng chứa toàn 0.</li>
+<li>Các phần tử pivot của mỗi hàng luôn ở phía bên phải của các phần tử pivot ở các hàng bên trên.</li>
+</ul>
+<p>Các biến ứng với các phần tử pivot là các basic variables, các biến còn lại là free variables.</p>
+<p>Với hệ phương trình tuyến tính \(\boldsymbol{Ax = b}\), để tính toán một nghiệm riêng, ta biểu diễn các \(\boldsymbol{b} = \sum_{i = 1}^p \lambda_{i}\boldsymbol{p_{i}}\) với \(\boldsymbol{p_{i}}\) là các pivot columns, chúng ta thường bắt đầu ước lượng các giá trị \(\lambda_{i}\) với các pivot columns từ phải sang trái.</p>
+<p>Một ma trận ở dạng bậc thang tối giản nếu</p>
+<ul>
+<li>Nó là một ma trận bậc thang.</li>
+<li>Các phần tử pivot đều bằng 1.</li>
+<li>Phần tử pivot là phần tử duy nhất khác 0 tại pivot column đó.</li>
+</ul>
+<p>Việc tính toán nghiệm \(\boldsymbol{Ax = 0}\) sẽ dễ dàng hơn rất nhiều nếu ma trận biểu diễn hệ phương trình tuyến tính ở dạng bậc thang tối giản </p>
+<h5 id="123-phép-khử-gaussian"><a class="header" href="#123-phép-khử-gaussian">1.2.3. Phép khử Gaussian</a></h5>
+<p>Là một thuật toán biểu diễn các phép biến đổi triệt tiêu giữa các hàng để đưa ma trận biểu diễn hệ phương trình tuyến tính về dạng ma trận bậc thang tối giản.</p>
+<p>Để tính toán nghiệm của \(\boldsymbol{Ax = 0}\) trong ma trận bậc thang tối giản, ta biểu diễn các pivot column bằng tổng các cấp số của các pivot columns ở bên trái của chúng.</p>
+<p>Ví dụ với ma trận bậc thang sau</p>
+<div style="text-align:center;">
+<p>\(
+\boldsymbol{A} = 
+\begin{bmatrix} 
+1 &amp; 3 &amp; 0 &amp; -4 &amp; 0 \\ 
+0 &amp; 0 &amp; 1 &amp; -3 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\end{bmatrix}
+\)</p>
+</div>
+<p>Nghiệm của phương trình \(\boldsymbol{Ax = 0}\) là</p>
+<div style="text-align:center;">
+<p>\(
+\{ x \in \Bbb R^5: x = \lambda_{1}\begin{bmatrix} 3 \\ -1 \\ 0 \\ 0 \\ 0 \end{bmatrix} + \lambda_{2}\begin{bmatrix} -4 \\ 0 \\ -3 \\ -1 \\ 0 \end{bmatrix}, \lambda_{1}, \lambda_{2} \in \Bbb R \}
+\)</p>
+</div>
+<h4 id="13-the--1-trick"><a class="header" href="#13-the--1-trick">1.3. The -1 trick</a></h4>
+<p>Với ma trận \(\boldsymbol{A}\) ở trên, ta sẽ chêm các hàng gồm toàn \(0\) và chỉ một số \(-1\) vào giữa các hàng của ma trận bậc thang tối giản, để tạo nên ma trận mới có đường chéo chính gồm toàn \(-1\) và \(1\) như dưới đây.</p>
+<div style="text-align:center;">
+<p>\( 
+\boldsymbol{A} \rightsquigarrow
+\begin{bmatrix} 
+1 &amp; 3 &amp; 0 &amp; -4 &amp; 0 \\ 
+0 &amp; -1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; -3 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+\end{bmatrix}
+\)</p>
+</div>
+<p>Từ đó, các cột chứa giá trị \(-1\) tại các vị trí trên đường chéo chính của ma trận sẽ là nghiệm của phương trình \(\boldsymbol{Ax = 0}\).</p>
+<h4 id="14-một-số-thuật-toán-để-giải-hệ-phương-trình-này"><a class="header" href="#14-một-số-thuật-toán-để-giải-hệ-phương-trình-này">1.4. Một số thuật toán để giải hệ phương trình này</a></h4>
+<p>Có một số thuật toán thông dụng để giải hệ phương trình tuyến tính phức tạp</p>
+<ul>
+<li>Sử dụng thuật toán hồi quy tuyến tính (linear regression), thuật toán này thường áp dụng vào các bài toán mà ta chỉ có thể tính xấp xỉ nghiệm của phương trình.</li>
+<li>Normal equation, thuật toán này tính chính xác nghiệm của hệ phương trình, nhưng số lượng tính toán rất nhiều nên không thể sử dụng với các trường hợp số lượng biến nhiều. Phương pháp này được thể hiện dưới đây</li>
+</ul>
+<div style="text-align:center;">
+<p>\(
+\boldsymbol{Ax = b} \Leftrightarrow \boldsymbol{A^TAx = A^Tb} \Leftrightarrow \boldsymbol{x = (A^TA)^{-1}A^Tb}
+\)</p>
+</div>
+<p>Việc phải nhân ma trận và tính toán nghịch đảo khiến phương pháp này có độ phức tập là \(\Theta(n^3)\).</p>
+<h3 id="2-không-gian-véc-tơ"><a class="header" href="#2-không-gian-véc-tơ">2. Không gian véc-tơ</a></h3>
+<h4 id="21-nhóm"><a class="header" href="#21-nhóm">2.1. Nhóm</a></h4>
+<h4 id="22-không-gian-véc-tơ"><a class="header" href="#22-không-gian-véc-tơ">2.2. Không gian véc-tơ</a></h4>
+<h4 id="23-không-gian-véc-tơ-con"><a class="header" href="#23-không-gian-véc-tơ-con">2.3. Không gian véc-tơ con</a></h4>
+<h3 id="3-phụ-thuộc-tuyến-tính"><a class="header" href="#3-phụ-thuộc-tuyến-tính">3. Phụ thuộc tuyến tính</a></h3>
+<h3 id="31-linear-combination"><a class="header" href="#31-linear-combination">3.1. Linear combination</a></h3>
+<h3 id="32-phụ-thuộc-tuyến-tính"><a class="header" href="#32-phụ-thuộc-tuyến-tính">3.2. Phụ thuộc tuyến tính</a></h3>
+<h3 id="4-cơ-sở-và-rank"><a class="header" href="#4-cơ-sở-và-rank">4. Cơ sở và rank</a></h3>
+<h4 id="41-hệ-sinh-của-một-không-gian-véc-tơ"><a class="header" href="#41-hệ-sinh-của-một-không-gian-véc-tơ">4.1. Hệ sinh của một không gian véc-tơ</a></h4>
+<h4 id="42-cơ-sở-của-một-không-gian-véc-tơ"><a class="header" href="#42-cơ-sở-của-một-không-gian-véc-tơ">4.2. Cơ sở của một không gian véc-tơ</a></h4>
+<h4 id="43-rank-của-một-ma-trận"><a class="header" href="#43-rank-của-một-ma-trận">4.3. Rank của một ma trận</a></h4>
+<h3 id="5-Ánh-xạ-tuyến-tính"><a class="header" href="#5-Ánh-xạ-tuyến-tính">5. Ánh xạ tuyến tính</a></h3>
+<h4 id="51-biểu-diễn-ánh-xạ-tuyến-tính-dưới-dạng-ma-trận"><a class="header" href="#51-biểu-diễn-ánh-xạ-tuyến-tính-dưới-dạng-ma-trận">5.1. Biểu diễn ánh xạ tuyến tính dưới dạng ma trận</a></h4>
+<h4 id="52-chuyển-đổi-cơ-sở"><a class="header" href="#52-chuyển-đổi-cơ-sở">5.2. Chuyển đổi cơ sở</a></h4>
+<h4 id="53-image-và-kernel"><a class="header" href="#53-image-và-kernel">5.3. Image và kernel</a></h4>
+<h3 id="6-không-gian-véc-tơ-affine"><a class="header" href="#6-không-gian-véc-tơ-affine">6. Không gian véc-tơ Affine</a></h3>
+<h4 id="61-không-gian-véc-tơ-affine-con"><a class="header" href="#61-không-gian-véc-tơ-affine-con">6.1. Không gian véc-tơ affine con</a></h4>
+<h4 id="62-Ánh-xạ-affine"><a class="header" href="#62-Ánh-xạ-affine">6.2. Ánh xạ Affine</a></h4>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../blogs/probability.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../blogs/probability.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
