@@ -259,9 +259,9 @@ Phần này các bạn hãy tham khảo **[tại đây](https://phamdinhkhanh.gi
 
 - Khoảng tin cậy (confidence interval)
 
-Khi mình lấy mẫu từ một quần thể, các tham số của một quần thể có thể được đánh giá bằng mẫu đó. Thông thường, giá trị kỳ vọng của mẫu sẽ được ước lượng bằng giá trị kỳ vọng của quần thể, tuy nhiên, những lần lấy mẫu khác nhau thì có kỳ vọng khác nhau. Do vậy, ta đưa ra định nghĩa khoảng tin cậy dùng để biến cái tham số kỳ vọng được ước lượng trở thành một khoảng giá trị ước lượn, đảm bảo rằng kỳ vọng của quần thể sẽ nằm trong khoảng giá trị đó.
+Khi mình lấy mẫu từ một quần thể, các tham số của một quần thể có thể được đánh giá bằng mẫu đó. Thông thường, giá trị kỳ vọng của mẫu sẽ được ước lượng bằng giá trị kỳ vọng của quần thể, tuy nhiên, những lần lấy mẫu khác nhau thì có kỳ vọng khác nhau. Do vậy, ta đưa ra định nghĩa khoảng tin cậy dùng để biến cái tham số kỳ vọng được ước lượng trở thành một khoảng giá trị ước lượng, đảm bảo rằng kỳ vọng của quần thể sẽ nằm trong khoảng giá trị đó.
 
-\\(k\\%\\) mức tin cậy sẽ đảm bảo phủ được tham số kỳ vọng cần ước lượng của quần thể với kác suất là \\(k\\%\\).
+\\(k\\%\\) mức tin cậy sẽ đảm bảo phủ được tham số kỳ vọng cần ước lượng của quần thể với xác suất là \\(k\\%\\).
 
 Khoảng tin cậy càng nhỏ thì càng đảm bảo được độ chính xác của bộ ước lượng, để đạt được điều này, ta có thể giảm mức tin cậy hoặc tăng kích thước của mẫu lấy từ quần thể. Khoảng tin cậy được biểu diễn bởi \\((lower bound, upper bound)\\) với
 
@@ -273,7 +273,7 @@ Khoảng tin cậy càng nhỏ thì càng đảm bảo được độ chính xá
 
 </div>
 
-Với \\(\bar{x}\\) là giá trị kỳ vọng của mẫu được lấy, \\(\sigma\\) là giá trị độ lệch chuẩn giá định của quần thể. \\(n\\) là kích thước của mẫu và \\(z\\) là hệ số tin cậy.
+Với \\(\bar{x}\\) là giá trị kỳ vọng của mẫu được lấy, \\(\sigma\\) là giá trị độ lệch chuẩn giả định của quần thể. \\(n\\) là kích thước của mẫu và \\(z\\) là hệ số tin cậy.
 
 Với phân phối chuẩn
 - \\(z = 1.645\\) ứng với mức tin cậy \\(90\\%\\).

@@ -4,7 +4,7 @@ rm -rf /tmp/book/*
 cp -rp book/* /tmp/book/
 pushd /tmp/book
 git add .
-git commit -m "fix taiday link"
+git commit -m "add linearalgebra.md"
 
 git push origin gh-pages
 
