@@ -148,7 +148,7 @@
 </head>
 <div style="display: flex; align-items: center;">
 <img style="width: 50px; border-radius: 50%; border: 1px solid #b71c1c" src="../images/us/tranlam.JPG" />
-<span style="margin-left: 15px; color: #b71c1c;font-family: 'Cinzel', serif;">Tran Lam</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;">Feb 20,2021</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;" >25 min read</span>
+<span style="margin-left: 15px; color: #b71c1c;font-family: 'Cinzel', serif;">Tran Lam</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;">July 10,2021</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;" >25 min read</span>
 </div>
 <br/>
 <p>Tiếp đây sẽ là loạt bài viết về đại số tuyến tính mình đã học lại khi đọc quyển <strong><a href="https://mml-book.github.io/book/mml-book.pdf">Mathematics for Machine Learning</a></strong> trong thời gian học về Machine Learning và AI. Đây là phần thứ nhất trong loạt bài này.</p>
@@ -200,16 +200,16 @@ Ví dụ ta có một hệ phương trình đơn giản sau</p>
 <p>Nhìn vào biểu thức bên trên \((1)\), ta có</p>
 <ul>
 <li>Một nghiệm riêng của hệ phương trình là \(\begin{bmatrix} 42 &amp; 8 &amp; 0 &amp; 0 \end{bmatrix}^T\).</li>
-<li>Để có thể thu được tất cả nghiệm thỏa mãn, ta cần phải đi giải phương trình \(\boldsymbol{Ax = 0}\) nữa. Ta tiến hành phân tích phương trình \((1)\) ra như sau</li>
+<li>Để có thể thu được tất cả nghiệm thỏa mãn, ta cần phải đi giải phương trình \(\boldsymbol{Ax} = \boldsymbol{0}\) nữa. Ta tiến hành phân tích phương trình \((1)\) ra như sau</li>
 </ul>
 <div style="text-align:center;">
 <p>\(
 \begin{bmatrix} 1 \\ 0 \end{bmatrix} x_{1} + \begin{bmatrix} 0 \\ 1 \end{bmatrix} x_{2} + 8\begin{bmatrix} 1 \\ 0 \end{bmatrix} x_{3} + 2\begin{bmatrix} 0 \\ 1 \end{bmatrix} x_{3} + \begin{bmatrix} -4 \\ 12 \end{bmatrix} x_{4} = \boldsymbol{0} 
 \)</p>
 </div>
-<p>Nhìn vào phương trình trên, ta có được một nghiệm cho \(\boldsymbol{Ax = 0}\) là \(\lambda_{1}\begin{bmatrix} 8 &amp; 2 &amp; -1 &amp; 0 \end{bmatrix}^T\).
-Tương tự như trên, ta tìm thêm được một nghiệm cho \(\boldsymbol{Ax = 0}\) nữa là \(\lambda_{2}\begin{bmatrix} -4 &amp; 12 &amp; 0 &amp; -1 \end{bmatrix}^T\).
-Phương trình \(\boldsymbol{Ax = 0}\) chỉ có 2 nghiệm, tại sao lại như vậy thì bên dưới mình sẽ nói sau.
+<p>Nhìn vào phương trình trên, ta có được một nghiệm cho \(\boldsymbol{Ax} = \boldsymbol{0}\) là \(\lambda_{1}\begin{bmatrix} 8 &amp; 2 &amp; -1 &amp; 0 \end{bmatrix}^T\).
+Tương tự như trên, ta tìm thêm được một nghiệm cho \(\boldsymbol{Ax} = \boldsymbol{0}\) nữa là \(\lambda_{2}\begin{bmatrix} -4 &amp; 12 &amp; 0 &amp; -1 \end{bmatrix}^T\).
+Phương trình \(\boldsymbol{Ax} = \boldsymbol{0}\) chỉ có 2 nghiệm, tại sao lại như vậy thì bên dưới mình sẽ nói sau.
 Như vậy, hệ phương trình có nghiệm chung là </p>
 <div style="text-align:center;">
 <p>\(
@@ -272,7 +272,7 @@ a+1  \\
 <p>Do vậy, hệ phương trình được giải khi \(a = -1\).</p>
 <ul>
 <li>Nghiệm riêng của phương trình là \(\begin{bmatrix} 2 &amp; 0 &amp; -1 &amp; 1 &amp; 0 \end{bmatrix}^T\).</li>
-<li>Nghiệm của phương trình \(\boldsymbol{Ax = 0}\) là \(\lambda_{1}\begin{bmatrix} 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}^T\) và \(\lambda_{2}\begin{bmatrix} -2 &amp; 0 &amp; 1 &amp; -2 &amp; -1 \end{bmatrix}^T\).</li>
+<li>Nghiệm của phương trình \(\boldsymbol{Ax} = \boldsymbol{0}\) là \(\lambda_{1}\begin{bmatrix} 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}^T\) và \(\lambda_{2}\begin{bmatrix} -2 &amp; 0 &amp; 1 &amp; -2 &amp; -1 \end{bmatrix}^T\).</li>
 </ul>
 <p>Như vậy, nghiệm chung của phương trình là </p>
 <div style="text-align:center;">
@@ -287,17 +287,17 @@ a+1  \\
 <li>Các phần tử pivot của mỗi hàng luôn ở phía bên phải của các phần tử pivot ở các hàng bên trên.</li>
 </ul>
 <p>Các biến ứng với các phần tử pivot là các basic variables, các biến còn lại là free variables.</p>
-<p>Với hệ phương trình tuyến tính \(\boldsymbol{Ax = b}\), để tính toán một nghiệm riêng, ta biểu diễn các \(\boldsymbol{b} = \sum_{i = 1}^p \lambda_{i}\boldsymbol{p_{i}}\) với \(\boldsymbol{p_{i}}\) là các pivot columns, chúng ta thường bắt đầu ước lượng các giá trị \(\lambda_{i}\) với các pivot columns từ phải sang trái.</p>
+<p>Với hệ phương trình tuyến tính \(\boldsymbol{Ax} = \boldsymbol{b}\), để tính toán một nghiệm riêng, ta biểu diễn các \(\boldsymbol{b} = \sum_{i = 1}^p \lambda_{i}\boldsymbol{p_{i}}\) với \(\boldsymbol{p_{i}}\) là các pivot columns, chúng ta thường bắt đầu ước lượng các giá trị \(\lambda_{i}\) với các pivot columns từ phải sang trái.</p>
 <p>Một ma trận ở dạng bậc thang tối giản nếu</p>
 <ul>
 <li>Nó là một ma trận bậc thang.</li>
 <li>Các phần tử pivot đều bằng 1.</li>
 <li>Phần tử pivot là phần tử duy nhất khác 0 tại pivot column đó.</li>
 </ul>
-<p>Việc tính toán nghiệm \(\boldsymbol{Ax = 0}\) sẽ dễ dàng hơn rất nhiều nếu ma trận biểu diễn hệ phương trình tuyến tính ở dạng bậc thang tối giản </p>
+<p>Việc tính toán nghiệm \(\boldsymbol{Ax} = \boldsymbol{0}\) sẽ dễ dàng hơn rất nhiều nếu ma trận biểu diễn hệ phương trình tuyến tính ở dạng bậc thang tối giản </p>
 <h5 id="123-phép-khử-gaussian"><a class="header" href="#123-phép-khử-gaussian">1.2.3. Phép khử Gaussian</a></h5>
 <p>Là một thuật toán biểu diễn các phép biến đổi triệt tiêu giữa các hàng để đưa ma trận biểu diễn hệ phương trình tuyến tính về dạng ma trận bậc thang tối giản.</p>
-<p>Để tính toán nghiệm của \(\boldsymbol{Ax = 0}\) trong ma trận bậc thang tối giản, ta biểu diễn các pivot column bằng tổng các cấp số của các pivot columns ở bên trái của chúng.</p>
+<p>Để tính toán nghiệm của \(\boldsymbol{Ax} = \boldsymbol{0}\) trong ma trận bậc thang tối giản, ta biểu diễn các pivot column bằng tổng các cấp số của các pivot columns ở bên trái của chúng.</p>
 <p>Ví dụ với ma trận bậc thang sau</p>
 <div style="text-align:center;">
 <p>\(
@@ -310,7 +310,7 @@ a+1  \\
 \end{bmatrix}
 \)</p>
 </div>
-<p>Nghiệm của phương trình \(\boldsymbol{Ax = 0}\) là</p>
+<p>Nghiệm của phương trình \(\boldsymbol{Ax} = \boldsymbol{0}\) là</p>
 <div style="text-align:center;">
 <p>\(
 \{ x \in \Bbb R^5: x = \lambda_{1}\begin{bmatrix} 3 \\ -1 \\ 0 \\ 0 \\ 0 \end{bmatrix} + \lambda_{2}\begin{bmatrix} -4 \\ 0 \\ -3 \\ -1 \\ 0 \end{bmatrix}, \lambda_{1}, \lambda_{2} \in \Bbb R \}
@@ -330,7 +330,7 @@ a+1  \\
 \end{bmatrix}
 \)</p>
 </div>
-<p>Từ đó, các cột chứa giá trị \(-1\) tại các vị trí trên đường chéo chính của ma trận sẽ là nghiệm của phương trình \(\boldsymbol{Ax = 0}\).</p>
+<p>Từ đó, các cột chứa giá trị \(-1\) tại các vị trí trên đường chéo chính của ma trận sẽ là nghiệm của phương trình \(\boldsymbol{Ax} = \boldsymbol{0}\).</p>
 <h4 id="14-một-số-thuật-toán-để-giải-hệ-phương-trình-này"><a class="header" href="#14-một-số-thuật-toán-để-giải-hệ-phương-trình-này">1.4. Một số thuật toán để giải hệ phương trình này</a></h4>
 <p>Có một số thuật toán thông dụng để giải hệ phương trình tuyến tính phức tạp</p>
 <ul>
@@ -339,7 +339,7 @@ a+1  \\
 </ul>
 <div style="text-align:center;">
 <p>\(
-\boldsymbol{Ax = b} \Leftrightarrow \boldsymbol{A^TAx = A^Tb} \Leftrightarrow \boldsymbol{x = (A^TA)^{-1}A^Tb}
+\(\boldsymbol{Ax} = \boldsymbol{b}\) \Leftrightarrow \(\boldsymbol{A^TAx} = \boldsymbol{A^Tb}\)\Leftrightarrow \boldsymbol{x} = \boldsymbol{(A^TA)^{-1}A^Tb}
 \)</p>
 </div>
 <p>Việc phải nhân ma trận và tính toán nghịch đảo khiến phương pháp này có độ phức tập là \(\Theta(n^3)\).</p>
