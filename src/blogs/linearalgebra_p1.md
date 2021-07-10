@@ -262,7 +262,7 @@ Có một số thuật toán thông dụng để giải hệ phương trình tuy
 <div style="text-align:center;">
 
 \\(
-    \\(\boldsymbol{Ax} = \boldsymbol{b}\\) \Leftrightarrow \\(\boldsymbol{A^TAx} = \boldsymbol{A^Tb}\\)\Leftrightarrow \boldsymbol{x} = \boldsymbol{(A^TA)^{-1}A^Tb}
+    \boldsymbol{Ax} = \boldsymbol{b} \Leftrightarrow \boldsymbol{A^TAx} = \boldsymbol{A^Tb} \Leftrightarrow \boldsymbol{x} = \boldsymbol{(A^TA)^{-1}A^Tb}
 \\)
 
 </div>
