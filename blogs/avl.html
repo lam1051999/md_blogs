@@ -151,7 +151,7 @@
 <span style="margin-left: 15px; color: #b71c1c;font-family: 'Cinzel', serif;">Tran Lam</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;">Feb 24,2021</span> <span style="margin-left: 15px;font-family: 'Cinzel', serif;" >9 min read</span>
 </div>
 <br/>
-<p>Ở bài viết trước, mình đã nói về cây tìm kiếm nhị phân, nếu bạn đọc chưa xem qua, có thể tìm thấy <a href="https://lam1051999.github.io/md_blogs/blogs/binarysearch_tree.html">tại đây</a>. Với sự hiệu quả trong các hoạt động tìm kiếm, chèn, xóa,... cây tìm kiếm nhị phân có thể thực hiện được trong logrithmic time (\(\Theta(logn)\)) ở average case. Bài viết này, mình sẽ nói về cây AVL, là 1 loại của cây tìm kiếm nhị phân, đảm bảo rằng trong tất cả các case, time complexity của các hoạt động trên đều là \(\Theta(logn)\). </p>
+<p>Ở bài viết trước, mình đã nói về cây tìm kiếm nhị phân, nếu bạn đọc chưa xem qua, có thể tìm thấy <strong><a href="https://lam1051999.github.io/md_blogs/blogs/binarysearch_tree.html">tại đây</a></strong>. Với sự hiệu quả trong các hoạt động tìm kiếm, chèn, xóa,... cây tìm kiếm nhị phân có thể thực hiện được trong logrithmic time (\(\Theta(logn)\)) ở average case. Bài viết này, mình sẽ nói về cây AVL, là 1 loại của cây tìm kiếm nhị phân, đảm bảo rằng trong tất cả các case, time complexity của các hoạt động trên đều là \(\Theta(logn)\). </p>
 <h3 id="các-đề-mục"><a class="header" href="#các-đề-mục">Các đề mục</a></h3>
 <p><a href="#1-c%C3%A2y-avl">1. Cây AVL</a></p>
 <p><a href="#2-%C4%90%C3%A1nh-gi%C3%A1-chi%E1%BB%81u-cao-c%E1%BB%A7a-c%C3%A2y">2. Đánh giá chiều cao của cây</a></p>
@@ -407,9 +407,9 @@ avl_tree.inorder(root)
 <li>Thực hiện chèn lần lượt \(n\) phần tử vào cây AVL. Mỗi phần tử được chèn tốn \(O(logn)\) time (như trong cây tìm kiếm nhị phân). Ta cần chèn \(n\) phần tử, nên time complexity của quá trình là \(O(nlogn)\).</li>
 <li>Ta thực hiện duyệt inorder traversal (như trong cây tìm kiếm nhị phân). Việc này khiến ta phải duyệt qua tất cả phần tử, nên time complexity của quá trình là \(O(n)\).</li>
 </ul>
-<p>Do vậy, time complexity tổng là \(O(n + nlogn) = O(nlogn)\). Tuy nhiên, vì phần cộng thêm \(O(n)\) kia khiến thuật toán sắp xếp cây AVL này không hiệu quả và kém thực tế bằng các thuật toán sắp xếp bài trước mình đã liệt kê, bạn đọc có thể truy cập <a href="https://lam1051999.github.io/md_blogs/blogs/sorting_algorithms.html">tại đây</a>.</p>
+<p>Do vậy, time complexity tổng là \(O(n + nlogn) = O(nlogn)\). Tuy nhiên, vì phần cộng thêm \(O(n)\) kia khiến thuật toán sắp xếp cây AVL này không hiệu quả và kém thực tế bằng các thuật toán sắp xếp bài trước mình đã liệt kê, bạn đọc có thể truy cập <strong><a href="https://lam1051999.github.io/md_blogs/blogs/sorting_algorithms.html">tại đây</a></strong>.</p>
 <h3 id="6-mở-rộng"><a class="header" href="#6-mở-rộng">6. Mở rộng</a></h3>
-<p>Bạn đọc có thể tìm thấy visualization cho các hoạt động của cây AVL để trực quan hơn <a href="https://www.cs.usfca.edu/%7Egalles/visualization/AVLtree.html">tại đây</a></p>
+<p>Bạn đọc có thể tìm thấy visualization cho các hoạt động của cây AVL để trực quan hơn <strong><a href="https://www.cs.usfca.edu/%7Egalles/visualization/AVLtree.html">tại đây</a></strong>.</p>
 <br/>
 <br/>
 <br/>
