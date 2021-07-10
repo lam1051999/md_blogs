@@ -1,4 +1,4 @@
-# About Us
+# Về chúng tôi
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,19 +49,16 @@
         }
     </style>
 </head>
-<p class="contributor-text">Contributors</p>
+<p class="contributor-text">Người đóng góp</p>
 <div class="container">
     <!-- Contributor 1 -->
     <div clas="contributor-container">
         <div class="contributor-description">
             <img src="./images/us/tranlam.JPG" style="width:30%;float:left;margin-right:1em;margin-bottom:1em;" />
             <div class="description">
-                <p>Hello! I'm <strong>Tran The Lam</strong> and the owner of this blog. I'm 22 years young boy with many passions and
-                    goals.</p>
-                <p>I'm studying Talented Program of Electronics and Telecommunication at Ha Noi University of Science
-                    and Technology.</p>
-                <p>I write about <strong>Algorithms</strong>, <strong>Mathematics</strong> and
-                    <strong>Data Engineering.</strong>
+                <p>Xin chào! Mình là <strong>Trần Thế Lâm</strong> và là chủ nhân của blog này.</p>
+                <p>Mình học cử nhân và thạc sĩ khoa học chương trình tài năng Điện tử Viễn thông tại Trường Đại học Bách khoa Hà Nội.</p>
+                <p>Blog này nhằm mục đích để ôn lại kiến thức quan trọng mình đã học và mong có thể giúp ích cho một số bạn. Bên dưới là các thông tin của mình.
                 </p>
             </div>
         </div>
@@ -76,32 +73,8 @@
             <a href="https://drive.google.com/file/d/1cVEae01TIPKICRrhlIxuGBoPnduCp0yt/view?usp=sharing" target="_blank"
                 class="fa fa-file-text other" aria-hidden="true"></a>
         </div>
+        <p>Xin hãy nhắn cho mình nếu bạn thấy có điều gì sai sót ở các bài viết.</p>
     </div>
     <!-- Contributor 2 -->
-    <div clas="contributor-container">
-        <div class="contributor-description">
-            <img src="./images/us/fake_user.PNG" style="width:30%;float:left;margin-right:1em;margin-bottom:1em;" />
-            <div class="description">
-                <p>Hello! I'm <strong>Fake User</strong>. I'm 25 years young boy with many passions and
-                    goals.</p>
-                <p>I'm studying Computer Science at Ha Noi University of Science
-                    and Technology.</p>
-                <p>I write about <strong>Algorithms</strong>, <strong>Mathematics</strong> and
-                    <strong>Computer Vision.</strong>
-                </p>
-            </div>
-        </div>
-        <div style="text-align:center;width: 100%;">
-            <a href="https://www.facebook.com/lam.tt173223/" target="_blank" class="fa fa-facebook other"
-                aria-hidden="true"></a>
-            <a href="https://twitter.com/TrnLm29507341" target="_blank" class="fa fa-twitter other"
-                aria-hidden="true"></a>
-            <a href="https://www.linkedin.com/in/lam-tt173223/" target="_blank" class="fa fa-linkedin other"
-                aria-hidden="true"></a>
-            <a href="https://github.com/lam1051999/" target="_blank" class="fa fa-github other" aria-hidden="true"></a>
-            <a href="https://drive.google.com/file/d/1cVEae01TIPKICRrhlIxuGBoPnduCp0yt/view?usp=sharing" target="_blank"
-                class="fa fa-file-text other" aria-hidden="true"></a>
-        </div>
-    </div>
 
 </div>
