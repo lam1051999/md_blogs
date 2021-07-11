@@ -326,7 +326,7 @@ Véc-tơ \\(\boldsymbol{0}\\) có thể được viết dưới dạng \\(\bolds
 #### 3.2. Phụ thuộc tuyến tính
 Nếu có một tổ hợp tuyến tính không tầm thường thỏa mãn \\(0 = \sum_{i=1}^{k} = \lambda_{i}\boldsymbol{x_{i}}\\) với ít nhất một giá trị \\(\lambda_{i} \ne 0\\) thì các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\) được gọi là ***phụ thuộc*** tuyến tính.
 
-Nếu mà biểu thức trên chỉ tồn tại nghiệm tầm thường \\(\lambda_{1} = \lambda_{2} = ... = \lambda_{k}\\) thì các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\) là ***độc lập*** tuyến tính.
+Nếu mà biểu thức trên chỉ tồn tại nghiệm tầm thường \\(\lambda_{1} = \lambda_{2} = ... = \lambda_{k} = 0\\) thì các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\) là ***độc lập*** tuyến tính.
 
 Một số tính chất cho các véc-tơ kiểu này là
 - \\(k\\) véc-tơ trên hoặc là độc lập tuyến tính, hoặc là phụ thuộc tuyến tính, chứ không có loại khác.
