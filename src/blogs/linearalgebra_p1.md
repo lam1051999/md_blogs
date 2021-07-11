@@ -272,10 +272,39 @@ Việc phải nhân ma trận và tính toán nghịch đảo khiến phương p
 ### 2. Không gian véc-tơ
 
 #### 2.1. Nhóm
+Cho một tập \\(\mathcal{G}\\) với phép toán \\(\otimes: \mathcal{G} \times \mathcal{G} \to \mathcal{G}\\) được định nghĩa trên \\(\mathcal{G}\\) thì \\(\mathcal{G} := (\mathcal{G}, \otimes)\\) được gọi là một nhóm nếu thỏa mãn các tính chất
+- Tính đóng gói của \\(\mathcal{G}\\) trong phép \\(\otimes\\): \\(\forall x, y \in \mathcal{G}\\) thì \\(x \otimes y \in \mathcal{G}\\).
+- Tính kết hợp: \\(\forall x, y, z \in \mathcal{G}\\) thì \\((x \otimes y) \otimes z = x \otimes (y \otimes z)\\).
+- Tồn tại phần tử đơn vị: \\(\exists e \in \mathcal{G}, \forall x \in \mathcal{G}\\) thỏa mãn \\(x \otimes e = x\\) và \\(e \otimes x = x\\).
+- Tồn tại phần tử nghịch đảo: \\(\forall x \in \mathcal{G}, \exists y \in \mathcal{G}\\) thỏa mãn \\(x \otimes y = e\\) và \\(y \otimes x = e\\).
+
+Nếu nhóm có thêm tính chất giao hoán \\(\forall x, y \in \mathcal{G}: x \otimes y = y \otimes x\\) thì nhóm đó được gọi là nhóm Abelian.
+
+Một nhóm các ma trận khả nghịch \\(A \in \Bbb R^{n \times n}\\) với phép toán nhân ma trận được gọi là một General Linear Group. Tuy nhiên, phép nhân ma trận không có tính chất giao hoán nên nhóm này không phải là một nhóm Abelian. 
 
 #### 2.2. Không gian véc-tơ
+Một không gian véc-tơ thực \\(V = (\mathcal{V}, + , \cdot)\\) là một tập \\(V\\) với 2 phép toán
+<div style="text-align:center;">
+
+\\(
+  +: \mathcal{V} \times \mathcal{V} \to \mathcal{V} \\\\
+  \cdot: \Bbb R \times \mathcal{V} \to \mathcal{V}
+\\)
+
+</div>
+
+Thỏa mãn
+- \\(\mathcal{V}, +\\) là một nhóm Abelian.
+- Tính chất phân phối \\(\forall \lambda \in \Bbb R, x, y \in \mathcal{V}: \lambda \cdot(x + y) = \lambda \cdot x  + \lambda \cdot y\\) và \\(\forall \lambda, \psi \in \Bbb R, x \in \mathcal{V}: (\lambda + \psi)\cdot x = \lambda \cdot x + \psi \cdot x\\)
+- Tính chất kết hơp \\(\forall \lambda, \psi \in \Bbb R, x \in \mathcal{V}: \lambda \cdot(\psi \cdot x) = (\lambda \cdot \psi)\cdot x\\)
+- Tồn tại phần tử đơn vị \\(\forall x \in \mathcal{V}: 1 \cdot x = x\\)
 
 #### 2.3. Không gian véc-tơ con
+Với \\(V = (\mathcal{V}, + , \cdot)\\) là một không gian véc-tơ và \\(\mathcal{U} \subseteq \mathcal{V}, \mathcal{U} \ne \emptyset\\) thì \\(U = (\mathcal{U}, + , \cdot)\\) được gọi là không gian véc-tơ con của \\(V\\) nếu \\(U\\) là một không gian véc-tơ cùng với các phép toán \\(+\\) và \\(\cdot\\) ứng với \\(\mathcal{U} \times \mathcal{U}\\) và \\(\Bbb R \times \mathcal{U}\\). Kí hiệu \\(U \subseteq V\\) thể hiện \\(U\\) là một không gian véc-tơ con của \\(V\\).
+
+Nếu \\(U\\) là một không gian véc-tơ con của \\(V\\), \\(U\\) sẽ thừa hưởng tất cả các tính chất của \\(V\\). Để chứng minh \\(U\\) là một không gian véc-tơ con của \\(V\\), chúng ta vẫn phải chỉ ra được
+- \\(\mathcal{U} \ne \emptyset\\) hay \\(0 \in \mathcal{U}\\).
+- Tính đóng gói của \\(U\\): \\(\forall \lambda \in \Bbb R, \forall x \in \mathcal{U}: \lambda x \in \mathcal{U}\\) và \\(\forall x, y \in \mathcal{U}: x + y \in \mathcal{U}\\).
 
 ### 3. Phụ thuộc tuyến tính
 
