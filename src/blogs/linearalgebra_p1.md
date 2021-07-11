@@ -321,10 +321,10 @@ Cho một không gian véc-tơ \\(V\\) và một số hữu hạn các véc-tơ 
 
 với \\(\lambda_{1}, \lambda_{2},..., \lambda_{k} \in \Bbb R\\), là một tổ hợp tuyến tính của các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\).
 
-Véc-tơ \\(\boldsymbol{0}\\) có thể được viết dưới dạng \\(\boldsymbol{0} = \sum_{i=1}^{k}0x_{i}\\) nhưng chúng ta quan tâm nhiều hơn đến các tổ hợp tuyến tính không tầm thường hơn.
+Véc-tơ \\(\boldsymbol{0}\\) có thể được viết dưới dạng \\(\boldsymbol{0} = \sum_{i=1}^{k}0\boldsymbol{x_{i}}\\) nhưng chúng ta quan tâm nhiều hơn đến các tổ hợp tuyến tính không tầm thường hơn.
 
 #### 3.2. Phụ thuộc tuyến tính
-Nếu có một tổ hợp tuyến tính không tầm thường thỏa mãn \\(0 = \sum_{i=1}^{k} = \lambda_{i}x_{i}\\) với ít nhất một giá trị \\(\lambda_{i} \ne 0\\) thì các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\) được gọi là ***phụ thuộc*** tuyến tính.
+Nếu có một tổ hợp tuyến tính không tầm thường thỏa mãn \\(0 = \sum_{i=1}^{k} = \lambda_{i}\boldsymbol{x_{i}}\\) với ít nhất một giá trị \\(\lambda_{i} \ne 0\\) thì các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\) được gọi là ***phụ thuộc*** tuyến tính.
 
 Nếu mà biểu thức trên chỉ tồn tại nghiệm tầm thường \\(\lambda_{1} = \lambda_{2} = ... = \lambda_{k}\\) thì các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\) là ***độc lập*** tuyến tính.
 
