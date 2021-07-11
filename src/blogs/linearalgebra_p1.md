@@ -39,7 +39,7 @@ Tiếp đây sẽ là loạt bài viết về đại số tuyến tính mình đ
 
 [3. Phụ thuộc tuyến tính](#3-phụ-thuộc-tuyến-tính)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.1. Linear combination](#31-linear-combination)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.1. Tổ hợp tuyến tính](#31-tổ-hợp-tuyến-tính)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.2. Phụ thuộc tuyến tính](#32-phụ-thuộc-tuyến-tính)
 
@@ -308,9 +308,31 @@ Nếu \\(U\\) là một không gian véc-tơ con của \\(V\\), \\(U\\) sẽ th�
 
 ### 3. Phụ thuộc tuyến tính
 
-### 3.1. Linear combination
+#### 3.1. Tổ hợp tuyến tính
+Cho một không gian véc-tơ \\(V\\) và một số hữu hạn các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}} \in V\\), mỗi \\(\boldsymbol{v} \in V\\) được biểu diễn dưới dạng
 
-### 3.2. Phụ thuộc tuyến tính
+<div style="text-align:center;">
+
+\\(
+  \boldsymbol{v} = \lambda_{1}\boldsymbol{x_{1}} + \lambda_{2}\boldsymbol{x_{2}} + ... + \lambda_{k}\boldsymbol{x_{k}} = \sum_{i=1}^{k} \lambda_{i}\boldsymbol{x_{i}} \in V
+\\)
+
+</div>
+
+với \\(\lambda_{1}, \lambda_{2},..., \lambda_{k} \in \Bbb R\\), là một tổ hợp tuyến tính của các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\).
+
+Véc-tơ \\(\boldsymbol{0}\\) có thể được viết dưới dạng \\(\boldsymbol{0} = \sum_{i=1}^{k}0x_{i}\\) nhưng chúng ta quan tâm nhiều hơn đến các tổ hợp tuyến tính không tầm thường hơn.
+
+#### 3.2. Phụ thuộc tuyến tính
+Nếu có một tổ hợp tuyến tính không tầm thường thỏa mãn \\(0 = \sum_{i=1}^{k} = \lambda_{i}x_{i}\\) với ít nhất một giá trị \\(\lambda_{i} \ne 0\\) thì các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\) được gọi là ***phụ thuộc*** tuyến tính.
+
+Nếu mà biểu thức trên chỉ tồn tại nghiệm tầm thường \\(\lambda_{1} = \lambda_{2} = ... = \lambda_{k}\\) thì các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\) là ***độc lập*** tuyến tính.
+
+Một số tính chất cho các véc-tơ kiểu này là
+- \\(k\\) véc-tơ trên hoặc là độc lập tuyến tính, hoặc là phụ thuộc tuyến tính, chứ không có loại khác.
+- Nếu ít nhất một trong số các véc-tơ \\(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\\) là véc-tơ \\(\boldsymbol{0}\\) thì chúng sẽ phụ thuộc tuyến tính. Tính chất này cũng tương đương với việc có 2 véc-tơ giống nhau trong tập \\(k\\) véc-tơ trên.
+- Tập các véc-tơ trên là phụ thuộc tuyến tính nếu như một trong số các véc-tơ đó có thể được biểu diễn dưới dạng tổ hợp tuyến tính của các véc-tơ còn lại.
+- Ta viết tất cả véc-tơ thành các cột của một ma trận \\(\boldsymbol{A}\\), sau đó biểu diễn phép khử Gaussian, ta được các pivot columns sẽ độc lập tuyến tính với các véc-tơ ở bên trái của véc-tơ đó, còn các cột không phải pivot columns sẽ có thể được biểu diễn dưới dạng một tổ hợp tuyến tính của các pivot columns ở bên trái của nó. Nếu tất cả các cột đều là pivot columns thì tất cả các véc-tơ đó là độc lập tuyến tính, còn không thì chúng sẽ là phụ thuộc tuyến tính.
 
 ### 4. Cơ sở và rank
 
