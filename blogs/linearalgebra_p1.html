@@ -166,7 +166,7 @@
 <p>     <a href="#22-kh%C3%B4ng-gian-v%C3%A9c-t%C6%A1">2.2. Không gian véc-tơ</a></p>
 <p>     <a href="#23-kh%C3%B4ng-gian-v%C3%A9c-t%C6%A1-con">2.3. Không gian véc-tơ con</a></p>
 <p><a href="#3-ph%E1%BB%A5-thu%E1%BB%99c-tuy%E1%BA%BFn-t%C3%ADnh">3. Phụ thuộc tuyến tính</a></p>
-<p>     <a href="#31-linear-combination">3.1. Linear combination</a></p>
+<p>     <a href="#31-t%E1%BB%95-h%E1%BB%A3p-tuy%E1%BA%BFn-t%C3%ADnh">3.1. Tổ hợp tuyến tính</a></p>
 <p>     <a href="#32-ph%E1%BB%A5-thu%E1%BB%99c-tuy%E1%BA%BFn-t%C3%ADnh">3.2. Phụ thuộc tuyến tính</a></p>
 <p><a href="#4-c%C6%A1-s%E1%BB%9F-v%C3%A0-rank">4. Cơ sở và rank</a></p>
 <p>     <a href="#41-h%E1%BB%87-sinh-c%E1%BB%A7a-m%E1%BB%99t-kh%C3%B4ng-gian-v%C3%A9c-t%C6%A1">4.1. Hệ sinh của một không gian véc-tơ</a></p>
@@ -377,8 +377,25 @@ a+1  \\
 <li>Tính đóng gói của \(U\): \(\forall \lambda \in \Bbb R, \forall x \in \mathcal{U}: \lambda x \in \mathcal{U}\) và \(\forall x, y \in \mathcal{U}: x + y \in \mathcal{U}\).</li>
 </ul>
 <h3 id="3-phụ-thuộc-tuyến-tính"><a class="header" href="#3-phụ-thuộc-tuyến-tính">3. Phụ thuộc tuyến tính</a></h3>
-<h3 id="31-linear-combination"><a class="header" href="#31-linear-combination">3.1. Linear combination</a></h3>
-<h3 id="32-phụ-thuộc-tuyến-tính"><a class="header" href="#32-phụ-thuộc-tuyến-tính">3.2. Phụ thuộc tuyến tính</a></h3>
+<h4 id="31-tổ-hợp-tuyến-tính"><a class="header" href="#31-tổ-hợp-tuyến-tính">3.1. Tổ hợp tuyến tính</a></h4>
+<p>Cho một không gian véc-tơ \(V\) và một số hữu hạn các véc-tơ \(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}} \in V\), mỗi \(\boldsymbol{v} \in V\) được biểu diễn dưới dạng</p>
+<div style="text-align:center;">
+<p>\(
+\boldsymbol{v} = \lambda_{1}\boldsymbol{x_{1}} + \lambda_{2}\boldsymbol{x_{2}} + ... + \lambda_{k}\boldsymbol{x_{k}} = \sum_{i=1}^{k} \lambda_{i}\boldsymbol{x_{i}} \in V
+\)</p>
+</div>
+<p>với \(\lambda_{1}, \lambda_{2},..., \lambda_{k} \in \Bbb R\), là một tổ hợp tuyến tính của các véc-tơ \(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\).</p>
+<p>Véc-tơ \(\boldsymbol{0}\) có thể được viết dưới dạng \(\boldsymbol{0} = \sum_{i=1}^{k}0x_{i}\) nhưng chúng ta quan tâm nhiều hơn đến các tổ hợp tuyến tính không tầm thường hơn.</p>
+<h4 id="32-phụ-thuộc-tuyến-tính"><a class="header" href="#32-phụ-thuộc-tuyến-tính">3.2. Phụ thuộc tuyến tính</a></h4>
+<p>Nếu có một tổ hợp tuyến tính không tầm thường thỏa mãn \(0 = \sum_{i=1}^{k} = \lambda_{i}x_{i}\) với ít nhất một giá trị \(\lambda_{i} \ne 0\) thì các véc-tơ \(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\) được gọi là <em><strong>phụ thuộc</strong></em> tuyến tính.</p>
+<p>Nếu mà biểu thức trên chỉ tồn tại nghiệm tầm thường \(\lambda_{1} = \lambda_{2} = ... = \lambda_{k}\) thì các véc-tơ \(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\) là <em><strong>độc lập</strong></em> tuyến tính.</p>
+<p>Một số tính chất cho các véc-tơ kiểu này là</p>
+<ul>
+<li>\(k\) véc-tơ trên hoặc là độc lập tuyến tính, hoặc là phụ thuộc tuyến tính, chứ không có loại khác.</li>
+<li>Nếu ít nhất một trong số các véc-tơ \(\boldsymbol{x_{1}}, \boldsymbol{x_{2}},..., \boldsymbol{x_{k}}\) là véc-tơ \(\boldsymbol{0}\) thì chúng sẽ phụ thuộc tuyến tính. Tính chất này cũng tương đương với việc có 2 véc-tơ giống nhau trong tập \(k\) véc-tơ trên.</li>
+<li>Tập các véc-tơ trên là phụ thuộc tuyến tính nếu như một trong số các véc-tơ đó có thể được biểu diễn dưới dạng tổ hợp tuyến tính của các véc-tơ còn lại.</li>
+<li>Ta viết tất cả véc-tơ thành các cột của một ma trận \(\boldsymbol{A}\), sau đó biểu diễn phép khử Gaussian, ta được các pivot columns sẽ độc lập tuyến tính với các véc-tơ ở bên trái của véc-tơ đó, còn các cột không phải pivot columns sẽ có thể được biểu diễn dưới dạng một tổ hợp tuyến tính của các pivot columns ở bên trái của nó. Nếu tất cả các cột đều là pivot columns thì tất cả các véc-tơ đó là độc lập tuyến tính, còn không thì chúng sẽ là phụ thuộc tuyến tính.</li>
+</ul>
 <h3 id="4-cơ-sở-và-rank"><a class="header" href="#4-cơ-sở-và-rank">4. Cơ sở và rank</a></h3>
 <h4 id="41-hệ-sinh-của-một-không-gian-véc-tơ"><a class="header" href="#41-hệ-sinh-của-một-không-gian-véc-tơ">4.1. Hệ sinh của một không gian véc-tơ</a></h4>
 <h4 id="42-cơ-sở-của-một-không-gian-véc-tơ"><a class="header" href="#42-cơ-sở-của-một-không-gian-véc-tơ">4.2. Cơ sở của một không gian véc-tơ</a></h4>
